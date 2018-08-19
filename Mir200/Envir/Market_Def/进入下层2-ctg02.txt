@@ -1,0 +1,10 @@
+[@main]
+#if
+CHECKLEVELEX > 19
+CheckMapMonCount ctg02 < 1
+#act
+mapmove ctg03 7 34
+SENDMSG 9  玩家【<$USERNAME>】不畏艰险，冲过了天关三层！ 243 241 
+break
+#elseact
+MESSAGEBOX 二层怪物还没有清除完毕，无法进入下层，没有达到20级!

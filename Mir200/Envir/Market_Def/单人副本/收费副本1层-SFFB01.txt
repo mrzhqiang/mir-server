@@ -1,0 +1,41 @@
+[@main]
+#IF
+CheckMapMonCount SFFB01 < 1
+#say
+恩，不错。看来你已经清理完地图的怪物了。。。\ \ \
+<进入下一层/@进入>\ \
+<结束对话/@EXIT>\
+#elsesay
+请把副本任务的怪物清理完后再来找我......  <结束对话/@EXIT>
+
+[@进入]
+#if
+CheckMapHumanCount SFFB02 < 5
+#ACT
+GOTO @正常传送
+#elseact
+messagebox   我看看！好像地图当前人已满，你还是等会在进入吧！
+
+[@正常传送]
+#IF
+#ACT
+CreditPoint + 10
+mapmove SFFB02
+MongenEx SFFB01 14 16 蜈蚣 3 6
+MongenEx SFFB01 14 16 蜈蚣精英 3 1
+MongenEx SFFB01 14 16 钳虫 3 6
+MongenEx SFFB01 14 16 钳虫精英 3 1
+MongenEx SFFB01 14 16 巨型蠕虫 3 6
+MongenEx SFFB01 14 16 巨型蠕虫精英 3 1
+MongenEx SFFB01 14 16 跳跳蜂 3 6
+MongenEx SFFB01 14 16 跳跳精英 3 1
+MongenEx SFFB01 14 16 红野猪 3 6
+MongenEx SFFB01 14 16 红野猪精英 3 1
+MongenEx SFFB01 14 16 黑野猪 3 6
+MongenEx SFFB01 14 16 黑野猪精英 3 1
+MongenEx SFFB01 14 16 蝎蛇 3 3
+MongenEx SFFB01 14 16 蝎蛇精英 3 1
+MongenEx SFFB01 14 16 白野猪 3 3
+MongenEx SFFB01 14 16 邪恶毒蛇 3 1
+messagebox   你只有60分钟时间闯关，超过后系统自动传送回城
+break

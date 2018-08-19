@@ -1,0 +1,99 @@
+[@main]
+#if
+#say
+亲爱的玩家<$USERNAME>：\
+　　【[$游戏名称]】冲级比赛活动正在火热进行中。 \
+　　【前10名】到达35级玩家可领取奖励<100W>金币\
+　　【前03名】到达40级玩家可领取奖励<500W>金币\
+　　<领取35级奖励/@35>　35级奖励还剩{<$STR(G58)>=FCO=253}个名额\
+　　<领取40级奖励/@40>　40级奖励还剩{<$STR(G59)>=FCO=253}个名额\ 
+　　<查看35级记录/@查看记录1>\
+　　<查看40级记录/@查看记录2>\
+
+[@35]
+#if
+CHECKLEVELEX > 34
+#act
+goto @35a
+#elseact
+messagebox 你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！
+
+[@35a]
+#if
+check [56] 0
+#act
+goto @35b
+#elseact
+messagebox 这位朋友，你好象领取过了吧？\
+
+[@35b]
+#if
+CHECKLEVELEX > 34
+check [56] 0
+CheckTextList <$USERNAME> ../QuestDiary/数据/35级.txt
+#act
+give 金币 1000000
+SET [56] 1
+sendmsg 0 《%s》顺利领取了[金币100W]，现在35级冲级奖励名额还剩<$STR(G58)>个！
+close
+#elseact
+messagebox 对不起，您不是最先冲到35级的玩家！
+
+[@40]
+#if
+CHECKLEVELEX > 39
+#act
+goto @40a
+#elseact
+messagebox 你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\本级别奖励还有<$STR(G59)>个剩余名额！
+
+[@40a]
+#if
+check [57] 0
+#act
+goto @40b
+#elseact
+messagebox 这位朋友，你好象领取过了吧？\
+
+[@40b]
+#if
+CHECKLEVELEX > 39
+check [57] 0
+CheckTextList <$USERNAME> ../QuestDiary/数据/40级.txt
+#act
+GIVE 金币 5000000
+SET [57] 1
+sendmsg 0 《%s》顺利领取了[金币500W]，现在40级冲级奖励名额还剩<$STR(G59)>个！
+close
+#elseact
+messagebox 对不起，您不是最先冲到40级的玩家！
+
+[@查看记录1]
+#ACT
+GetListString ../QuestDiary/数据/35级.txt 0 S113
+GetListString ../QuestDiary/数据/35级.txt 1 S112
+GetListString ../QuestDiary/数据/35级.txt 2 S111
+GetListString ../QuestDiary/数据/35级.txt 3 S110
+GetListString ../QuestDiary/数据/35级.txt 4 S109
+GetListString ../QuestDiary/数据/35级.txt 5 S108
+GetListString ../QuestDiary/数据/35级.txt 6 S107
+GetListString ../QuestDiary/数据/35级.txt 7 S106
+GetListString ../QuestDiary/数据/35级.txt 8 S105
+GetListString ../QuestDiary/数据/35级.txt 9 S104
+#SAY
+最先冲到35级的玩家记录：\ \
+　　第1名：<$STR(S113)>　　第2名：<$STR(S112)>\
+　　第3名：<$STR(S111)>　　第4名：<$STR(S110)>\
+　　第5名：<$STR(S109)>　　第6名：<$STR(S108)>\
+　　第7名：<$STR(S107)>　　第8名：<$STR(S106)>\
+　　第9名：<$STR(S105)>　　第10名：<$STR(S104)>\
+
+
+[@查看记录2]
+#ACT
+GetListString ../QuestDiary/数据/40级.txt 0 S103
+GetListString ../QuestDiary/数据/40级.txt 1 S102
+GetListString ../QuestDiary/数据/40级.txt 2 S101
+#SAY
+最先冲到40级的玩家记录：\ \
+　　第1名：<$STR(S103)>　　第2名：<$STR(S102)>　　第3名：<$STR(S101)>\

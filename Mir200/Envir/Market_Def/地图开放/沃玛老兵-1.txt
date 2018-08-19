@@ -1,0 +1,19 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　前面是一片全新的土地，如果你一定要进去的话.\
+　<我要进去/@move1>　\ \
+　<结束对话/@exit>
+
+[@move1]
+#IF
+CHECKLEVELEX > 30
+CheckItemCount 传送令牌(一般) ? 1
+#ACT
+  SHOWEFFECT 14
+MAPMOVE 11
+#ELSEACT
+SendMsg 6 你没有传送令牌(一般)，或者等级不够31级。
+break

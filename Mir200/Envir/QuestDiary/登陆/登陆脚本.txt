@@ -1,0 +1,81 @@
+[@登陆设置]
+{
+#IF
+checkjob warrior
+ISNEWHUMAN
+#ACT
+ADDSKILL 基本剑术
+ADDSKILL 攻杀剑术
+give 金创药 30
+give 魔法药 30
+give 太阳水 10
+mov B92 <$MAPNAME>
+mov B93 <$MAP>
+mov C92 <$X>
+mov C93 <$Y>
+SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
+
+#IF
+checkjob wizard
+ISNEWHUMAN
+#ACT
+ADDSKILL 火球术
+ADDSKILL 地狱火
+ADDSKILL 大火球
+give 金创药 30
+give 魔法药 30
+give 太阳水 10
+mov B92 <$MAPNAME>
+mov B93 <$MAP>
+mov C92 <$X>
+mov C93 <$Y>
+SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
+
+#IF
+checkjob taoist
+ISNEWHUMAN
+#ACT
+ADDSKILL 治愈术
+ADDSKILL 精神力战法
+give 护身符 1
+give 灰色药粉(少量) 1
+give 黄色药粉(少量) 1
+give 金创药 30
+give 魔法药 30
+give 太阳水 10
+mov B92 <$MAPNAME>
+mov B93 <$MAP>
+mov C92 <$X>
+mov C93 <$Y>
+SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
+
+#IF
+ISNEWHUMAN
+Gender Man
+#ACT
+Reset [601] 6
+give 布衣(男) 1
+AutoTakeOn 布衣(男) 0
+give 木剑 1
+AutoTakeOn 木剑 1
+give 金币 5000
+sendmsg 0 [#6FFFF/8#6公告#5]天下英雄出我辈，一位(#6FFFF/8#6男性#5)新玩家#7%s#7来到了#6FFFF/8#6<$SERVERNAME>#5...大家热烈欢迎！！！
+
+#IF
+ISNEWHUMAN
+gender Woman
+#ACT
+Reset [600] 7
+give 布衣(女) 1
+AutoTakeOn 布衣(女) 0
+give 木剑 1
+AutoTakeOn 木剑 1
+give 金币 5000
+sendmsg 0 [#6FFFF/8#6公告#5]天下英雄出我辈，一位(#6FFFF/8#6女性#5)新玩家#7%s#7来到了#6FFFF/8#6<$SERVERNAME>#5...大家热烈欢迎！！！
+
+#if
+#act
+ShowEffect 23
+SETRANKLEVELNAME %S\▁▂▃▄★≮1234传奇≯★▄▃▂▁\【普通玩家】\≮砍翻<$GAMEGIRD>人■身中<$CREDITPOINT>刀≯
+SENDMSG 0 〖#6FFFF/8#6系统#5〗玩家『#7%S#7』在#6FFFF/8#6<$MAPNAME><$X>:<$Y>#5上线了,大家热烈欢迎..
+}

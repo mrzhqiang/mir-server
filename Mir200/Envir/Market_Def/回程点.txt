@@ -1,0 +1,15 @@
+[@main]
+#IF
+#Say
+  {<$SELFNAME>=FCO=243}：\\\
+  当前营地：{<$STR(B92)>=FCO=31}　{X：<$STR(C92)>=FCO=31}　{Y:<$STR(C93)>=FCO=31} \ \
+  <{点击更改营地=FCO=161}/@更改坐标>\ \
+
+[@更改坐标]
+#ACT
+mov B92 <$MAPNAME>
+mov B93 <$MAP>
+mov C92 <$X>
+mov C93 <$Y>
+SendMsg 0 玩家<$USERNAME>将回城点改为<$MAPNAME>！
+break

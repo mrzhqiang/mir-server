@@ -1,0 +1,278 @@
+[@main]
+#CALL [\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+{<$SELFNAME>=FCO=251}：\
+　欢迎来到姻缘神殿，是来结婚还是离婚的啊？如果是来结婚的，\
+只要男方等级达到{45=FCO=251}级以上，女方达到{40=FCO=251}级以上的未婚情侣，都可\
+以来这里登记结婚姻，结婚手续很简单，男女双方面对面站好，要\
+求男方配戴<[$求婚所需要的物品]/@月老_求婚戒指>向女方求婚，女方同意就可以完婚。但是，不\
+管成功与否，我都要收取<[$求婚所需要的物品]/@月老_求婚戒指>。\ \
+<我要结婚/@月老_我要结婚>\
+<我要离婚/@月老_我要离婚>\
+<结束对话/@exit>\
+
+[@月老_求婚戒指]
+{<$SELFNAME>=FCO=251}：\
+　[$求婚所需要的物品]可以消灭虹魔猪卫获得。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+
+
+[@月老_我要结婚]
+{<$SELFNAME>=FCO=251}：\
+　要进行婚礼，需要男女双方面对面站好，男方配戴<[$求婚所需要的物品]/@月老_求婚戒指>向女\
+方求婚。但是不管成功与否，我都要收取<[$求婚所需要的物品]/@月老_求婚戒指>。\ \
+<准备好了/@月老_我要结婚_准备好了>\ \
+<返回上一页/@系统_所有NPC头_返回>
+
+
+[@月老_我要结婚_准备好了]
+#IF
+GENDER WOMAN
+#ACT
+MESSAGEBOX 只有男方才能发起求婚请求！
+BREAK
+
+#IF
+NOT CHECKPOSEDIR 0
+#ACT
+MESSAGEBOX 你对面站着的是人还是？我怎么看不见，你看见了吗？
+BREAK
+
+#IF
+CHECKPOSEGENDER MAN
+#ACT
+MESSAGEBOX 请注意形象，目前我这里还不支持同性结婚！
+BREAK
+
+#IF
+CHECKMARRY
+#ACT
+MESSAGEBOX 你都已经结过婚了，还来注册结婚啊？
+BREAK
+
+#IF
+CHECKPOSEMARRY
+#ACT
+MESSAGEBOX 对方已经结过婚了，你想让别人红杏出墙啊？
+BREAK
+
+#IF
+CHECKLEVELEX < 45
+#ACT
+MESSAGEBOX 你还未成年，请先去修练好级别再来吧！
+BREAK
+
+#IF
+CHECKPOSELEVEL < 40
+#ACT
+MESSAGEBOX 新娘子好像还未成年，请先让她修练好级别再来吧！
+BREAK
+
+#IF
+CHECKITEMW [$求婚所需要的物品] 1
+#ACT
+TAKEW [$求婚所需要的物品] 1
+MARRY
+#ELSEACT
+MESSAGEBOX 求婚必需配戴[$求婚所需要的物品]，没有戒指我帮不了你！
+BREAK
+
+[@月老_结婚_我愿意]
+#IF
+CHECKMARRY
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你都已经结过婚了，还来注册结婚啊？目前我们这里实行的是允\
+许一夫一妻制。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+#ELSEACT
+MARRY REQUESTMARRY
+
+[@月老_结婚_女方_愿意]
+#IF
+CHECKMARRY
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你都已经结过婚了，还来注册结婚啊？目前我们这里实行的是允\
+许一夫一妻制。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+#ELSEACT
+MARRY RESPONSEMARRY OK
+
+[@月老_结婚_女方_不愿意]
+#IF
+CHECKMARRY
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你都已经结过婚了，还来注册结婚啊？目前我们这里实行的是允\
+许一夫一妻制。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+#ELSEACT
+MARRY RESPONSEMARRY FAIL
+
+
+;=========================================================
+;离婚开始
+[@月老_我要离婚]
+#IF
+CHECKMARRY
+#ACT
+UNMARRY
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你要跟谁离婚啊？小孩子不要来这里捣乱。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+
+[@UnMarryCheckDir]
+{<$SELFNAME>=FCO=251}：\
+　离婚是俩个人的事，必需俩个人面对面站好位置，如果对方人来\
+不了，你只能选择强行离婚了。\
+　不过要强行离婚，需要交纳{一根金条=FCO=243}做为手续费用。\ \
+<我要强行离婚/@月老_强行离婚>\
+<返回上一页/@系统_所有NPC头_返回>\
+
+[@月老_强行离婚]
+#IF
+CHECKITEMCOUNT 金条 ? 1
+CHECKMARRY
+#ACT
+TAKECOUNT 金条 1
+UNMARRY REQUESTUNMARRY FORCE
+#ELSEACT
+MESSAGEBOX 强行离婚需要一根金条手续费，你没有金条，我帮不了你！
+
+[@UnMarryTypeErr]
+{<$SELFNAME>=FCO=251}：\
+　你对面站着的是人还是？我怎么看不见。你看见了吗？\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+
+[@StartUnMarry]
+#IF
+GENDER MAN
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你是否真的要与你共事多年的妻子离婚吗？\ \
+<确定/@月老_离婚_确定>\
+<结束对话/@Exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你是否真的要与你共事多年的妻子离婚吗？\ \
+<确定/@月老_离婚_确定>\
+<结束对话/@Exit>
+
+[@月老_离婚_确定]
+#IF
+CHECKMARRY
+#ACT
+UNMARRY REQUESTUNMARRY
+
+[@WateUnMarry]
+{<$SELFNAME>=FCO=251}：\
+　你已经向对方发出离婚请求，请耐心等待对方的答复。\ \
+
+[@ExeMarryFail]
+{<$SELFNAME>=FCO=251}：\
+　你要跟谁离婚啊？小孩子不要来这里捣乱。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+
+[@UnMarryEnd]
+{<$SELFNAME>=FCO=251}：\
+　离婚成功，你已经脱离了苦海了！\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+}
+
+[@月老标准配置尾]
+{
+[@WateMarry]
+{<$SELFNAME>=FCO=251}：\
+　请耐心等待{<$POSENAME>=FCO=251}的答复。\ \
+
+[@RevMarry]
+#IF
+CHECKMARRY
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你都已经结过婚了，还来注册结婚啊？目前我们这里实行的是允\
+许一夫一妻制。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　{<$POSENAME>=FCO=251}已经向你求婚！\
+　你是否愿意嫁给他？\ \
+<我愿意/@月老_结婚_女方_愿意> \
+<我不愿意/@月老_结婚_女方_不愿意>
+
+[@StartMarry]
+#IF
+CHECKMARRY
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你都已经结过婚了，还来注册结婚啊？目前我们这里实行的是允\
+许一夫一妻制。\ \
+<返回上一页/@系统_所有NPC头_返回>\
+<结束对话/@Exit>
+#ACT
+BREAK
+
+#IF
+GENDER MAN
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　婚礼现在正式开始。\
+　你愿意取{<$POSENAME>=FCO=251}为妻，并且照顾她一生一世吗？\ \
+<我愿意/@月老_结婚_我愿意>\
+#ACT
+BREAK
+
+#IF
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　婚礼现在正式开始。\
+　请耐心等待{<$POSENAME>=FCO=251}向你求婚。\ \
+
+[@EndMarry]
+{<$SELFNAME>=FCO=251}：\
+　恭喜二位，你们已经成为了一对合法的夫妻了。\ \
+<结束对话/@Exit>
+
+[@EndMarryFail]
+#IF
+GENDER MAN
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　婚礼进行失败，女方拒绝了你的求婚请求，请培养好感情后再来。\ \
+<结束对话/@Exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　婚礼进行失败，男方拒绝了你的求婚请求，请培养好感情后再来。\ \
+<结束对话/@Exit>
+
+[@MarryDirErr]
+{<$SELFNAME>=FCO=251}：\
+　对方没有站好位置，婚礼无法继续进行。请下次再来。\ \
+<结束对话/@Exit>
+
+[@MarryCheckDir]
+{<$SELFNAME>=FCO=251}：\
+　请站好位置，婚礼无法继续进行。请下次再来。\ \
+<结束对话/@Exit>
+
+[@HumanTypeErr]
+{<$SELFNAME>=FCO=251}：\
+　你对面站着的是人还是？我怎么看不见。你看见了吗？\ \
+<结束对话/@Exit>
+
+[@MarrySexErr]
+{<$SELFNAME>=FCO=251}：\
+　请注意形像，目前我这里还不支持同性结婚。\ \
+<结束对话/@Exit>

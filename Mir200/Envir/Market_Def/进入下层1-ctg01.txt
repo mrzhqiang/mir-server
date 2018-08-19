@@ -1,0 +1,9 @@
+[@main]
+#if
+CheckMapMonCount ctg01 < 1
+#act
+mapmove ctg02 6 34
+SENDMSG 9  玩家【<$USERNAME>】不畏艰险，冲过了天关二层！ 243 241 
+break
+#elseact
+MESSAGEBOX 一层怪物还没有清除完毕，无法进入下层!

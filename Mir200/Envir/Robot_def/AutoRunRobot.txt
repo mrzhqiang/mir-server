@@ -1,0 +1,12 @@
+#AutoRun NPC RUNONDAY 0:01  @凌晨清空
+;============================================
+;============================================
+;============================================
+#AutoRun NPC RUNONDAY	8:50	@押镖开始准备
+#AutoRun NPC RUNONDAY	9:0	@押镖开始
+#AutoRun NPC RUNONDAY	22:50	@押镖结束提醒
+#AutoRun NPC RUNONDAY	23:00	@押镖结束
+
+#AutoRun NPC RUNONDAY 7:00  @早上提示
+#AutoRun NPC RUNONDAY 12:00 @中午提示
+#AutoRun NPC RUNONDAY 18:00 @晚上提示

@@ -1,0 +1,142 @@
+[@MAIN]
+#IF
+HAVEGUILD
+#SAY
+行会就像您在游戏中的家庭，只有齐心协力才能打造强大的行会！\
+野外打猎时，怪物会掉落行会水晶双击可增加自己行会的建设度。\
+<&1.30倍攻击　 {消耗25点建设度（10W金币）=FCO=251}/@Guild_F1>\
+<&攻魔道增强　 {消耗25点建设度（10W金币）=FCO=251}/@Guild_F2>\
+<&防御魔御增强 {消耗25点建设度（10W金币）=FCO=251}/@Guild_F3>\
+{（<$GUILDNAME>的行会建设度为<$GUILDBUILDPOINT>点）=FCO=250}\
+<&关闭/@exit>\
+#ELSESAY
+　行会就像您在游戏中的家庭一样，只有\
+齐心协力才能打造强大的行会！\ \
+　您还没有行会，无法体验最新功能\ \
+<&{申请创建自己的行会=FCO=251}/@buildguildexp>\
+<&{加入一个强大的组织=FCO=251}/@add_Guild>\
+<&关闭/@exit>
+
+[@Guild_F1]
+{效果描述：=FCO=243}\
+　----------------------------------\
+　{所有在线成员获得3600秒1.30倍攻击=FCO=250}\
+　----------------------------------\ \
+{消耗资源：=FCO=243}\
+　----------------------------------\
+　{25点建设度 (当前行会建设度为<$GUILDBUILDPOINT>点)=FCO=250}\
+　----------------------------------\ \
+<&{开启该神力=FCO=251}/@Guild_F1_C>\
+<&返回主菜单/@main>\
+
+[@Guild_F1_C]
+#IF
+ISGUILDMASTER
+#ELSEACT
+MESSAGEBOX 您不是行会老大，无权开启行会力量！\
+Break
+
+#IF
+CHECKGUILDBUILDPOINT ? 25
+CHECKGOLD 100000
+#ACT
+TAKE 金币 100000
+GUILDBUILDPOINT - 25
+MOV A93 <$GUILDNAME>
+Gmexecute 开始提问 @Guild_F1_OK
+SENDMSG 0 【#6FFFF/8#6行会#5】：[#7<$USERNAME>#7]掌门为#6FFFF/8#6<$GUILDNAME>#5行会开启了#6FFFF/8#61.30倍攻击神力#5，持续时间#6FFFF/8#6(3600)#5秒。
+Goto @main
+#ELSEACT
+MESSAGEBOX 建设度不足25点，无法开启行会神力！\　
+Goto @main
+Break
+
+[@Guild_F2]
+{效果描述：=FCO=243}\
+
+　{所有在线成员3600秒内提升10-20点攻魔道=FCO=250}\
+　----------------------------------\
+{消耗资源：=FCO=243}\
+　----------------------------------\
+　{25点建设度 (当前行会建设度为<$GUILDBUILDPOINT>点)=FCO=250}\
+　----------------------------------\
+<&{开启该神力=FCO=251}/@Guild_F2_C>\
+<&返回主菜单/@main>\
+
+[@Guild_F2_C]
+#IF
+ISGUILDMASTER
+#ELSEACT
+MESSAGEBOX 您不是行会老大，无权开启行会力量！\
+Break
+
+#IF
+CHECKGUILDBUILDPOINT ? 25
+CHECKGOLD 100000
+#ACT
+TAKE 金币 100000
+GUILDBUILDPOINT - 25
+MOV A93 <$GUILDNAME>
+Gmexecute 开始提问 @Guild_F2_OK
+SENDMSG 0 【#6FFFF/8#6行会#5】：[#7<$USERNAME>#7]为#6FFFF/8#6<$GUILDNAME>#5开启了#6FFFF/8#6攻魔道增强神力#5，持续时间#6FFFF/8#6(3600)#5秒。
+Goto @main
+#ELSEACT
+MESSAGEBOX 建设度不足25点，无法开启行会神力！\
+Goto @main
+Break
+
+[@Guild_F3]
+{效果描述：=FCO=243}\
+　----------------------------------\
+　{在线成员3600秒内提升10-20点防御魔御=FCO=250}\
+　----------------------------------\ \
+{消耗资源：=FCO=243}\
+　----------------------------------\
+　{25点建设度 (当前行会建设度为<$GUILDBUILDPOINT>点)=FCO=250}\
+　----------------------------------\ \
+<&{开启该神力=FCO=251}/@Guild_F3_C>\
+<&返回主菜单/@main>\
+
+[@Guild_F3_C]
+#IF
+ISGUILDMASTER
+#ELSEACT
+MESSAGEBOX 您不是行会老大，无权开启行会力量！\
+Break
+
+#IF
+CHECKGUILDBUILDPOINT ? 25
+CHECKGOLD 100000
+#ACT
+TAKE 金币 100000
+GUILDBUILDPOINT - 25
+MOV A93 <$GUILDNAME>
+Gmexecute 开始提问 @Guild_F3_OK
+SENDMSG 0 【#6FFFF/8#6行会#5】：[#7<$USERNAME>#7]为#6FFFF/8#6<$GUILDNAME>#5开启了#6FFFF/8#6防御增强神力#5，持续时间#6FFFF/8#6(3600)#5秒。
+Goto @main
+#ELSEACT
+MESSAGEBOX 建设度不足25点，无法开启行会神力！\
+Goto @main
+Break
+
+;___________________________________________________________________________
+
+
+[@Guild_no]
+　行会就像您在游戏中的家庭一样，只有\
+齐心协力才能打造强大的行会！\ \ \
+　----------------------------------\ \ \
+　{您还没有行会，无法体验最新功能=FCO=249}\ \ \
+　----------------------------------\ \ \
+<&{申请创建自己的行会=FCO=251}/@buildguildexp>\
+<&{加入一个强大的组织=FCO=251}/@add_Guild>\
+
+[@add_Guild]
+#CALLX [\\游戏配置\NPC配置\行会竞价.txt] @行会竞价
+
+[@buildguildexp]
+　建立行会你应该用{沃玛号角=FCO=250}证明你有资格，并且必须支\
+付{<$BUILDGUILDFEE>金币=FCO=250}创建费。\ \
+<&{请输入要建立的行会名称=FCO=251}/@@buildguildnow>\
+<&关闭/@exit>\
+

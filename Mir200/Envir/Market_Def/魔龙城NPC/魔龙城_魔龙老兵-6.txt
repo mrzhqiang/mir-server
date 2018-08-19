@@ -1,0 +1,75 @@
+%100
++10
++11
++15
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　欢迎来到魔龙城，小心这里的怪物.是不是看不到地图呢？请你\
+先确定你有没有下载盛大最新的客户端和我们的登陆器呢??
+\  ╔┄┄┄┄┄┄┄╗             ╔┄┄┄┄┄┄┄╗\ 
+\  ┆<去魔龙西郊入口/@xijiao1>┆             ┆<去魔龙东郊入口/@dongjiao1>┆\
+\  ╚┄┄┄┄┄┄┄╝             ╚┄┄┄┄┄┄┄╝\
+\  ╔┄┄┄┄┄┄┄╗             ╔┄┄┄┄┄┄┄╗\ 
+\  ┆<传送魔龙岭/@molong58>    ┆             ┆<我要返回盟重省/@回盟重>┆\
+\  ╚┄┄┄┄┄┄┄╝             ╚┄┄┄┄┄┄┄╝\
+
+[@molong58]
+#IF
+checkgold 2000
+#ACT
+  SHOWEFFECT 14
+take 金币 2000
+give 回城卷 1
+mapmove 63 253 41
+SENDMSG 0 [%s].进入了魔龙岭。魔龙教主可是爆好东东哦。
+break 
+#ELSEACT
+MESSAGEBOX 需要2000金币支付我们的服务费用!
+goto @main
+break
+
+[@回盟重]
+#IF
+checkgold 2000
+#ACT
+  SHOWEFFECT 14
+take 金币 2000
+mapmove 3 325 329
+break 
+#ELSEACT
+MESSAGEBOX 需要花费2000金币才能享受该服务!
+goto @main
+break
+
+[@xijiao1]
+#IF
+checkgold 2000
+#ACT
+  SHOWEFFECT 14
+take 金币 2000
+give 回城卷 1
+mapmove 62 462 70
+SENDMSG 0 [%s].进入了魔龙西郊.
+break 
+#ELSEACT
+MESSAGEBOX 需要花费2000金币才能享受该服务!
+goto @main
+break
+
+[@dongjiao1]
+#IF
+checkgold 2000
+#ACT
+  SHOWEFFECT 14
+take 金币 2000
+give 回城卷 1
+mapmove 61 471 378
+SENDMSG 0 [%s].进入了魔龙东郊.
+break 
+#ELSEACT
+MESSAGEBOX 需要花费2000金币才能享受该服务!
+goto @main
+break

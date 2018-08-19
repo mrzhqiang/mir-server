@@ -1,0 +1,126 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{玛法大陆大部分怪物只出产一阶二阶镶嵌宝石，=FCO=116}\
+\
+{经过我几百年的研究，发现了合成高阶的办法，=FCO=250}\
+\
+{秘密就是，使用三个同样的宝石融合更高一阶，=FCO=249}\
+\
+
+  <&三阶宝石一键合成/@合成1>\
+  <&四阶宝石一键合成/@合成2>\
+  <&五阶宝石一键合成/@合成3>\
+  <&结束对话/@exit>\
+
+[@合成1]
+#IF
+CheckItemCount 烈焰火石(二阶) ? 3
+#act
+take 烈焰火石(二阶) 3
+give 烈焰火石(三阶) 1
+SendMsg 6 您的【烈焰火石(三阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 毒性道石(二阶) ? 3
+#act
+take 毒性道石(二阶) 3
+give 毒性道石(三阶) 1
+SendMsg 6 您的【毒性道石(三阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 冰火雷石(二阶) ? 3
+#act
+take 冰火雷石(二阶) 3
+give 冰火雷石(三阶) 1
+SendMsg 6 您的【冰火雷石(三阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 天罡命石(二阶) ? 3
+#act
+take 天罡命石(二阶) 3
+give 天罡命石(三阶) 1
+SendMsg 6 您的【天罡命石(三阶)】已完成融合，拿好了！
+break
+
+#ESLEACT
+SendMsg 5 您准备的东西不齐全，请检查下包袱！
+break
+
+[@合成2]
+#IF
+CheckItemCount 烈焰火石(三阶) ? 3
+#act
+take 烈焰火石(三阶) 3
+give 烈焰火石(四阶) 1
+SendMsg 6 您的【烈焰火石(四阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 毒性道石(三阶) ? 3
+#act
+take 毒性道石(三阶) 3
+give 毒性道石(四阶) 1
+SendMsg 6 您的【毒性道石(四阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 冰火雷石(三阶) ? 3
+#act
+take 冰火雷石(三阶) 3
+give 冰火雷石(四阶) 1
+SendMsg 6 您的【冰火雷石(四阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 天罡命石(三阶) ? 3
+#act
+take 天罡命石(三阶) 3
+give 天罡命石(四阶) 1
+SendMsg 6 您的【天罡命石(四阶)】已完成融合，拿好了！
+break
+
+#ESLEACT
+SendMsg 5 您准备的东西不齐全，请检查下包袱！
+break
+
+[@合成3]
+#IF
+CheckItemCount 烈焰火石(四阶) ? 3
+#act
+take 烈焰火石(四阶) 3
+give 烈焰火石(五阶) 1
+SendMsg 6 您的【烈焰火石(五阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 毒性道石(四阶) ? 3
+#act
+take 毒性道石(四阶) 3
+give 毒性道石(五阶) 1
+SendMsg 6 您的【毒性道石(五阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 冰火雷石(四阶) ? 3
+#act
+take 冰火雷石(四阶) 3
+give 冰火雷石(五阶) 1
+SendMsg 6 您的【冰火雷石(五阶)】已完成融合，拿好了！
+break
+
+#IF
+CheckItemCount 天罡命石(四阶) ? 3
+#act
+take 天罡命石(四阶) 3
+give 天罡命石(五阶) 1
+SendMsg 6 您的【天罡命石(五阶)】已完成融合，拿好了！
+break
+
+#ESLEACT
+SendMsg 5 您准备的东西不齐全，请检查下包袱！
+break

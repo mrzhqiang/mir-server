@@ -1,0 +1,14 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+前面是你最初降临的地方，你真的打算回去吗？\ \
+　<我要进去/@move>　\ \
+　<结束对话/@exit>
+
+[@move]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE 0
+break

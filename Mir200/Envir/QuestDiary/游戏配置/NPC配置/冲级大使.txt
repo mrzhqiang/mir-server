@@ -1,0 +1,76 @@
+[@冲级大使]
+{
+[@main]
+#if
+#say
+亲爱的玩家<$USERNAME>：\
+[$游戏名称]冲级比赛活动正在火热进行中。 \
+前10名到达35级玩家可领取奖励<100W>金币\
+前3名到达40级玩家可领取奖励<500W>金币\\
+  <领取35级奖励。/@35>　　　35级奖励还剩{<$STR(G56)>=FCO=253}个名额\ \ 
+  <领取40级奖励。/@40>　　　40级奖励还剩{<$STR(G57)>=FCO=253}个名额\ \ 
+  <刷新名额/@main>\
+  <结束对话/@exit>\
+
+[@35]
+#if
+CHECKLEVELEX > 34
+#act
+goto @35a
+#elseact
+messagebox 你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！
+
+[@35a]
+#if
+check [56] 0
+#act
+goto @35b
+#elseact
+messagebox 这位朋友，你好象领取过了吧？\
+
+[@35b]
+#if
+CHECKLEVELEX > 34
+check [56] 0
+LARGE G56 0
+#act
+give 金币 1000000
+DEC G56 1
+SET [56] 1
+sendmsg 0 《%s》顺利冲到35级并领取[金币1000000]，现在35级冲级奖励名额还剩<$STR(G56)>个！
+close
+#elseact
+messagebox 对不起，此等级冲级奖励已经没有名额了，请关注下一个新区吧。
+
+
+
+[@40]
+#if
+CHECKLEVELEX > 39
+#act
+goto @40a
+#elseact
+messagebox 你的级别不够，快抓紧时间冲级吧，奖励名额可是有限的哦！\本级别奖励还有<$STR(G57)>个剩余名额！
+
+[@40a]
+#if
+check [57] 0
+#act
+goto @40b
+#elseact
+messagebox 这位朋友，你好象领取过了吧？\
+
+[@40b]
+#if
+CHECKLEVELEX > 39
+check [57] 0
+LARGE G57 0
+#act
+GIVE 金币 5000000
+DEC G57 1
+SET [57] 1
+sendmsg 0 《%s》顺利冲到40级并领取[金币5000000]，现在40级冲级奖励名额还剩<$STR(G57)>个！
+close
+#elseact
+messagebox 对不起，此等级冲级奖励已经没有名额了，请关注我们下一个新区吧。
+}

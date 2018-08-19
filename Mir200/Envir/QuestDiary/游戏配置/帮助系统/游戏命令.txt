@@ -1,0 +1,29 @@
+[@游戏命令]
+{
+[@帮助信息_游戏命令]
+　命令说明　　　　　　　　　　命令\ \
+　查看当前服务器时间　　　　　{@<$CMD_DATE>=FCO=243}\
+　拒绝指定人物私聊信息　　　　{@<$CMD_PRVMSG>=FCO=243}\
+　拒绝所有人物私聊信息　　　　{@<$CMD_ALLOWMSG>=FCO=243}\
+　拒绝队伍聊天信息　　　　　　{@<$CMD_LETSHOUT>=FCO=243}\
+　拒绝行会聊天信息　　　　　　{@<$CMD_BANGUILDCHAT>=FCO=243}\
+　拒绝交易申请　　　　　　　　{@<$CMD_LETTRADE>=FCO=243}\
+　允许加为好友　　　　　　　　{@<$CMD_ALLOWFIREND>=FCO=243}\
+　允许加入行会　　　　　　　　{@<$CMD_LETGUILD>=FCO=243}\
+　退出当前所在行会　　　　　　{@<$CMD_ENDGUILD>=FCO=243}\
+　允许行会联盟　　　　　　　　{@<$CMD_AUTHALLY>=FCO=243}\
+　进行行会联盟　　　　　　　　{@<$CMD_AUTH>=FCO=243}\
+　联消行会联盟　　　　　　　　{@<$CMD_AUTHCANCEL>=FCO=243}\
+　移动到地图指定座标　　　　　{@<$CMD_USERMOVE>=FCO=243}\
+　{（需要戴传送装备）=FCO=242}\
+　探测人物所在位置　　　　　　{@<$CMD_SEARCHING>=FCO=243}\
+　{（需要戴探测装备）=FCO=242}\
+　允许队伍传送　　　　　　　　{@<$CMD_ALLOWGROUPCALL>=FCO=243}\
+　将组队人员传送到身边　　　　{@<$CMD_GROUPRECALLL>=FCO=243}\
+　{（需要戴记忆全套）=FCO=242}\
+　查询配偶位置　　　　　　　　{@<$CMD_DEAR>=FCO=243}\
+　查询师徒位置　　　　　　　　{@<$CMD_MASTER>=FCO=243}\
+　千里传音　　　　　　　　　　{@<$CMD_ALLSYSMSG>=FCO=243}\
+　帮助系统　　　　　　　　　　{@<$CMD_MEMBERFUNCTIONEX>=FCO=243}\ \
+　<返回上一页/@帮助信息>
+}

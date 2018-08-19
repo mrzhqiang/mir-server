@@ -1,0 +1,288 @@
+[@main]
+亲爱的游戏玩家：{<$USERNAME>=FCO=253}              <进入条件>：等级达到40级 \ 
+你是否在为升级很缓慢而苦恼？        <进入限制>：每天进入一次 \
+你是否在为游戏无挑战而心烦？        <特别说明>：五倍经验副本  \
+任务共<7层> {经验5倍=FCO=253} ，开双倍为10倍经验\ \
+
+　　<初始化副本怪物/@重置>      <开始挑战副本/@收费>   \
+
+[@重置]
+#IF
+CheckMapMonCount SFFB01 < 1
+#ACT
+MongenEx SFFB01 14 16 蜈蚣 3 6
+MongenEx SFFB01 14 16 蜈蚣精英 3 1
+MongenEx SFFB01 14 16 钳虫 3 6
+MongenEx SFFB01 14 16 钳虫精英 3 1
+MongenEx SFFB01 14 16 巨型蠕虫 3 6
+MongenEx SFFB01 14 16 巨型蠕虫精英 3 1
+MongenEx SFFB01 14 16 跳跳蜂 3 6
+MongenEx SFFB01 14 16 跳跳精英 3 1
+MongenEx SFFB01 14 16 红野猪 3 6
+MongenEx SFFB01 14 16 红野猪精英 3 1
+MongenEx SFFB01 14 16 黑野猪 3 6
+MongenEx SFFB01 14 16 黑野猪精英 3 1
+MongenEx SFFB01 14 16 蝎蛇 3 3
+MongenEx SFFB01 14 16 蝎蛇精英 3 1
+MongenEx SFFB01 14 16 白野猪 3 3
+MongenEx SFFB01 14 16 邪恶毒蛇 3 1
+SendMsg 6   1层副本怪物初始化完毕！
+#elseact
+SendMsg 6   1层副本怪物不需要初始化！
+
+#IF
+CheckMapMonCount SFFB02 < 1
+#ACT
+MongenEx SFFB02 14 16 虫妖 2 1
+SendMsg 6   2层副本怪物初始化完毕！
+#elseact
+SendMsg 6   2层副本怪物不需要初始化！
+
+#IF
+CheckMapMonCount SFFB03 < 1
+#ACT
+MongenEx SFFB03 14 16 牛魔法师 3 7
+MongenEx SFFB03 14 16 牛魔侍卫 4 7
+MongenEx SFFB03 14 16 牛魔将军 3 15
+MongenEx SFFB03 14 16 牛魔祭祀 4 7
+MongenEx SFFB03 14 16 牛魔法师精英 3 1
+MongenEx SFFB03 14 16 牛魔侍卫精英 3 1
+MongenEx SFFB03 14 16 牛魔将军精英 3 1
+MongenEx SFFB03 14 16 牛魔祭祀精英 3 1
+MongenEx SFFB03 14 16 牛魔王 3 1
+MongenEx SFFB03 14 16 暗之牛魔王 3 1
+SendMsg 6   3层副本怪物初始化完毕！
+#elseact
+SendMsg 6   3层副本怪物不需要初始化！
+
+
+#IF
+CheckMapMonCount SFFB04 < 1
+#ACT
+MongenEx SFFB04 14 16 猪妖 2 1
+SendMsg 6   4层副本怪物初始化完毕！
+#elseact
+SendMsg 6   4层副本怪物不需要初始化！
+
+
+#IF
+CheckMapMonCount SFFB05 < 1
+#ACT
+MongenEx SFFB05 14 16 天狼蜘蛛 3 12
+MongenEx SFFB05 14 16 黑锷蜘蛛 3 8
+MongenEx SFFB05 14 16 血巨人 3 8
+MongenEx SFFB05 14 16 血僵尸 3 8
+MongenEx SFFB05 14 16 天狼蜘蛛精英 3 1
+MongenEx SFFB05 14 16 黑锷蜘蛛精英 3 1
+MongenEx SFFB05 14 16 血巨人精英 3 1
+MongenEx SFFB05 14 16 血僵尸精英 3 1
+MongenEx SFFB05 14 16 邪恶巨人 3 2
+MongenEx SFFB05 14 16 邪恶巨人精英 3 1
+
+SendMsg 6   5层副本怪物初始化完毕！
+#elseact
+SendMsg 6   5层副本怪物不需要初始化！
+
+
+#IF
+CheckMapMonCount SFFB06 < 1
+#ACT
+MongenEx SFFB06 14 16 双头金刚精英 2 1
+MongenEx SFFB06 14 16 双头血魔精英 2 1
+MongenEx SFFB06 14 16 双头金刚 2 1
+MongenEx SFFB06 14 16 双头血魔 2 1
+SendMsg 6   6层副本怪物初始化完毕！
+#elseact
+SendMsg 6   6层副本怪物不需要初始化！
+
+
+#IF
+CheckMapMonCount SFFB07 < 1
+#ACT
+MongenEx SFFB07 14 16 石墓妖王 1 1
+SendMsg 6   7层副本怪物初始化完毕！
+#elseact
+SendMsg 6   7层副本怪物不需要初始化！
+break
+
+
+[@收费]
+#IF
+CheckLevelEx > 39
+#ACT
+goto @收费执行
+#elsesay
+<$USERNAME>，怎么？你等级达到40级了？  <返回/@MAIN>
+
+[@收费执行]
+#IF
+CheckMapHumanCount SFFB01 < 5
+#ACT
+goto @检测二层
+#elseact
+messagebox  当前地图人已满，请确认后再进入！  <返回/@MAIN>
+
+[@检测二层]
+#IF
+CheckMapHumanCount SFFB02 < 5
+#ACT
+goto @检测三层
+#elseact
+messagebox  当前地图人已满，请确认后再进入！  <返回/@MAIN>
+
+[@检测三层]
+#IF
+CheckMapHumanCount SFFB03 < 5
+#ACT
+goto @检测四层
+#elseact
+messagebox  当前地图人已满，请确认后再进入！  <返回/@MAIN>
+
+[@检测四层]
+#IF
+CheckMapHumanCount SFFB04 < 5
+#ACT
+goto @检测五层
+#elseact
+messagebox  当前地图人已满，请确认后再进入！  <返回/@MAIN>
+
+[@检测五层]
+#IF
+CheckMapHumanCount SFFB05 < 5
+#ACT
+goto @检测六层
+#elseact
+messagebox  当前地图人已满，请确认后再进入！  <返回/@MAIN>
+
+[@检测六层]
+#IF
+CheckMapHumanCount SFFB06 < 5
+#ACT
+goto @收费执行传送
+#elseact
+messagebox  当前地图人已满，请确认后再进入！  <返回/@MAIN>
+
+
+
+[@收费执行传送]
+#IF
+    dayofweek sun
+    check [881] 0
+#ACT
+    set [881] 1
+    set [882] 0
+    set [883] 0
+    set [884] 0
+    set [885] 0
+    set [886] 0
+    set [887] 0
+    goto @传送3
+    break
+#IF
+    dayofweek mon
+    check [882] 0
+#ACT
+    set [881] 0
+    set [882] 1
+    set [883] 0
+    set [884] 0
+    set [885] 0
+    set [886] 0
+    set [887] 0
+    goto @传送3
+    break
+#IF
+    dayofweek tue
+    check [883] 0
+#ACT
+    set [881] 0
+    set [882] 0
+    set [883] 1
+    set [884] 0
+    set [885] 0
+    set [886] 0
+    set [887] 0
+    goto @传送3
+    break
+#IF
+    dayofweek wed
+    check [884] 0
+#ACT
+    set [881] 0
+    set [882] 0
+    set [883] 0
+    set [884] 1
+    set [885] 0
+    set [886] 0
+    set [887] 0
+    goto @传送3
+    break
+#IF
+    dayofweek thu
+    check [885] 0
+#ACT
+    set [881] 0
+    set [882] 0
+    set [883] 0
+    set [884] 0
+    set [885] 1
+    set [887] 0
+    set [887] 0
+    goto @传送3
+    break
+#IF
+    dayofweek fri
+    check [886] 0
+#ACT
+    set [881] 0
+    set [882] 0
+    set [883] 0
+    set [884] 0
+    set [885] 0
+    set [886] 1
+    set [887] 0
+    goto @传送3
+    break
+#IF
+    dayofweek sat
+    check [887] 0
+#ACT
+    set [881] 0
+    set [882] 0
+    set [883] 0
+    set [884] 0
+    set [885] 0
+    set [886] 0
+    set [887] 1
+    goto @传送3
+    break
+#IF
+#ACT
+  messagebox 对不起，每天只能进入一次！
+
+[@传送2]
+#IF
+#ACT
+TimeRecall 60
+mapmove MFFB01
+messagebox   你只有60分钟时间闯关，超过后系统自动传送回城
+SendMsg 0   [系统]：游戏玩家#7<$USERNAME>#7,进入了“单人任务副本”，该副本拥有大量经验，40级以上，每天1次....
+#elseact
+messagebox  当前地图有人，请稍后再进入！  <返回/@MAIN>
+break
+
+[@传送3]
+#IF
+CheckMapHumanCount SFFB01 < 5
+#ACT
+TimeRecall 60
+mapmove SFFB01
+messagebox   你只有60分钟时间闯关，超过后系统自动传送回城
+SendMsg 0   [系统]：游戏玩家#7<$USERNAME>#7,进入了“单人任务副本”，该副本拥有大量经验，40级以上，每天1次....
+#elseact
+messagebox  当前地图人已满，请稍后再进入！  <返回/@MAIN>
+break
+
+
+
+

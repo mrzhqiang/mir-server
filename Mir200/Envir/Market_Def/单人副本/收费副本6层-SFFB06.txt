@@ -1,0 +1,30 @@
+[@main]
+#IF
+CheckMapMonCount SFFB06 < 1
+#say
+恩，不错。看来你已经清理完地图的怪物了。。。\ \ \
+<进入下一层/@进入>\ \
+<结束对话/@EXIT>\
+#elsesay
+请把副本任务的怪物清理完后再来找我......  <结束对话/@EXIT>
+
+[@进入]
+#if
+CheckMapHumanCount SFFB07 < 5
+#ACT
+GOTO @正常传送
+#elseact
+messagebox   我看看！好像地图当前人已满，你还是等会在进入吧！
+
+[@正常传送]
+#IF
+#ACT
+CreditPoint + 50
+mapmove SFFB07
+MongenEx SFFB06 14 16 双头金刚精英 2 1
+MongenEx SFFB06 14 16 双头血魔精英 2 1
+MongenEx SFFB06 14 16 双头金刚 2 1
+MongenEx SFFB06 14 16 双头血魔 2 1
+messagebox   恭喜你通过第6层，获得+50声望奖励
+SendMsg 0   [系统]：游戏玩家[#7<$USERNAME>#7],消灭了6层副本中的双头金刚、双头血魔及精英，获得50声望奖励。
+break

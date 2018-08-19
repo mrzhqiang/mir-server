@@ -1,0 +1,100 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+ \
+　这里可以用怪物掉落的{宝物箱=FCO=58}兑换荣誉系列物品。\
+　(提示：1个宝物箱兑换1天使用时间）\
+　具体如下：\ \
+　　<{兑换01天荣誉斗笠=FCO=146}/@荣誉斗笠1>　　<{兑换10天荣誉斗笠=FCO=70}/@荣誉斗笠2>\
+　　<{兑换01天荣誉勋章=FCO=146}/@荣誉勋章1>　　<{兑换10天荣誉勋章=FCO=70}/@荣誉勋章2>\
+　　<{兑换01天荣誉战鼓=FCO=146}/@荣誉战鼓1>　　<{兑换10天荣誉战鼓=FCO=70}/@荣誉战鼓2>\
+　　<{兑换01天荣誉宝盒=FCO=146}/@荣誉宝盒1>　　<{兑换10天荣誉宝盒=FCO=70}/@荣誉宝盒2>\
+
+[@荣誉斗笠1]
+#if
+CHECKITEMCOUNT 宝物箱 ? 1
+#act
+take 宝物箱 1
+DYNAMICGIVE 荣誉斗笠 1
+ChangeGiveItem 1 +24 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！
+
+[@荣誉斗笠2]
+#if
+CHECKITEMCOUNT 宝物箱 ? 10
+#act
+take 宝物箱 10
+DYNAMICGIVE 荣誉斗笠 1
+ChangeGiveItem 1 +240 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！
+
+[@荣誉勋章1]
+#if
+CHECKITEMCOUNT 宝物箱 ? 1
+#act
+take 宝物箱 1
+DYNAMICGIVE 荣誉勋章 1
+ChangeGiveItem 1 +24 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！
+
+[@荣誉勋章2]
+#if
+CHECKITEMCOUNT 宝物箱 ? 10
+#act
+take 宝物箱 10
+DYNAMICGIVE 荣誉勋章 1
+ChangeGiveItem 1 +240 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！
+
+[@荣誉战鼓1]
+#if
+CHECKITEMCOUNT 宝物箱 ? 1
+#act
+take 宝物箱 1
+DYNAMICGIVE 荣誉战鼓 1
+ChangeGiveItem 1 +24 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！
+
+[@荣誉战鼓2]
+#if
+CHECKITEMCOUNT 宝物箱 ? 10
+#act
+take 宝物箱 10
+DYNAMICGIVE 荣誉战鼓 1
+ChangeGiveItem 1 +240 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！
+
+[@荣誉宝盒1]
+#if
+CHECKITEMCOUNT 宝物箱 ? 1
+#act
+take 宝物箱 1
+DYNAMICGIVE 荣誉宝盒 1
+ChangeGiveItem 1 +24 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！
+
+[@荣誉宝盒2]
+#if
+CHECKITEMCOUNT 宝物箱 ? 10
+#act
+take 宝物箱 10
+DYNAMICGIVE 荣誉宝盒 1
+ChangeGiveItem 1 +240 HOUR
+ChangeGiveItem 8
+#elseact
+MESSAGEBOX 兑换失败，请检查包袱！

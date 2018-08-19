@@ -1,0 +1,214 @@
+[@装备回收标准配置]
+{
+#IF
+#SAY
+国王已经下令将大举进攻赤苍月老巢！现在紧缺战备物资！\
+特命我在此收购装备。普通沃玛5W、普通祖玛10W、普通赤月50W.\
+精致、完美、卓越、传说、史诗，多20%、40%、60%、80%、100%...\ \
+
+<{打开回收平台=FCO=161}/@使回收1>\ \
+
+[@使回收1]
+#ACT
+ShowItemBox  放入要回收的装备： @检测道具
+break
+
+[@检测道具]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\沃玛\普通沃玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 50000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @精致沃玛回收
+
+[@精致沃玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\沃玛\精致沃玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 60000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @完美沃玛回收
+
+[@完美沃玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\沃玛\完美沃玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 70000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @卓越沃玛回收
+
+[@卓越沃玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\沃玛\卓越沃玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 80000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @传说沃玛回收
+
+[@传说沃玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\沃玛\传说沃玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 90000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @史诗沃玛回收
+
+[@史诗沃玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\沃玛\史诗沃玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 100000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @普通祖玛回收
+
+[@普通祖玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\祖玛\普通祖玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 100000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @精致祖玛回收
+
+[@精致祖玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\祖玛\精致祖玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 120000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @完美祖玛回收
+
+[@完美祖玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\祖玛\完美祖玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 140000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @卓越祖玛回收
+
+[@卓越祖玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\祖玛\卓越祖玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 160000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @传说祖玛回收
+
+[@传说祖玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\祖玛\传说祖玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 180000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @史诗祖玛回收
+
+[@史诗祖玛回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\祖玛\史诗祖玛.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 200000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @普通赤月回收
+
+[@普通赤月回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\赤月\普通赤月.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 500000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @精致赤月回收
+
+[@精致赤月回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\赤月\精致赤月.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 600000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @完美赤月回收
+
+[@完美赤月回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\赤月\完美赤月.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 700000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @卓越赤月回收
+
+[@卓越赤月回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\赤月\卓越赤月.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 800000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @传说赤月回收
+
+[@传说赤月回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\赤月\传说赤月.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 900000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+#ELSEACT
+goto @史诗赤月回收
+
+[@史诗赤月回收]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\游戏配置\功能调用\赤月\史诗赤月.txt
+#ACT
+TakeIdx <$Param0>
+give 金币 1000000
+ShowItemBox 继续放入要回收的装备： @检测道具
+Break
+
+
+
+}

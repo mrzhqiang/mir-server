@@ -1,0 +1,98 @@
+[@装备回收标准配置]
+{
+#IF
+#SAY
+许愿树结阵的能量也可以通过回收等阶装备进行提升！\ \
+　　【{蓝色=FCO=252}等阶】: 可兑换01点许愿树结阵能量\
+　　【{黄色=FCO=251}等阶】: 可兑换02点许愿树结阵能量\
+　　【{绿色=FCO=224}等阶】: 可兑换05点许愿树结阵能量\ 
+　　【{红色=FCO=249}等阶】: 可兑换10点许愿树结阵能量\ 
+  　<打开回收平台/@回收> \\
+
+[@回收]
+#ACT
+ShowItemBox 放入需要回收的装备： @回收1
+Break
+
+[@回收1]
+#IF
+Equal <$ItemInfo[$Param0].Pin> 1
+#ACT
+TakeIdx <$Param0>
+INC G108 1
+goto @检测层数
+SendMsg 6 收走了您的蓝色装备！结阵能量+1，当前:<$STR(G108)>层!
+ShowItemBox 放入需要回收的装备： @回收1
+#elseact
+goto @回收2
+
+[@回收2]
+#IF
+Equal <$ItemInfo[$Param0].Pin> 2
+#ACT
+TakeIdx <$Param0>
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+SendMsg 6 收走了您的黄色装备！结阵能量+2，当前:<$STR(G108)>层!
+ShowItemBox 放入需要回收的装备： @回收1
+#elseact
+goto @回收3
+
+[@回收3]
+#IF
+Equal <$ItemInfo[$Param0].Pin> 3
+#ACT
+TakeIdx <$Param0>
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+SendMsg 6 收走了您的绿色装备！结阵能量+5，当前:<$STR(G108)>层!
+ShowItemBox 放入需要回收的装备： @回收1
+#elseact
+goto @回收4
+
+[@回收4]
+#IF
+Equal <$ItemInfo[$Param0].Pin> 4
+#ACT
+TakeIdx <$Param0>
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+INC G108 1
+goto @检测层数
+SendMsg 6 收走了您的红色装备！结阵能量+10，当前:<$STR(G108)>层!
+ShowItemBox 放入需要回收的装备： @回收1
+#elseact
+ShowItemBox 请仔细检查您放入的物品： @回收1
+break
+
+
+[@检测层数]
+#call [\活动\许愿树\许愿树1.txt] @许愿树2
+#call [\活动\许愿树\许愿树1.txt] @许愿树3
+}

@@ -1,0 +1,94 @@
+[@林镖头标准配置]
+{
+[@MAIN]
+#CALLX [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#CALLX [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_标准NPC头内容
+
+[@系统_标准NPC头_返回]
+#IF
+#ACT
+MOV P0 <$HOUR>
+MOV S0
+
+#IF
+NOT LARGE P0 22
+NOT SMALL P0 9
+#ACT
+GOTO @任务_林镖头_押镖
+#ELSESAY
+{<$SELFNAME>=FCO=243}：\
+　少侠，押镖开放时间为：上午9点至晚\
+上23点。其它时间是不开放的。\
+{现在是<$DATETIME>=FCO=251}\ \
+<&关闭/@exit>\
+
+[@任务_林镖头_押镖]
+#IF
+CHECKMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受已完成变量值]
+NOT CHECKSLAVENAME [$任务_补给危机_镖车名称]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35_补]
+#ACT
+INC S0 <&{补办镖车=FCO=250}{【补镖】=FCO=251}/@林镖头_补办镖车>\
+
+#IF
+#SAY
+$RESETLABEL
+{<$SELFNAME>=FCO=243}：\
+　{我的押镖信息：=FCO=251}　　成功押镖：{<$STR(C1)>=FCO=254} 次\
+　劫获镖车：{<$STR(C2)>=FCO=254} 次　　{-1=x}镖车被劫：{<$STR(C3)>=FCO=254} 次\ \
+<$STR(S0)>
+<&{接受镖车=FCO=251}{【押镖】=FCO=251}/@林镖头_接受镖车>\ 
+<&没兴趣/@exit>\
+
+#CALLX [\\游戏配置\任务配置\循环任务\补给危机.txt] @补给危机_结束
+
+
+[@林镖头_接受镖车]
+{<$SELFNAME>=FCO=243}：\
+　本镖头这一共还有 {<$STR(G35)>=FCO=250} 辆镖车没人接。\
+　根据自己的实力，你想押什么类型的镖\
+就自己选吧。\ 
+<&{补给危机=FCO=251}/@林镖头_接受镖车_补给危机>\
+<&返回/@系统_标准NPC头_返回>\
+
+[@林镖头_补办镖车]
+#IF
+CHECKMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受已完成变量值]
+NOT CHECKSLAVENAME [$任务_补给危机_镖车名称]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35_补]
+#SAY
+　你当前需要补办的镖车列表。\
+　重新补办镖车，需要支付押金一半数量\
+的金币做为费用。\ 
+<&{补给危机=FCO=251}/@林镖头_补办镖车_补给危机>\
+<&返回/@系统_标准NPC头_返回>\
+#ELSESAY
+　你当前没有需要补给的镖车。\ 
+<&返回/@系统_标准NPC头_返回>\
+
+#CALLX [\\游戏配置\任务配置\循环任务\补给危机.txt] @补给危机
+}

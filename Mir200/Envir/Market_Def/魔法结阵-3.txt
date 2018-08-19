@@ -1,0 +1,103 @@
+(@ReclaimItem )
+[@Main]
+#if
+#say
+　{【活动】：许愿树，投放各类装备获得结阵能量.=FCO=253}\
+　{━━━━━━━━━━━━━━━━━━━━━━━━=FCO=253}\
+　{当结阵能量达到300层时全服触发闯天关！=FCO=58}\  
+　{当结阵能量达到600层时全服触发幸运宝箱！=FCO=215}\
+　{当前许愿树为=FCO=215}【<$STR(G108)>】{层!=FCO=215}　　<开始投放装备/@投放_灵力>\
+　可许愿物品为:{精致=FCO=146},{完美=FCO=215},{卓越=FCO=245},{传说=FCO=249},{史诗=FCO=243}\
+　　(自动屏蔽沃玛、祖玛、赤月类)\
+　　(有一定几率人品爆发获得金币)\
+　　(如果获得经验则能量不会增加)\
+
+[@投放_灵力]
+#IF
+#ACT
+ShowItemBox 请投放启动结界的装备： @检测道具
+break
+
+[@检测道具]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\活动\许愿树\精致物品.txt
+#ACT
+TakeIdx <$Param0>
+goto @给予奖励
+ShowItemBox 放入要投放的装备： @检测道具       ;//每次点确定放取框都会自动关闭，想要可以连续放取，可在触发脚本中再执行一次
+Break
+#ELSEACT
+goto @完美物品
+
+
+[@完美物品]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\活动\许愿树\完美物品.txt
+#ACT
+TakeIdx <$Param0>
+goto @执行触发
+ShowItemBox 放入要投放的装备： @检测道具       ;//每次点确定放取框都会自动关闭，想要可以连续放取，可在触发脚本中再执行一次
+Break
+#ELSEACT
+goto @卓越物品
+
+
+[@卓越物品]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\活动\许愿树\卓越物品.txt
+#ACT
+TakeIdx <$Param0>
+goto @执行触发1
+ShowItemBox 放入要投放的装备： @检测道具       ;//每次点确定放取框都会自动关闭，想要可以连续放取，可在触发脚本中再执行一次
+Break
+#ELSEACT
+goto @史诗物品
+
+[@史诗物品]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\活动\许愿树\史诗物品.txt
+#ACT
+TakeIdx <$Param0>
+goto @执行触发3
+ShowItemBox 放入要投放的装备： @检测道具       ;//每次点确定放取框都会自动关闭，想要可以连续放取，可在触发脚本中再执行一次
+Break
+#ELSEACT
+goto @传说物品
+
+[@传说物品]
+#IF
+CheckTextList <$ItemInfo[$Param0].Name> ..\QuestDiary\活动\许愿树\传说物品.txt
+#ACT
+TakeIdx <$Param0>
+goto @执行触发2
+ShowItemBox 放入要投放的装备： @检测道具       ;//每次点确定放取框都会自动关闭，想要可以连续放取，可在触发脚本中再执行一次
+Break
+#ELSEACT
+SENDMSG 6 抱歉！您投放的装备价值过高，无法进行许愿。
+
+
+[@给予奖励]
+#call [\活动\许愿树\许愿树1.txt] @精致奖励
+#call [\活动\许愿树\许愿树1.txt] @许愿树2
+#call [\活动\许愿树\许愿树1.txt] @许愿树3
+
+[@执行触发]
+#call [\活动\许愿树\许愿树1.txt] @完美奖励
+#call [\活动\许愿树\许愿树1.txt] @许愿树2
+#call [\活动\许愿树\许愿树1.txt] @许愿树3
+
+[@执行触发1]
+#call [\活动\许愿树\许愿树1.txt] @卓越奖励
+#call [\活动\许愿树\许愿树1.txt] @许愿树2
+#call [\活动\许愿树\许愿树1.txt] @许愿树3
+
+
+[@执行触发2]
+#call [\活动\许愿树\许愿树1.txt] @传说奖励
+#call [\活动\许愿树\许愿树1.txt] @许愿树2
+#call [\活动\许愿树\许愿树1.txt] @许愿树3
+
+[@执行触发3]
+#call [\活动\许愿树\许愿树1.txt] @史诗奖励
+#call [\活动\许愿树\许愿树1.txt] @许愿树2
+#call [\活动\许愿树\许愿树1.txt] @许愿树3

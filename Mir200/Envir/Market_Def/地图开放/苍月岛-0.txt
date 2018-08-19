@@ -1,0 +1,17 @@
+[@main]
+{<$SELFNAME>=FCO=251}：\
+　听说赤月恶魔复活了！他的领地“赤月魔穴”也已重现大陆！\
+不过那么险恶的地方，你真的打算去吗？\ \
+　<我要进去/@1>\ \
+　<结束对话/@exit>
+
+[@1]
+#IF
+CHECKLEVELEX > 34
+CheckItemCount 传送令牌(一般) ? 1
+#ACT
+  SHOWEFFECT 14
+MAPMOVE 5
+#ELSEACT
+SendMsg 6 你没有传送令牌(一般)，或者等级没达到35级。
+break

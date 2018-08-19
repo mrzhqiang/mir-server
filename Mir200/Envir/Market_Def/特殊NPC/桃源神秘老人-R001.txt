@@ -1,0 +1,32 @@
+[@main]
+#CALL [\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#IF
+checklevel 48
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　我清楚你的能力,可是里面太恐怖了..你做好充分准备了吗？\ \
+<进入未知世界/@exit1>\
+<回到盟重/@mwmove> \
+<继续留在这里/@exit>\
+#ELSEACT
+goto @main-1
+
+[@main-1]
+{<$SELFNAME>=FCO=251}：\
+　里面是一个危险的未知世界，依你现在的实力还不能去那里， 等\
+以后再来吧！我可以把你送回你原来的世界。\ \
+<回到盟重/@mwmove> \
+<继续留在这里/@exit>
+
+[@mwmove]
+#ACT
+mapmove 3 330 330
+break
+
+[@exit1]
+{<$SELFNAME>=FCO=251}：\
+#ACT
+mapmove D2003 30 83
+break

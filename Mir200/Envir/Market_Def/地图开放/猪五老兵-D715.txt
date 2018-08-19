@@ -1,0 +1,19 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　前面就是通向石墓七层的石墓阵，你真的要过去吗？\ \
+　<我要进去/@move>　\ \
+　<结束对话/@exit>
+
+[@move]
+#IF
+CHECKLEVELEX > 24
+CheckItemCount 传送令牌(危险) ? 1
+#ACT
+  SHOWEFFECT 14
+MAPMOVE D71601
+#ELSEACT
+SendMsg 6 你没有传送令牌(危险)，或者等级不够25级。
+break

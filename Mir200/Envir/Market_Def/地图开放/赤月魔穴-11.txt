@@ -1,0 +1,20 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　听说赤月恶魔复活了！他的领地“赤月魔穴”也已重现大陆！\
+不过那么险恶的地方，你真的打算去吗？\ \
+　<我要进去/@move>　\ \
+　<结束对话/@exit>
+
+[@move]
+#IF
+CHECKLEVELEX > 39
+CheckItemCount 传送令牌(危险) ? 1
+#ACT
+  SHOWEFFECT 14
+MAPMOVE 12
+#ELSEACT
+SendMsg 6 你没有传送令牌(危险)，或者等级没达到40级。
+break

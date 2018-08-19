@@ -1,0 +1,55 @@
+[@清洗红名]
+{
+(@@InputInteger)
+[@main]
+#CALL [\\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#CALL [\\游戏配置\所有NPC调用头.txt] @系统_标准NPC头内容
+
+[@系统_标准NPC头_返回]
+#IF
+CHECKPKPOINT 2
+#SAY
+　你到底杀了多少人啊？红的都发紫了！不过幸好有我在，我是专\
+门为了你们这些人而存在的。消除PK值，每清除1点PK值需要花费\
+5000金币。\
+　你当前的PK值为：{<$PKPOINT>=FCO=243}点\ \
+<输入要清除的PK值点数/@@InputInteger0>\
+<结束对话/@exit>\
+#ELSESAY
+　大侠，看来你还不是恶徒，我不和善良之辈打交道！\ \
+<返回盟重省/@清洗红名_返回盟重>\
+<结束对话/@exit>\
+
+[@@InputInteger0]
+#IF
+SMALL N0 1
+#ACT
+MESSAGEBOX 要清除的PK值点数必需大于“0”
+BREAK
+
+#IF
+LARGE N0 <$PKPOINT>
+#ACT
+MESSAGEBOX 你那有需要清除这么多PK值啊，等下别又说我乱收费！
+BREAK
+#ELSEACT
+MOV P0 <$STR(N0)>
+MUL P0 5000
+
+#IF
+NOT CHECKGOLD <$STR(P0)>
+#ACT
+MESSAGEBOX 你身上的金币不够啊，清除<$STR(N0)>点PK值，需要<$STR(P0)>金币！
+#ELSEACT
+TAKE 金币 <$STR(P0)>
+CHANGEPKPOINT - <$STR(N0)>
+SENDMSG 5 成功清除<$STR(N0)>点PK值！
+GOTO @系统_标准NPC头_返回
+
+[@清洗红名_返回盟重]
+#IF
+#ACT
+MAPMOVE 3 333 333
+}

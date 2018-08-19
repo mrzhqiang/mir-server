@@ -1,0 +1,4 @@
+#CALL [\\游戏配置\NPC配置\商店配置\屠夫.txt] @屠夫标准配置头
+(@buy @sell @repair @makedrug)
+%100
++99

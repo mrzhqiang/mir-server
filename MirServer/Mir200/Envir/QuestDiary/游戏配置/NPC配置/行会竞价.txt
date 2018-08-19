@@ -1,0 +1,107 @@
+[@行会竞价]
+{
+#IF
+RANDOM 6
+#ACT
+SENDMSG 4 收人啦收人啦！！(<$STR(A94)>)行会正在招兵买马，待遇丰厚，男女老少皆可，想跳槽的快来…
+
+#IF
+#SAY
+　24小时自助招人系统　管理行会更轻松\
+　----------------------------------\
+　最新竞得行会：【{<$STR(A94)>=FCO=249}】\
+<&{加入这个行会=FCO=251}/@jrxh>\
+　----------------------------------\
+　竞价金币数量：【{<$STR(G94)>=FCO=249}】\
+<&{参与竞价排名=FCO=251}/@cyjj>\
+　----------------------------------\
+<&关闭/@exit>\
+
+[@cyjj]
+#IF
+HAVEGUILD
+#ELSEACT
+Messagebox 您还没有自己的行会，请先到比奇皇宫找国王创建行会。\
+Break
+
+#IF
+CHECKGOLD <$STR(G94)>
+#SAY
+　24小时自助招人系统　管理行会更轻松\
+　----------------------------------\
+　最新竞得行会：【{<$STR(A94)>=FCO=249}】\
+<&{加入这个行会=FCO=251}/@jrxh>\
+　----------------------------------\
+　竞价金币数量：【{<$STR(G94)>=FCO=249}】\
+<&{参与竞价排名=FCO=251}/@cyjj>\
+　----------------------------------\
+<&关闭/@exit>\
+#ACT
+INC G94 100000
+TAKE 金币 <$STR(G94)>
+MOV A94 <$GUILDNAME>
+SENDMSG 0 【#6FFFF/8#6公告#5】：[#7<$USERNAME>#7]在行会竞价板为他的行会#6FFFF/8#6(<$STR(A94)>)#5取得竞价排名，实力非凡！诚邀天下俊杰加盟或跳槽！
+SENDMSG 8 【#6FFFF/8#6公告#5】：#6FFFF/8#6[<$USERNAME>]#5在行会竞价板为他的行会#6FFFF/8#6(<$STR(A94)>)#5取得竞价排名，实力非凡！诚邀天下俊杰加盟或跳槽！
+#ELSEACT 
+Messagebox 本次竞价需要：<$STR(G94)>金币！
+Break
+
+
+[@jrxh]
+#IF 
+EQUAL A94 (虚位以待)
+#ACT
+Messagebox 目前还没有行会在此取得竞价排名。
+Break
+
+#IF
+equal A94 <$GUILDNAME>
+#ACT
+Messagebox 您已经是<$STR(A94)>的行会成员了呀！
+Break
+
+#IF 
+NOT CHECKLEVEL 20
+#ACT
+Messagebox 该行会只招收20级以上玩家，请继续努力！
+Break
+
+#IF
+ISGUILDMASTER
+#ACT
+Messagebox 身为行会掌门，不能就这样加入其他行会！
+Break
+
+#ELSEACT
+Goto @jrxh2
+
+[@jrxh2]
+#IF
+HAVEGUILD
+#SAY
+　阁下已经有自己的组织了，难道您就是\
+传说中的跳槽哥？\ \
+　是否退出行会，跳槽到{<$STR(A94)>=FCO=249}？\ \
+<&{退会并加入该行会=FCO=251}/@退会确认>\
+<&关闭/@exit>\
+#ELSEACT
+Gmexecute 加入行会
+ADDGUILDMEMBER <$STR(A94)> <$USERNAME>
+Messagebox 恭喜您成功加盟了<$STR(A94)>行会！
+SENDMSG 0 【#6FFFF/8#6公告#5】：[#7<$USERNAME>#7]在行会竞价板加盟了#6FFFF/8#6(<$STR(A94)>)#5行会。
+SENDMSG 8 【#6FFFF/8#6公告#5】：#6FFFF/8#6[<$USERNAME>]#5在行会竞价板加盟了#6FFFF/8#6(<$STR(A94)>)#5行会。
+break
+
+
+[@退会确认]
+#IF
+HAVEGUILD
+#ACT
+Gmexecute 退出行会
+Gmexecute 加入行会
+ADDGUILDMEMBER <$STR(A94)> <$USERNAME>
+Messagebox 恭喜您成功跳槽到<$STR(A94)>行会！
+SENDMSG 0 【#6FFFF/8#6公告#5】：[#7<$USERNAME>#7]跳槽到了#6FFFF/8#6(<$STR(A94)>)#5行会。
+SENDMSG 8 【#6FFFF/8#6公告#5】：#6FFFF/8#6[<$USERNAME>]#5跳槽到了#6FFFF/8#6(<$STR(A94)>)#5行会。
+break
+}

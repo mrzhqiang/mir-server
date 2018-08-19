@@ -1,0 +1,23 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　前面是一片全新的土地，如果你一定要进去的话.\
+  我需要检测你有没有这个资格。\
+  （每一层需要声望100点，金条一根）\ \
+　<我要进去/@move>\ \
+　<结束对话/@exit>
+
+[@move]
+#IF
+CheckItemCount 金条 ? 1
+CheckCreditPoint ? 100
+#ACT
+CreditPoint - 100
+take 金条 1
+  SHOWEFFECT 14
+MAPMOVE D2083
+#ELSEACT
+SendMsg 6 你没有达到要求，请仔细检查包裹。
+break

@@ -1,0 +1,183 @@
+[@main]
+{行会名称：=FCO=2}{【<$GUILDNAME>】=FCO=245}\
+　　　　　　　　　　　　　　　　　　　　　　　<升级行会/@管理>\
+　 当前沙巴克管理者名称:　 <$LORD>\
+　 当前沙巴克所属行会名:　 <$OWNERGUILD>\
+　 你当前所在的行会封号:　 <$RANKNAME>\
+　 你当前所在的行会建设值:　 <$GUILDBUILDPOINT>\
+　 你当前所在的行会人气值:　 <$GUILDAURAEPOINT>\
+　 你当前所在的行会繁荣值:　 <$GUILDFLOURISHPOINT>\
+　　　　　　　　　　　　　　　　　　　　　　　<关闭当页/@exit>\
+
+[@管理]
+#IF
+HaveGuild
+CheckGuildLevel < 100
+#SAY
+{行会名称：=FCO=2}【<$GUILDNAME>】　　　　<关闭当页/@exit>\
+
+  行会掌门：{<$USERNAME> =FCO=250}\
+建筑指数：<$GUILDBUILDPOINT>   繁荣指数：<$GUILDFLOURISHPOINT>\
+人气指数：<$GUILDAURAEPOINT>   安定指数：<$GUILDSTABILITYPOINT>\
+<{捐献　金刚石X1=FCO=19}提升安定值/@安定1>   　 <{捐献　金刚石X10=FCO=19}提升安定值/@安定3> \
+<{捐献　金刚石X5=FCO=19}提升安定值/@安定2>  　  <{捐献　金刚石X50=FCO=19}提升安定值/@安定4> \
+{每个金刚石提升安定值10点、可获取金币1W=FCO=215}<针对安定值> \
+<{捐献　金刚石X1=FCO=70}提升繁荣值/@繁荣1>   　 <{捐献　金刚石X10=FCO=70}提升繁荣值/@繁荣3> \
+<{捐献　金刚石X5=FCO=70}提升繁荣值/@繁荣2>   　 <{捐献　金刚石X50=FCO=70}提升繁荣值/@繁荣4> \
+{每个金刚石提升繁荣值10点、可获取金币1W=FCO=215}<针对繁荣值> \
+<{捐献　金刚石X1=FCO=242}提升人气值/@人气1>     <{捐献　金刚石X10=FCO=242}提升人气值/@人气3> \
+<{捐献　金刚石X5=FCO=242}提升人气值/@人气2> 　  <{捐献　金刚石X50=FCO=242}提升人气值/@人气4> \
+{每个金刚石提升人气值10点、可获取金币1W=FCO=215}<针对人气值> \
+
+#ELSEACT
+messagebox  达到最高行会等级！
+
+[@安定1]
+#if 
+CheckGuildLevel < 10
+CheckItemCount 金刚石 ? 1
+#act 
+TakeCount 金刚石 1
+GuildStabilityPoint + 10
+give 金币 10000
+messagebox 恭喜:成功为行会增加安定值+10,当前累计安定值为:<$GUILDSTABILITYPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@安定2]
+#if 
+CheckItemCount 金刚石 ? 5
+#act 
+TakeCount 金刚石 5
+GuildStabilityPoint + 50
+give 金币 50000
+messagebox 恭喜:成功为行会增加安定值+50,当前累计安定值为:<$GUILDSTABILITYPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@安定3]
+#if 
+CheckItemCount 金刚石 ? 10
+#act 
+TakeCount 金刚石 10
+GuildStabilityPoint + 100
+give 金币 100000
+messagebox 恭喜:成功为行会增加安定值+100,当前累计安定值为:<$GUILDSTABILITYPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@安定4]
+#if 
+CheckItemCount 金刚石 ? 50
+#act 
+TakeCount 金刚石 50
+GuildStabilityPoint + 500
+give 金币 500000
+messagebox 恭喜:成功为行会增加安定值+500,当前累计安定值为:<$GUILDSTABILITYPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+
+[@人气1]
+#if 
+CheckItemCount 金刚石 ? 1
+#act 
+TakeCount 金刚石 1
+GUILDAURAEPOINT + 10
+give 金币 10000
+messagebox 恭喜:成功为行会增加人气值+10,当前累计人气值为:<$GUILDAURAEPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@人气2]
+#if 
+CheckItemCount 金刚石 ? 5
+#act 
+TakeCount 金刚石 5
+GUILDAURAEPOINT + 50
+give 金币 50000
+messagebox 恭喜:成功为行会增加人气值+50,当前累计人气值为:<$GUILDAURAEPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@人气3]
+#if 
+CheckItemCount 金刚石 ? 10
+#act 
+TakeCount 金刚石 10
+GUILDAURAEPOINT + 100
+give 金币 100000
+messagebox 恭喜:成功为行会增加人气值+100,当前累计人气值为:<$GUILDAURAEPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@人气4]
+#if 
+CheckItemCount 金刚石 ? 50
+#act 
+TakeCount 金刚石 50
+GUILDAURAEPOINT + 500
+give 金币 500000
+messagebox 恭喜:成功为行会增加人气值+500,当前累计人气值为:<$GUILDAURAEPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+
+[@繁荣1]
+#if 
+CheckItemCount 金刚石 ? 1
+#act 
+TakeCount 金刚石 1
+GuildFlourishPoint + 10
+give 金币 10000
+messagebox 恭喜:成功为行会增加繁荣值+10,当前累计繁荣值为:<$GUILDFLOURISHPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+
+[@繁荣2]
+#if 
+CheckItemCount 金刚石 ? 5
+#act 
+TakeCount 金刚石 5
+GuildFlourishPoint + 50
+give 金币 50000
+messagebox 恭喜:成功为行会增加繁荣值+50,当前累计繁荣值为:<$GUILDFLOURISHPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@繁荣3]
+#if 
+CheckItemCount 金刚石 ? 10
+#act 
+TakeCount 金刚石 10
+GuildFlourishPoint + 100
+give 金币 100000
+messagebox 恭喜:成功为行会增加繁荣值+100,当前累计繁荣值为:<$GUILDFLOURISHPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+[@繁荣4]
+#if 
+CheckItemCount 金刚石 ? 50
+#act 
+TakeCount 金刚石 50
+GuildFlourishPoint + 500
+give 金币 500000
+messagebox 恭喜:成功为行会增加繁荣值+500,当前累计繁荣值为:<$GUILDFLOURISHPOINT>点
+goto @管理
+#ELSEACT
+messagebox 对不起,你没有相关物品！
+
+

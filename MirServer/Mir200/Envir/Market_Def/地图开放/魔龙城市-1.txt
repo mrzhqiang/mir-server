@@ -1,0 +1,20 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+魔龙城市重现大陆，你真的打算去吗？(需要一根金条过路费！)\ \
+　<我要进去/@move>　\ \
+　<结束对话/@exit>
+
+[@move]
+#IF
+CHECKLEVELEX > 49
+CheckItemCount 金条 ? 1
+#ACT
+  SHOWEFFECT 14
+TakeCount 金条 1
+MAPMOVE 6
+#ELSEACT
+MESSAGEBOX 您的金条不足或者等级没有50级，无法瞬间移动！
+break

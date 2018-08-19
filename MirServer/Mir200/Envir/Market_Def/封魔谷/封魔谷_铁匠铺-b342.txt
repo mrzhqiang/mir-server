@@ -1,0 +1,4 @@
+#CALL [\\游戏配置\NPC配置\商店配置\武器店.txt] @武器店标准配置头
+(@buy @sell @repair @makedrug)
+%100
++99

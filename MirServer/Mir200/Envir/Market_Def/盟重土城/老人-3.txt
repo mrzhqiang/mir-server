@@ -1,0 +1,49 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+你想知道最近沙吧克的攻城战役吗?\ \
+　　<查看./@aboutwar>\             \                                         
+你要去哪个商店？这个是免费服务！ \ \
+<【铁匠铺】/@Gwe>　<【布料店】/@Gpo>　<【首饰店】/@Gza>　<【客栈】/@Gwh>　<【书店】/@Gbo>\
+
+[@aboutwar]
+<◆最近的攻城战役预告:>\
+战役开始时间： <$CASTLEWARDATE> , 20:00开始。\ \
+
+<◆详细攻城时间表：/@listwar>\
+<关闭./@exit>\
+
+[@listwar]
+<$LISTOFWAR>\
+<知道了./@exit>\
+
+[@Gwe]
+#IF
+#ACT
+  SHOWEFFECT 14
+map 0159
+ 
+[@Gpo]
+#IF
+#ACT
+  SHOWEFFECT 14
+map 0149
+ 
+[@Gza]
+#IF
+#ACT
+  SHOWEFFECT 14
+map 0158
+ 
+[@Gwh]
+#IF
+#ACT
+  SHOWEFFECT 14
+map 0145
+ 
+[@Gbo]
+#IF
+#ACT
+  SHOWEFFECT 14
+map 0161

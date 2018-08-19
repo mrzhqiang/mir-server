@@ -1,0 +1,15 @@
+[@main]
+#if
+CHECKLEVELEX > 29
+CheckMapMonCount ctg04 < 1
+#act
+mapmove ctg05 82 16
+SENDMSG 9  玩家【<$USERNAME>】不畏艰险，冲过了天关五层！  243 241 
+break
+#if
+CheckMapMonCount ctg04 < 1
+#act
+MESSAGEBOX  不无法进入!没有达到30级
+break
+#ELSEACT
+MESSAGEBOX 四层怪物还没有清除完毕，无法进入下层,没有达到30级!

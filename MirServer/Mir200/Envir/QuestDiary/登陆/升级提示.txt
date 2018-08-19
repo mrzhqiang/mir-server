@@ -1,0 +1,162 @@
+[@升级提示]
+{
+[@PlayLevelUpEx11]
+#IF
+#ACT
+Gmexecute 解除禁言 Self
+
+[@PlayLevelUpEx30]
+#IF
+#ACT
+GIVE 新手礼包 1
+SENDMSG 0 恭喜<$USERNAME>升到30级，获得30级前线物资。
+
+[@PlayLevelUpEx35]
+#IF
+Large G58 0
+#ACT
+dec G58 1
+AddTextList <$USERNAME> ../QuestDiary/数据/35级.txt
+SENDMSG 0 恭喜<$USERNAME>升到35级，获取金币奖励资格，大家加油！
+#ELSEACT
+SENDMSG 0 恭喜<$USERNAME>升到35级
+
+[@PlayLevelUpEx36]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到36级
+
+[@PlayLevelUpEx37]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到37级
+
+[@PlayLevelUpEx38]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到38级
+
+[@PlayLevelUpEx39]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到39级
+
+[@PlayLevelUpEx40]
+#IF
+Large G59 0
+#ACT
+dec G59 1
+AddTextList <$USERNAME> ../QuestDiary/数据/40级.txt
+SENDMSG 0 恭喜<$USERNAME>升到40级，获取金币奖励资格，大家加油！
+#ELSEACT
+SENDMSG 0 恭喜<$USERNAME>升到40级
+
+[@PlayLevelUpEx41]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到41级
+
+[@PlayLevelUpEx42]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到42级
+
+[@PlayLevelUpEx43]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到43级
+
+[@PlayLevelUpEx44]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到44级
+
+[@PlayLevelUpEx45]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到45级
+
+[@PlayLevelUpEx46]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到46级
+
+[@PlayLevelUpEx47]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到47级
+
+[@PlayLevelUpEx48]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到48级
+
+[@PlayLevelUpEx49]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到49级
+
+[@PlayLevelUpEx50]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到50级
+
+[@PlayLevelUpEx51]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到51级
+
+[@PlayLevelUpEx52]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到52级
+
+[@PlayLevelUpEx53]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到53级
+
+[@PlayLevelUpEx54]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到54级
+
+[@PlayLevelUpEx55]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到55级
+
+[@PlayLevelUpEx56]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到56级
+
+[@PlayLevelUpEx57]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到57级
+
+[@PlayLevelUpEx58]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到58级
+
+[@PlayLevelUpEx59]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到59级
+
+[@PlayLevelUpEx60]
+#IF
+#ACT
+SENDMSG 0 恭喜<$USERNAME>升到60级
+goto @等级上限解锁
+}
+
+[@等级上限解锁]
+#IF
+#ACT
+SetLimitExpLevel 80 50 1
+SENDMSG 0 恭喜<$USERNAME>升到60级，服务器等级上限解锁！
+SendMsg 9 最高等级上限解锁为【80级】，满级后杀怪经验将是原来的一半！
+Break

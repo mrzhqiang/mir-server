@@ -1,0 +1,59 @@
+[@main]
+#IF
+#Say
+  {<$SELFNAME>=FCO=243}：\
+  当前【坐标1】地图名：{<$STR(B82)>=FCO=31}  {X：<$STR(C82)>=FCO=31} {Y:<$STR(C83)>=FCO=31}\
+  当前【坐标2】地图名：{<$STR(B72)>=FCO=31}  {X：<$STR(C72)>=FCO=31} {Y:<$STR(C73)>=FCO=31}\
+  当前【坐标3】地图名：{<$STR(B62)>=FCO=31}  {X：<$STR(C62)>=FCO=31} {Y:<$STR(C63)>=FCO=31}\
+  当前【坐标4】地图名：{<$STR(B52)>=FCO=31}  {X：<$STR(C52)>=FCO=31} {Y:<$STR(C53)>=FCO=31}\
+  当前【坐标5】地图名：{<$STR(B42)>=FCO=31}  {X：<$STR(C42)>=FCO=31} {Y:<$STR(C43)>=FCO=31}\
+  <&点击更改{记忆坐标1=FCO=251}/@更改坐标1>\ 
+  <&点击更改{记忆坐标2=FCO=251}/@更改坐标2>\ 
+  <&点击更改{记忆坐标3=FCO=251}/@更改坐标3>\ 
+  <&点击更改{记忆坐标4=FCO=251}/@更改坐标4>\ 
+  <&点击更改{记忆坐标5=FCO=251}/@更改坐标5>\ 
+
+[@更改坐标1]
+#ACT
+mov B82 <$MAPNAME>
+mov B83 <$MAP>
+mov C82 <$X>
+mov C83 <$Y>
+SendMsg 0 玩家<$USERNAME>将坐标1改为【<$MAPNAME>】(<$X>:<$Y>)！
+break
+
+[@更改坐标2]
+#ACT
+mov B72 <$MAPNAME>
+mov B73 <$MAP>
+mov C72 <$X>
+mov C73 <$Y>
+SendMsg 0 玩家<$USERNAME>将坐标2改为【<$MAPNAME>】(<$X>:<$Y>)！
+break
+
+[@更改坐标3]
+#ACT
+mov B62 <$MAPNAME>
+mov B63 <$MAP>
+mov C62 <$X>
+mov C63 <$Y>
+SendMsg 0 玩家<$USERNAME>将坐标3改为【<$MAPNAME>】(<$X>:<$Y>)！
+break
+
+[@更改坐标4]
+#ACT
+mov B52 <$MAPNAME>
+mov B53 <$MAP>
+mov C52 <$X>
+mov C53 <$Y>
+SendMsg 0 玩家<$USERNAME>将坐标4改为【<$MAPNAME>】(<$X>:<$Y>)！
+break
+
+[@更改坐标5]
+#ACT
+mov B42 <$MAPNAME>
+mov B43 <$MAP>
+mov C42 <$X>
+mov C43 <$Y>
+SendMsg 0 玩家<$USERNAME>将坐标5改为【<$MAPNAME>】(<$X>:<$Y>)！
+break

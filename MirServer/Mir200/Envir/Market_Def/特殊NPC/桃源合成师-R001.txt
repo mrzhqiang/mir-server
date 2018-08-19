@@ -1,0 +1,207 @@
+[@main]
+#CALL [\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+{<$SELFNAME>=FCO=251}：\
+　相传玛法大地上有一柄剑，剑长三尺三寸，剑身血红，凡是拿起\
+这柄剑的人最后都不得善终，因为传说中的这柄剑中有一种特殊的\
+力量，只要拿起它，人就会变得嗜杀成性!\ \
+　　<赤血魔剑/@qq1>　<精致赤血魔剑/@qq2>　<完美赤血魔剑/@qq3>\ \
+<卓越赤血魔剑/@qq4>　<传说赤血魔剑/@qq5>　<史诗赤血魔剑/@qq6>\
+
+
+[@qq1]
+{<$SELFNAME>=FCO=251}：\
+　合成此物品必须持有我说的那些材料：\
+　攻击力药水一瓶、魔法力药水一瓶、道术力药水一瓶\
+　疾风药水一瓶、罗刹一把 \
+　以上材料准备好了我随时为你合成，缺少材料不能合成物品。\ \
+<我要合成/@hh1>\
+
+[@hh1]
+#IF
+checkitem 攻击力药水 1
+checkitem 魔法力药水 1
+checkitem 道术力药水 1
+checkitem 疾风药水 1
+checkitem 罗刹 1
+#ACT
+take 攻击力药水 1
+take 魔法力药水 1
+take 道术力药水 1
+take 疾风药水 1
+take 罗刹     1
+give 赤血魔剑 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　已经为你合成好了,试试我的手艺如何?\ \
+<结束对话/@exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\ \
+　缺少材料怎么合成呢? \ \
+<结束对话/@exit>
+
+[@qq2]
+{<$SELFNAME>=FCO=251}：\
+　合成此物品必须持有我说的那些材料：\
+　攻击力药水一瓶、魔法力药水一瓶、道术力药水一瓶\
+　疾风药水一瓶、赤血魔剑一把 金条一根\
+　以上材料准备好了我随时为你合成，缺少材料不能合成物品。\ \
+<我要合成/@hh2>\
+
+[@hh2]
+#IF
+checkitem 攻击力药水 1
+checkitem 魔法力药水 1
+checkitem 道术力药水 1
+checkitem 疾风药水 1
+checkitem 赤血魔剑 1
+checkitem 金条 1
+#ACT
+take 攻击力药水 1
+take 魔法力药水 1
+take 道术力药水 1
+take 疾风药水 1
+take 赤血魔剑 1
+take 金条 1
+give 精致赤血魔剑 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　已经为你合成好了,试试我的手艺如何?\ \
+<结束对话/@exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\ \
+　缺少材料怎么合成呢? \ \
+<结束对话/@exit>
+
+[@qq3]
+{<$SELFNAME>=FCO=251}：\
+　合成此物品必须持有我说的那些材料：\
+　攻击力药水一瓶、魔法力药水一瓶、道术力药水一瓶\
+　疾风药水一瓶、精致赤血魔剑一把 金条一根\
+　以上材料准备好了我随时为你合成，缺少材料不能合成物品。\ \
+<我要合成/@hh3>\
+
+[@hh3]
+#IF
+checkitem 攻击力药水 1
+checkitem 魔法力药水 1
+checkitem 道术力药水 1
+checkitem 疾风药水 1
+checkitem 精致赤血魔剑 1
+checkitem 金条 1
+#ACT
+take 攻击力药水 1
+take 魔法力药水 1
+take 道术力药水 1
+take 疾风药水 1
+take 精致赤血魔剑 1
+take 金条 1
+give 完美赤血魔剑 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　已经为你合成好了,试试我的手艺如何?\ \
+<结束对话/@exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\ \
+　缺少材料怎么合成呢? \ \
+<结束对话/@exit>
+
+[@qq4]
+{<$SELFNAME>=FCO=251}：\
+　合成此物品必须持有我说的那些材料：\
+　攻击力药水一瓶、魔法力药水一瓶、道术力药水一瓶\
+　疾风药水一瓶、完美赤血魔剑一把 金条一根\
+　以上材料准备好了我随时为你合成，缺少材料不能合成物品。\ \
+<我要合成/@hh4>\
+
+[@hh4]
+#IF
+checkitem 攻击力药水 1
+checkitem 魔法力药水 1
+checkitem 道术力药水 1
+checkitem 疾风药水 1
+checkitem 完美赤血魔剑 1
+checkitem 金条 1
+#ACT
+take 攻击力药水 1
+take 魔法力药水 1
+take 道术力药水 1
+take 疾风药水 1
+take 完美赤血魔剑 1
+take 金条 1
+give 卓越赤血魔剑 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　已经为你合成好了,试试我的手艺如何?\ \
+<结束对话/@exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\ \
+　缺少材料怎么合成呢? \ \
+<结束对话/@exit>
+
+[@qq5]
+{<$SELFNAME>=FCO=251}：\
+　合成此物品必须持有我说的那些材料：\
+　攻击力药水一瓶、魔法力药水一瓶、道术力药水一瓶\
+　疾风药水一瓶、卓越赤血魔剑一把 金条一根\
+　以上材料准备好了我随时为你合成，缺少材料不能合成物品。\ \
+<我要合成/@hh5>\
+
+[@hh5]
+#IF
+checkitem 攻击力药水 1
+checkitem 魔法力药水 1
+checkitem 道术力药水 1
+checkitem 疾风药水 1
+checkitem 卓越赤血魔剑 1
+checkitem 金条 1
+#ACT
+take 攻击力药水 1
+take 魔法力药水 1
+take 道术力药水 1
+take 疾风药水 1
+take 卓越赤血魔剑 1
+take 金条 1
+give 传说赤血魔剑 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　已经为你合成好了,试试我的手艺如何?\ \
+<结束对话/@exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\ \
+　缺少材料怎么合成呢? \ \
+<结束对话/@exit>
+
+[@qq6]
+{<$SELFNAME>=FCO=251}：\
+　合成此物品必须持有我说的那些材料：\
+　攻击力药水一瓶、魔法力药水一瓶、道术力药水一瓶\
+　疾风药水一瓶、传说赤血魔剑一把 金条一根\
+　以上材料准备好了我随时为你合成，缺少材料不能合成物品。\ \
+<我要合成/@hh6>\
+
+[@hh6]
+#IF
+checkitem 攻击力药水 1
+checkitem 魔法力药水 1
+checkitem 道术力药水 1
+checkitem 疾风药水 1
+checkitem 传说赤血魔剑 1
+checkitem 金条 1
+#ACT
+take 攻击力药水 1
+take 魔法力药水 1
+take 道术力药水 1
+take 疾风药水 1
+take 赤血魔剑 1
+take 金条 1
+give 史诗赤血魔剑 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　已经为你合成好了,试试我的手艺如何?\ \
+<结束对话/@exit>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\ \
+　缺少材料怎么合成呢? \ \
+<结束对话/@exit>

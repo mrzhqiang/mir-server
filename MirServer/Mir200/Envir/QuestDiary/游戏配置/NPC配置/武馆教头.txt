@@ -1,0 +1,242 @@
+[@武馆教头]
+{
+[@main]
+#CALL [\\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#CALL [\\游戏配置\所有NPC调用头.txt] @系统_标准NPC头内容
+
+[@系统_标准NPC头_返回]
+#if
+#act
+MOV S0
+
+#CALL [\\游戏配置\任务配置\主线任务\主线_武馆教头.txt] @武馆教头_检测
+
+#IF
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你好，你是不是第一次玩这个游戏？我可以帮你。\
+<$STR(S0)>
+<我想要拜师/@teacher>\
+<强行脱离师徒关系/@助理小敏_我想出师>\
+<结束对话/@exit>
+
+#CALL [\\游戏配置\任务配置\主线任务\主线_武馆教头.txt] @武馆教头_脚本
+
+[@teacher]
+{<$SELFNAME>=FCO=251}：\
+　你想做什么？\ \
+<了解拜师系统相关知识/@ask>\
+<我要拜师/@助理小敏_我想拜师>\
+<结束对话/@exit>
+
+[@ask]
+{<$SELFNAME>=FCO=251}：\
+　[$拜师等级]级以下的玩家可以拜[$师傅等级]级或以上的玩家为师。\
+　徒弟等级升高后师傅会得到[$出师师傅获得声望]点声望值，\
+　利用声望值可以到比奇领取荣誉勋章。\
+　徒弟[$出师等级]级将自动毕业出师。\ \
+<结束对话/@exit>
+
+[@助理小敏_我想拜师]
+#IF
+checkismaster
+#ACT
+MESSAGEBOX 你已经是别人的师父了，怎么还拜师？
+BREAK
+
+#IF
+checkmaster
+#ACT
+MESSAGEBOX 你已经拜了别人为师，怎么还拜师？
+BREAK
+
+#IF
+checkposemaster
+#ACT
+MESSAGEBOX 你找了个什么人做师父，怎么他现在还是别人的徒弟？
+BREAK
+
+#IF
+POSEHAVEMASTER
+#ACT
+MESSAGEBOX 本服务器目前师父只允许收取一位徒弟！
+BREAK
+
+#IF
+not checkposedir
+#ACT
+MESSAGEBOX 你要拜谁为师啊？请让他在你对面站好！
+BREAK
+
+#IF
+checklevel [$拜师等级]
+#ACT
+MESSAGEBOX 你都超过[$拜师等级]级了还要找师父啊？
+BREAK
+
+#IF
+checkposelevel ? [$师傅等级]
+#ACT
+MASTER
+#ELSEACT
+MESSAGEBOX 你找了个什么师父呀，等级这么低？
+
+[@助理小敏_我想拜师_确认拜师]
+#IF
+HAVEMASTER
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已经与别人建立了师徒关系，无法继续进行拜师仪式。\ \
+<结束对话/@Exit>
+#ELSEACT
+MASTER REQUESTMASTER
+
+[@StartGetMaster]
+{<$SELFNAME>=FCO=251}：\
+　拜师仪式正式开始。\
+　你是否确认拜{<$POSENAME>=FCO=251}为师？\ \
+<确　认/@助理小敏_我想拜师_确认拜师>\
+
+[@StartMaster]
+{<$SELFNAME>=FCO=251}：\
+　拜师仪式正式开始。\
+　请等待{<$POSENAME>=FCO=251}向你提出拜师。\ \
+
+[@WateMaster]
+{<$SELFNAME>=FCO=251}：\
+　你已经向对方发出拜师请求，请耐心等待对方的答复。\ \
+
+[@RevMaster]
+{<$SELFNAME>=FCO=251}：\
+　{<$POSENAME>=FCO=251}想拜你为师！\
+　你是否愿意收此人为徒？\ \
+<我愿意/@助理小敏_我想拜师_确认拜师_愿意> \
+<我不愿意/@助理小敏_我想拜师_确认拜师_不愿意>
+
+[@助理小敏_我想拜师_确认拜师_愿意]
+#if
+#act
+MASTER RESPONSEMASTER OK
+
+[@助理小敏_我想拜师_确认拜师_不愿意]
+#if
+#act
+MASTER RESPONSEMASTER FAIL
+
+[@EndMaster]
+{<$SELFNAME>=FCO=251}：\
+　恭喜二位，你们已经成功建立了师徒关系。\ \
+<结束对话/@Exit>
+
+[@EndMasterFail]
+{<$SELFNAME>=FCO=251}：\
+　拜师仪式结束，很遗憾你们没有建立师徒关系。\ \
+<结束对话/@Exit>
+
+[@MasterDirErr]
+{<$SELFNAME>=FCO=251}：\
+　对方没有站好位置，收徒无法继续进行。请下次再来。\ \
+<结束对话/@Exit>
+
+[@MasterCheckDir]
+{<$SELFNAME>=FCO=251}：\
+　请站好位置，收徒无法继续进行。请下次再来。\ \
+<结束对话/@Exit>
+
+[@HumanTypeErr]
+{<$SELFNAME>=FCO=251}：\
+　你对面站着的是人还是？我怎么看不见。你看见了吗？\ \
+<结束对话/@Exit>
+
+[@助理小敏_我想出师]
+#if
+havemaster
+#act
+unmaster
+#ELSEACT
+MESSAGEBOX 你都没有建立师徒关系，跑来做什么？
+
+[@ExeMasterFail]
+{<$SELFNAME>=FCO=251}：\
+　你都没有建立师徒关系，跑来做什么？\ \
+<结束对话/@Exit>
+
+[@UnMasterCheckDir]
+{<$SELFNAME>=FCO=251}：\
+　解除师徒关系是俩个人的事，必需俩个人面对面站好位置，如果\
+对方人来不了，你只能选择强行解除了。不过强化解除师徒关系需\
+要交纳{100W金币=FCO=243}的手续费。\ \
+<我要强行解除/@助理小敏_我想出师_强行出师>\
+<返回上一页/@系统_标准NPC头_返回>\
+
+[@UnMasterTypeErr]
+{<$SELFNAME>=FCO=251}：\
+　你对面站着的是人还是？我怎么看不见。你看见了吗？\ \
+<结束对话/@Exit>
+
+[@UnIsMaster]
+{<$SELFNAME>=FCO=251}：\
+　必需由徒弟发生请求！\ \
+<结束对话/@Exit>
+
+[@UnMasterError]
+{<$SELFNAME>=FCO=251}：\
+　你们不是师徒关系！\ \
+<结束对话/@Exit>
+
+[@StartUnMaster]
+{<$SELFNAME>=FCO=251}：\
+　出师仪式正在进行中！\
+　你是否确定要解除师徒关系？\ \
+<确　定/@RequestUnMaster>\
+<结束对话/@Exit>
+
+[@WateUnMaster]
+{<$SELFNAME>=FCO=251}：\
+　出师仪式正在进行中！\
+　请等待对方选择！\ \
+
+[@RevUnMaster]
+{<$SELFNAME>=FCO=251}：\
+　出师仪式正在进行中！\
+　对方已经确定要解除关系，你是否也确定要解除师徒关系？\ \
+<确　定/@RequestUnMaster>\
+<结束对话/@Exit>
+
+[@RequestUnMaster]
+#if
+havemaster
+#act
+unmaster REQUESTUNMASTER
+
+[@UnMasterEnd]
+{<$SELFNAME>=FCO=251}：\
+　你们已经成功解除了师徒关系了！\ \
+<结束对话/@Exit>
+
+[@助理小敏_我想出师_强行出师]
+#IF
+CHECKGOLD 1000000
+havemaster
+#SAY
+$RESETLABEL
+{<$SELFNAME>=FCO=251}：\
+　请选择你要解除师徒关系的人物名称。\ \
+<$UNMASTER_FORCE> \ \
+<返回上一页/@系统_所有NPC头_返回>\
+#ELSEACT
+MESSAGEBOX 强行解除需要100W金币手续费，你的金币不足！
+
+[@UnMaster_Force]
+#IF
+CHECKGOLD 1000000
+havemaster
+#ACT
+TAKE 金币 1000000
+unmaster force <$STR(T0)>
+#ELSEACT
+MESSAGEBOX 强行解除需要100W金币手续费，你的金币不足！
+
+}

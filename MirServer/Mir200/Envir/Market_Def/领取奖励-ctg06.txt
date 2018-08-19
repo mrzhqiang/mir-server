@@ -1,0 +1,12 @@
+[@main]
+#if
+CheckMapMonCount ctg06 < 1
+#act
+MESSAGEBOX 恭喜你把怪物全部干掉了
+GetRandomName ..\QuestDiary\活动\闯天关\天关奖励.txt S0
+give <$STR(S0)> 1
+SENDMSG 9   玩家【%s】不畏艰险，闯过了所有天关获得〖<$STR(S0)>〗奖励！ 243 241 
+mapmove 3 333 333
+break
+#ELSEACT
+MESSAGEBOX 必须清理完这层所有的怪物才能领取奖励!

@@ -1,0 +1,4 @@
+#CALL [\\游戏配置\NPC配置\商店配置\药店.txt] @药店标准配置头
+(@buy @sell @repair @makedrug)
+%100
++99

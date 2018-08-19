@@ -1,0 +1,23 @@
+%100
++10
++11
++15
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+  这里是最先进的航班！！！\ \
+<返回比奇大城/@回盟重>\
+[@回盟重]
+#IF
+checkgold 2000
+#ACT
+  SHOWEFFECT 14
+take 金币 2000
+mapmove 1 17 354
+break 
+#ELSEACT
+MESSAGEBOX 需要花费2000金币才能享受该服务!
+goto @main
+break

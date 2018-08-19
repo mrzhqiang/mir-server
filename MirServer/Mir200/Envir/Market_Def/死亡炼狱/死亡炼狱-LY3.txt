@@ -1,0 +1,21 @@
+(@buy @sell @repair)
+%100
++99
+[@main]
+邪恶的死亡炼狱之地已经激活\
+为保证各位生命安全，进入下一层炼狱需要10点声望\ \
+你目前的声望值为：<$CreditPoint>点\ \
+<传送死亡炼狱四层/@死亡炼狱四>\ \
+
+
+
+[@死亡炼狱四]
+#IF
+CheckCreditPoint ? 10
+#ACT
+CreditPoint - 10
+mapmove LY4 60 65
+SendMsg 0   [系统]：游戏玩家#7<$USERNAME>#7冒着生命危险冲进了『#6FFFF/8#6死亡炼狱四层#5』....
+#elseact
+messagebox  你没有足够的声望值！
+

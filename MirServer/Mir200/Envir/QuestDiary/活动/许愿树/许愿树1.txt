@@ -1,0 +1,233 @@
+[@许愿树2]
+{
+#IF
+EQUAL G108 299
+#ACT
+MOV G108 300
+MONGENEX ctg01 21 19 黑野猪狂暴 10 1
+MONGENEX ctg01 21 19 黑野猪精英 10 4
+MONGENEX ctg01 21 19 红野猪狂暴 10 1
+MONGENEX ctg01 21 19 红野猪精英 10 4
+MONGENEX ctg01 21 19 蝎蛇狂暴 10 1
+MONGENEX ctg01 21 19 蝎蛇精英 10 4
+MONGENEX ctg01 21 19 铁链尸王 10 1
+MONGENEX ctg01 21 19 阴沉尸王 10 1
+MONGENEX ctg02 21 19 恶灵僵尸狂暴 10 1
+MONGENEX ctg02 21 19 恶灵僵尸精英 10 6
+MONGENEX ctg02 21 19 恶灵尸王狂暴 10 1
+MONGENEX ctg02 21 19 恶灵尸王精英 10 6
+MONGENEX ctg02 21 19 阴沉沃玛教主 10 1
+MONGENEX ctg02 21 19 铁链尸王 10 1
+MONGENEX ctg02 21 19 阴沉尸王 10 1
+MONGENEX ctg03 21 19 蜈蚣狂暴 10 1
+MONGENEX ctg03 21 19 蜈蚣精英 10 4
+MONGENEX ctg03 21 19 钳虫狂暴 10 1
+MONGENEX ctg03 21 19 钳虫精英 10 4
+MONGENEX ctg03 21 19 跳跳蜂狂暴 10 1
+MONGENEX ctg03 21 19 跳跳蜂精英 10 4
+MONGENEX ctg03 21 19 巨型蠕虫狂暴 10 1
+MONGENEX ctg03 21 19 巨型蠕虫精英 10 4
+MONGENEX ctg03 21 19 邪恶钳虫精英 10 1
+MONGENEX ctg03 21 19 邪恶钳虫狂暴 10 1
+MONGENEX ctg04 44 38 沃玛战士狂暴 20 1
+MONGENEX ctg04 44 38 沃玛战士精英 20 2
+MONGENEX ctg04 44 38 沃玛勇士狂暴 20 1
+MONGENEX ctg04 44 38 沃玛勇士精英 20 2
+MONGENEX ctg04 44 38 沃玛战将狂暴 20 1
+MONGENEX ctg04 44 38 沃玛战将精英 20 2
+MONGENEX ctg04 44 38 火焰沃玛狂暴 20 1
+MONGENEX ctg04 44 38 火焰沃玛精英 20 2
+MONGENEX ctg04 44 38 暗黑战士狂暴 20 1
+MONGENEX ctg04 44 38 暗黑战士精英 20 2
+MONGENEX ctg04 44 38 粪虫狂暴 20 1
+MONGENEX ctg04 44 38 粪虫精英 20 2
+MONGENEX ctg04 44 38 沃玛卫士 20 1
+MONGENEX ctg04 44 38 沃玛教主 20 1
+MONGENEX ctg05 51 62 红野猪狂暴 30 2
+MONGENEX ctg05 51 62 红野猪精英 30 2
+MONGENEX ctg05 51 62 黑野猪狂暴 30 2
+MONGENEX ctg05 51 62 黑野猪精英 30 2
+MONGENEX ctg05 51 62 蝎蛇狂暴 30 2
+MONGENEX ctg05 51 62 蝎蛇精英 30 2
+MONGENEX ctg05 51 62 黑色恶蛆狂暴 30 2
+MONGENEX ctg05 51 62 黑色恶蛆精英 30 2
+MONGENEX ctg05 51 62 白野猪 30 5
+MONGENEX ctg05 51 62 邪恶毒蛇精英 30 2
+MONGENEX ctg06 44 38 虹魔猪卫狂暴 20 2
+MONGENEX ctg06 44 38 祖玛教主 20 1
+MONGENEX ctg06 44 38 祖玛卫士精英 20 6
+MONGENEX ctg06 44 38 祖玛雕像精英 20 6
+MONGENEX ctg06 44 38 祖玛弓手精英 20 6
+MONGENEX ctg06 44 38 大老鼠精英 20 6
+GMEXECUTE 开始提问 @次元结界
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『300』层,天关地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『300』层,天关地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『300』层,天关地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『300』层,天关地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『300』层,天关地图开启.. 0 116
+Break
+
+}
+
+[@许愿树3]
+{
+#IF
+EQUAL G108 599
+#ACT
+MOV G108 600
+MONGENEX digong 50 50 沃玛宝箱  40 10
+MONGENEX digong 50 50 沃玛宝箱  40 10
+MONGENEX digong 50 50 沃玛宝箱  40 10
+MONGENEX digong 50 50 石墓宝箱  40 8
+MONGENEX digong 50 50 石墓宝箱  40 8
+MONGENEX digong 50 50 祖玛宝箱  40 5
+MONGENEX digong 50 50 祖玛宝箱  40 5
+MONGENEX digong 50 50 牛魔宝箱  40 3
+MONGENEX digong 50 50 祖玛卫士精英 40 6
+MONGENEX digong 50 50 祖玛雕像精英 40 6
+MONGENEX digong 50 50 祖玛弓手精英 40 6
+GMEXECUTE 开始提问 @寻宝活动提示
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『600』层,幸运宝箱地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『600』层,幸运宝箱地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『600』层,幸运宝箱地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『600』层,幸运宝箱地图开启.. 0 116
+SendMsg 9  <$USERNAME>投入了新的力量,许愿树达到『600』层,幸运宝箱地图开启.. 0 116
+MOV G108 0
+Break
+}
+
+
+[@精致奖励]
+{
+#if
+RANDOM 2
+#act
+INC G108 1
+MOVR G40 10000 20000
+give 金币 <$STR(G40)>
+SendMsg 6 运气真好！投放[精致装备]获得[<$STR(G40)>]金币！
+SendMsg 4 “<$USERNAME>”投放精致装备，层数增加1层！当前达到:<$STR(G108)>层!
+break
+
+#if
+RANDOM 1
+#act
+INC G108 1
+SendMsg 4 “<$USERNAME>”投放精致装备，层数增加1层！当前达到:<$STR(G108)>层!
+break
+}
+
+[@完美奖励]
+{
+#if
+RANDOM 2
+#ACT
+INC G108 1
+MOVR G40 20000 30000
+give 金币 <$STR(G40)>
+SendMsg 6 运气真好！投放[完美装备]获得[<$STR(G40)>]金币
+SendMsg 4 “<$USERNAME>”投放完美装备，层数增加1层！当前达到:<$STR(G108)>层!
+Break
+
+#if
+RANDOM 1
+#act
+INC G108 1
+SendMsg 4 “<$USERNAME>”投放完美装备，层数增加1层！当前达到:<$STR(G108)>层!
+break
+}
+
+
+[@卓越奖励]
+{
+#IF
+RANDOM 3
+#ACT
+GetRandomName ..\QuestDiary\活动\许愿树\卓越经验列表.txt S444
+ChangeExp + <$STR(S444)>
+SendMsg 4 “<$USERNAME>”投放[卓越装备]获得[<$STR(S444)>]经验
+MOV S444 0
+Break
+
+#if
+RANDOM 2
+#ACT
+INC G108 1
+MOVR G40 30000 50000
+give 金币 <$STR(G40)>
+SendMsg 6 运气真好！投放[卓越装备]获得[<$STR(G40)>]金币
+SendMsg 4 “<$USERNAME>”投放卓越装备，层数增加1层！当前达到:<$STR(G108)>层!
+Break
+
+#if
+RANDOM 1
+#act
+INC G108 1
+SendMsg 4 “<$USERNAME>”投放卓越装备，层数增加1层！当前达到:<$STR(G108)>层!
+break
+
+}
+
+[@传说奖励]
+{
+#IF
+RANDOM 4
+#ACT
+GetRandomName ..\QuestDiary\活动\许愿树\传说经验列表.txt S444
+ChangeExp + <$STR(S444)>
+SendMsg 4 “<$USERNAME>”投放[传说装备]获得[<$STR(S444)>]经验
+MOV S444 0
+Break
+
+#if
+RANDOM 2
+#ACT
+INC G108 1
+MOVR G40 50000 100000
+give 金币 <$STR(G40)>
+SendMsg 6 运气真好！投放[传说装备]获得[<$STR(G40)>]金币
+SendMsg 4 “<$USERNAME>”投放传说装备，层数增加1层！当前达到:<$STR(G108)>层!
+Break
+
+#if
+RANDOM 1
+#act
+INC G108 1
+SendMsg 4 “<$USERNAME>”投放传说装备，层数增加1层！当前达到:<$STR(G108)>层!
+break
+
+}
+
+
+
+
+
+[@史诗奖励]
+{
+#IF
+RANDOM 5
+#ACT
+GetRandomName ..\QuestDiary\活动\许愿树\史诗经验列表.txt S444
+ChangeExp + <$STR(S444)>
+SendMsg 4 “<$USERNAME>”投放[史诗装备]获得[<$STR(S444)>]经验
+MOV S444 0
+Break
+
+#if
+RANDOM 2
+#ACT
+INC G108 1
+MOVR G40 100000 200000
+give 金币 <$STR(G40)>
+SendMsg 6 运气真好！投放[史诗装备]获得[<$STR(G40)>]金币
+SendMsg 4 “<$USERNAME>”投放史诗装备，层数增加1层！当前达到:<$STR(G108)>层!
+Break
+
+#if
+RANDOM 1
+#act
+INC G108 1
+SendMsg 4 “<$USERNAME>”投放史诗装备，层数增加1层！当前达到:<$STR(G108)>层!
+break
+
+}

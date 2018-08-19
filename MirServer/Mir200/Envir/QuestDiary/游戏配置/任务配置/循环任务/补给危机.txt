@@ -1,0 +1,524 @@
+[@补给危机_结束]
+{
+[@任务_补给危机_结束]
+#IF
+CHECKMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受已完成变量值]
+#ACT
+GOTO @任务_补给危机_结束_完成
+#ELSESAY
+{<$SELFNAME>=FCO=243}：\
+　我眼神不太好，这补给镖车在那里啊？\
+我怎么看不到，你能告诉我吗？\
+　{（请将镖车领到NPC旁边）=FCO=251}\ 
+<&结束对话/@exit>\
+
+[@任务_补给危机_结束_完成]
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_60] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_60]
+MOV P1 [$押镖_补给危机_经验_60]
+MOV P2 [$押镖_补给危机_声望_60]
+MOV P3 [$押镖_补给危机_押金_60]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_60_补] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_60]
+MOV P1 [$押镖_补给危机_经验_60]
+MOV P2 [$押镖_补给危机_声望_60]
+MOV P3 [$押镖_补给危机_押金_60]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_55] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_55]
+MOV P1 [$押镖_补给危机_经验_55]
+MOV P2 [$押镖_补给危机_声望_55]
+MOV P3 [$押镖_补给危机_押金_55]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_55_补] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_55]
+MOV P1 [$押镖_补给危机_经验_55]
+MOV P2 [$押镖_补给危机_声望_55]
+MOV P3 [$押镖_补给危机_押金_55]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_50] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_50]
+MOV P1 [$押镖_补给危机_经验_50]
+MOV P2 [$押镖_补给危机_声望_50]
+MOV P3 [$押镖_补给危机_押金_50]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_50_补] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_50]
+MOV P1 [$押镖_补给危机_经验_50]
+MOV P2 [$押镖_补给危机_声望_50]
+MOV P3 [$押镖_补给危机_押金_50]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_45] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_45]
+MOV P1 [$押镖_补给危机_经验_45]
+MOV P2 [$押镖_补给危机_声望_45]
+MOV P3 [$押镖_补给危机_押金_45]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_45_补] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_45]
+MOV P1 [$押镖_补给危机_经验_45]
+MOV P2 [$押镖_补给危机_声望_45]
+MOV P3 [$押镖_补给危机_押金_45]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_40] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_40]
+MOV P1 [$押镖_补给危机_经验_40]
+MOV P2 [$押镖_补给危机_声望_40]
+MOV P3 [$押镖_补给危机_押金_40]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_40_补] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_40]
+MOV P1 [$押镖_补给危机_经验_40]
+MOV P2 [$押镖_补给危机_声望_40]
+MOV P3 [$押镖_补给危机_押金_40]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_35] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_35]
+MOV P1 [$押镖_补给危机_经验_35]
+MOV P2 [$押镖_补给危机_声望_35]
+MOV P3 [$押镖_补给危机_押金_35]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_35_补] 5
+#ACT
+MOV P0 [$押镖_补给危机_金币_35]
+MOV P1 [$押镖_补给危机_经验_35]
+MOV P2 [$押镖_补给危机_声望_35]
+MOV P3 [$押镖_补给危机_押金_35]
+MOV S0 灵兽经验丹
+GOTO @任务_补给危机_结束_完成_领奖
+#ELSEACT
+MESSAGEBOX 你的镖车呢？我怎么没有看到。\你确定你真的给我送来了？
+
+[@任务_补给危机_结束_完成_领奖]
+#IF
+CHECKMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受已完成变量值]
+#ACT
+DELMISSION [$任务_循环任务_押镖任务变量]
+SETMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受未完成变量值]
+KILLSLAVE [$押镖_补给危机_镖车_60_补]
+KILLSLAVE [$押镖_补给危机_镖车_55_补]
+KILLSLAVE [$押镖_补给危机_镖车_50_补]
+KILLSLAVE [$押镖_补给危机_镖车_45_补]
+KILLSLAVE [$押镖_补给危机_镖车_40_补]
+KILLSLAVE [$押镖_补给危机_镖车_35_补]
+KILLSLAVE [$押镖_补给危机_镖车_60]
+KILLSLAVE [$押镖_补给危机_镖车_55]
+KILLSLAVE [$押镖_补给危机_镖车_50]
+KILLSLAVE [$押镖_补给危机_镖车_45]
+KILLSLAVE [$押镖_补给危机_镖车_40]
+KILLSLAVE [$押镖_补给危机_镖车_35]
+INC C1 1
+INC G35 1
+ClearDelayGoto 镖车健在标识
+GIVE 金币 <$STR(P0)>
+GIVE 金币 <$STR(P3)>
+CHANGEEXP + <$STR(P1)>
+CREDITPOINT + <$STR(P2)>
+GIVE <$STR(S0)> 1
+INC C0 50
+  SHOWEFFECT 20
+  SHOWEFFECT 21
+  SHOWEFFECT 22
+  SHOWEFFECT 23
+  SHOWEFFECT 24
+  SHOWEFFECT 25
+  SHOWEFFECT 26
+  SHOWEFFECT 27
+SENDMSG 0 玩家[#7%s#7]历尽千辛，终于将#6FFFF/8#6补给镖车#5安全的送到了#6FFFF/8#6沙巴克废墟#5，并获得#6FFFF/8#6(<$STR(S0)>)#5(#6FFFF/8#6<$STR(P0)>金币#5)(#6FFFF/8#6<$STR(P1)>经验#5)(#6FFFF/8#6<$STR(P2)>点声望#5),并退还了(#6FFFF/8#6<$STR(P3)>押金#5)
+#SAY
+　哎呀！你真是来的及时啊。最近杀人犯\
+是越来越多，我这里的东西是供不应求啊！\
+　这是你这次的报酬。拿去吧！\ 
+<&结束对话/@exit>\
+}
+
+[@补给危机]
+{
+[@林镖头_接受镖车_补给危机]
+#IF
+#ACT
+MOV P1 0
+MOV P0 [$任务_每日可押镖车次数]
+DEC P0 <$MISSIONARITHMOMETER([$ARITHMOMETER循环常量_补给危机])>
+#SAY
+{<$SELFNAME>=FCO=243}：\
+　最近沙巴克废弃的矿洞出现的怪物是越\
+来越多了，那里的供给已经严重短缺。你\
+要帮我将镖车送到{仲天译（沙巴克左上角[468,318]）=FCO=251}\
+那里，为防止有强盗劫车建议结伴而行。\
+　该趟镖每天可以{接受 [$任务_每日可押镖车次数] 次=FCO=251}\
+　你今天还有 {<$STR(P0)> 次=FCO=251}机会\
+　{特别提醒：请务必在[$任务_补给危机_押镖时间]分钟内将镖车送=FCO=240}\
+{到红名村，否则镖车将自动损坏。同时任=FCO=240}\
+{务也将宣告失败！押金将不予退还。=FCO=240}\ 
+<&押镖奖励/@林镖头_接受镖车_补给危机_押镖奖励>\
+<&{接受镖车=FCO=251}/@林镖头_接受镖车_补给危机_正式接受>\
+<&返回/@林镖头_接受镖车>\
+
+[@林镖头_接受镖车_补给危机_押镖奖励]
+{<$SELFNAME>=FCO=243}：\
+{35-39级=FCO=240}　　　　　 {40-44级=FCO=240}\
+{押金:[$押镖_补给危机_押金_35]金币=FCO=243}　 {押金:[$押镖_补给危机_押金_40]金币=FCO=243}\
+奖励:金币[$押镖_补给危机_金币_35]　 奖励:金币[$押镖_补给危机_金币_40]\
+　　　经验[$押镖_补给危机_经验_35]　　 经验[$押镖_补给危机_经验_40]\
+　　　声望[$押镖_补给危机_声望_35]点　　　　　{2=x}声望[$押镖_补给危机_声望_40]点\
+
+{45-49级=FCO=240}　　　　　 {50-54级=FCO=240}\
+{押金:[$押镖_补给危机_押金_45]金币=FCO=243}　{押金:[$押镖_补给危机_押金_50]金币=FCO=243}\
+奖励:金币[$押镖_补给危机_金币_45]　 奖励:金币[$押镖_补给危机_金币_50]\
+　　　经验[$押镖_补给危机_经验_45]　　 经验[$押镖_补给危机_经验_50]\
+　　　声望[$押镖_补给危机_声望_45]点　　　　 {2=x}声望[$押镖_补给危机_声望_50]点\
+
+{55-59级=FCO=240}　　　　　 {60级以上=FCO=240}\
+{押金:[$押镖_补给危机_押金_55]金币=FCO=243}　{押金:[$押镖_补给危机_押金_60]金币=FCO=243}\
+奖励:金币[$押镖_补给危机_金币_55]　 奖励:金币[$押镖_补给危机_金币_60]\
+　　　经验[$押镖_补给危机_经验_55]　　 经验[$押镖_补给危机_经验_60]\
+　　　声望[$押镖_补给危机_声望_55]点　　　　 {2=x}声望[$押镖_补给危机_声望_60]点\
+\
+<&接受镖车/@林镖头_接受镖车_补给危机_正式接受>\
+<&返回上一页/@林镖头_接受镖车_补给危机>
+
+
+[@林镖头_接受镖车_补给危机_正式接受]
+#IF
+NOT CHECKLEVEL 999
+CHECKLEVEL 60
+#ACT
+MOV P0 [$押镖_补给危机_押金_60]
+MOV S0 [$任务_补给危机_客户端名称_60]
+MOV S1 [$押镖_补给危机_镖车_60]
+GOTO @林镖头_接受镖车_补给危机_正式接受_接受
+BREAK
+
+#IF
+NOT CHECKLEVEL 60
+CHECKLEVEL 50
+#ACT
+MOV P0 [$押镖_补给危机_押金_55]
+MOV S0 [$任务_补给危机_客户端名称_55]
+MOV S1 [$押镖_补给危机_镖车_55]
+GOTO @林镖头_接受镖车_补给危机_正式接受_接受
+BREAK
+
+#IF
+NOT CHECKLEVEL 50
+CHECKLEVEL 45
+#ACT
+MOV P0 [$押镖_补给危机_押金_50]
+MOV S0 [$任务_补给危机_客户端名称_50]
+MOV S1 [$押镖_补给危机_镖车_50]
+GOTO @林镖头_接受镖车_补给危机_正式接受_接受
+BREAK
+
+#IF
+NOT CHECKLEVEL 45
+CHECKLEVEL 40
+#ACT
+MOV P0 [$押镖_补给危机_押金_45]
+MOV S0 [$任务_补给危机_客户端名称_45]
+MOV S1 [$押镖_补给危机_镖车_45]
+GOTO @林镖头_接受镖车_补给危机_正式接受_接受
+BREAK
+
+#IF
+NOT CHECKLEVEL 40
+CHECKLEVEL 35
+#ACT
+MOV P0 [$押镖_补给危机_押金_40]
+MOV S0 [$任务_补给危机_客户端名称_40]
+MOV S1 [$押镖_补给危机_镖车_40]
+GOTO @林镖头_接受镖车_补给危机_正式接受_接受
+BREAK
+
+#IF
+NOT CHECKLEVEL 35
+CHECKLEVEL 30
+#ACT
+MOV P0 [$押镖_补给危机_押金_35]
+MOV S0 [$任务_补给危机_客户端名称_35]
+MOV S1 [$押镖_补给危机_镖车_35]
+GOTO @林镖头_接受镖车_补给危机_正式接受_接受
+#ELSEACT
+MESSAGEBOX 您的等级太低，请35级以后再来找我！
+
+[@林镖头_接受镖车_补给危机_正式接受_接受]
+#IF
+CHECKLEVEL 30
+#ACT
+#ELSEACT
+MESSAGEBOX 你等级太低了，练到30级再来找我吧。
+BREAK
+
+#IF
+CHECKMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受未完成变量值]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35_补]
+#ACT
+#ELSEACT
+MESSAGEBOX 你不是已经接过一辆镖车了吗？\如果镖车没了，那就请补镖吧。
+BREAK
+
+#IF
+CHECKARITHMOMETERCOUNT [$ARITHMOMETER循环常量_补给危机] < [$任务_每日可押镖车次数]
+#ACT
+#ELSEACT
+MESSAGEBOX 今天你已接过[$任务_每日可押镖车次数]次镖车了，请明天再来。
+BREAK
+
+#IF
+NOT CHECKGOLD <$STR(P0)>
+#ACT
+MESSAGEBOX 您的金币不足，本次补镖需要支付<$STR(P0)>金币！
+BREAK
+
+#IF
+CHECKMISSIONCOUNT ? 1
+#ACT
+TAKE 金币 <$STR(P0)>
+DELMISSION [$任务_循环任务_押镖任务变量]
+ADDMISSION [$任务_循环任务_押镖任务变量] <$STR(S0)> [$任务_补给危机_押镖时间]
+SETMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受已完成变量值]
+DEC G35 1
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+MOBSLAVE <$STR(S1)> 1 0
+CHANGEARITHMOMETERCOUNT [$ARITHMOMETER循环常量_补给危机] + 1
+SENDMSG 0 【#6FFFF/8#6押镖#5】：玩家[#7<$USERNAME>#7]接取了镖车，各路绿林好汉注意了！完成后将#6FFFF/8#6退还全部押金#5，并获得#6FFFF/8#6海量经验#5、#6FFFF/8#6灵兽经验丹#5奖励！
+SENDMSG 8 【#6FFFF/8#6押镖#5】：玩家#6FFFF/8#6[<$USERNAME>]#5接取了镖车，各路绿林好汉注意了！完成后将#6FFFF/8#6退还全部押金#5，并获得#6FFFF/8#6海量经验#5、#6FFFF/8#6灵兽经验丹#5奖励！
+SHOWEFFECT [$特效_接受任务]
+close
+#ELSEACT
+MESSAGEBOX 对不起，你的任务列表已经满了！
+
+[@检测镖是否还在]
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_60]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_55]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_50]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_45]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_40]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_35]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_60_补]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_55_补]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_50_补]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_45_补]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_40_补]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+BREAK
+
+#IF
+CHECKSLAVENAME [$押镖_补给危机_镖车_35_补]
+#ACT
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+#ELSEACT
+INC G35 1
+INC C3 1
+ClearDelayGoto 镖车健在标识
+SENDMSG 0 【#6FFFF/8#6押镖#5】：玩家[#7<$USERNAME>#7]的#6FFFF/8#6补给镖车#5在(#6FFFF/8#6%m,%x:%y#5)被劫，损失惨重！
+SENDMSG 5 你的镖车被其他玩家给劫了，建议你找林镖头重新补办镖车。
+MESSAGEBOX 你的镖车被其他玩家给劫了，建议你找林镖头重新补办。
+Break
+
+[@林镖头_补办镖车_补给危机]
+#IF
+NOT CHECKLEVEL 999
+CHECKLEVEL 60
+#ACT
+MOV P0 [$押镖_补给危机_押金_60_补]
+MOV S1 [$押镖_补给危机_镖车_60_补]
+GOTO @林镖头_补给镖车_补给危机_补给
+BREAK
+
+#IF
+NOT CHECKLEVEL 60
+CHECKLEVEL 50
+#ACT
+MOV P0 [$押镖_补给危机_押金_55_补]
+MOV S1 [$押镖_补给危机_镖车_55_补]
+GOTO @林镖头_补给镖车_补给危机_补给
+BREAK
+
+#IF
+NOT CHECKLEVEL 50
+CHECKLEVEL 45
+#ACT
+MOV P0 [$押镖_补给危机_押金_50_补]
+MOV S1 [$押镖_补给危机_镖车_50_补]
+GOTO @林镖头_补给镖车_补给危机_补给
+BREAK
+
+#IF
+NOT CHECKLEVEL 45
+CHECKLEVEL 40
+#ACT
+MOV P0 [$押镖_补给危机_押金_45_补]
+MOV S1 [$押镖_补给危机_镖车_45_补]
+GOTO @林镖头_补给镖车_补给危机_补给
+BREAK
+
+#IF
+NOT CHECKLEVEL 40
+CHECKLEVEL 35
+#ACT
+MOV P0 [$押镖_补给危机_押金_40_补]
+MOV S1 [$押镖_补给危机_镖车_40_补]
+GOTO @林镖头_补给镖车_补给危机_补给
+BREAK
+
+#IF
+NOT CHECKLEVEL 35
+CHECKLEVEL 30
+#ACT
+MOV P0 [$押镖_补给危机_押金_35_补]
+MOV S1 [$押镖_补给危机_镖车_35_补]
+GOTO @林镖头_补给镖车_补给危机_补给
+#ELSEACT
+MESSAGEBOX 您的等级太低，请提升等级以后再来！
+
+[@林镖头_补给镖车_补给危机_补给]
+#IF
+CHECKMISSION [$任务_补给危机_接受变量] [$任务_补给危机_接受已完成变量值]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_60_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_55_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_50_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_45_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_40_补]
+NOT CHECKSLAVENAME [$押镖_补给危机_镖车_35_补]
+CHECKGOLD <$STR(P0)>
+#ACT
+TAKE 金币 <$STR(P0)>
+MOBSLAVE <$STR(S1)> 1 0
+DEC G35 1
+UPDATEMISSIONTIME [$任务_循环任务_押镖任务变量] [$任务_补给危机_押镖时间]
+DelayGoto 5 @检测镖是否还在 镖车健在标识
+SENDMSG 0 【#6FFFF/8#6押镖#5】：玩家[#7<$USERNAME>#7]接取了镖车，各路绿林好汉注意了！完成后将#6FFFF/8#6退还全部押金#5，并获得#6FFFF/8#6海量经验#5、#6FFFF/8#6灵兽经验丹#5奖励！
+SENDMSG 8 【#6FFFF/8#6押镖#5】：玩家#6FFFF/8#6[<$USERNAME>]#5接取了镖车，各路绿林好汉注意了！完成后将#6FFFF/8#6退还全部押金#5，并获得#6FFFF/8#6海量经验#5、#6FFFF/8#6灵兽经验丹#5奖励！
+close
+#ELSEACT
+MESSAGEBOX 您的金币不足，本次补镖需要支付<$STR(P0)>金币！
+Break
+
+}

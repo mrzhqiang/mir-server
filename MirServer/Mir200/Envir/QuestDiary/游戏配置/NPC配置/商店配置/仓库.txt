@@ -1,0 +1,43 @@
+[@仓库标准配置头]
+{
+(@storage @getback )
+%100
+[@main]
+#CALLX [\\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#CALLX [\\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_交易NPC头内容
+
+[@系统_交易NPC头_返回]
+}
+
+[@仓库标准配置无任务]
+{
+{<$SELFNAME>=FCO=243}：{需要帮忙吗？目前不收保管费。=FCO=224}\
+<&打开仓库/@storage>\
+<&租用仓库/@仓库_租用仓库>\
+<&关闭/@exit>\
+}
+
+[@仓库标准配置尾]
+{
+[@仓库_租用仓库] 
+{<$SELFNAME>=FCO=243}：{买一送一，租一个等于两个。=FCO=224}{[金条]1根/365天=FCO=251}\ \
+{您当前额外仓库到期时间为：=FCO=224}\
+{仓库二：=FCO=224}{<$STORAGE2STATE>=FCO=245}\
+{仓库三：=FCO=224}{<$STORAGE3STATE>=FCO=245}\
+{10=y}<&租用额外仓库/@仓库_租用仓库_租用>\
+<&返回/@系统_交易NPC头_返回>\
+
+[@仓库_租用仓库_租用]
+#if
+CheckItemCount 金条 ? 1
+#act
+TakeCount 金条 1
+STORAGETIMECHANGE 2 + 365
+STORAGETIMECHANGE 3 + 365
+MESSAGEBOX 恭喜您，成功的为额外仓库增加了[$租用仓库时间]天时间
+GOTO @仓库_租用仓库
+#elseact
+MESSAGEBOX 对不起，您的金条不够!
+}

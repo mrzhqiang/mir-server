@@ -1,0 +1,4 @@
+#CALL [\\游戏配置\NPC配置\商店配置\项链店.txt] @项链店标准配置头
+(@buy @sell @repair @makedrug)
+%100
++99

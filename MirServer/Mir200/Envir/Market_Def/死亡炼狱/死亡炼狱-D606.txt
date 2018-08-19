@@ -1,0 +1,20 @@
+(@buy @sell @repair)
+%100
++99
+[@main]
+邪恶的死亡炼狱之地已经激活\
+进入需要一个金条,每层传送都需要10点声望值\ 
+在<2015年8月10日12:00>前无法进入死亡炼狱\
+您目前的声望值是：<$CreditPoint>点
+<传送死亡炼狱/@死亡炼狱一><金条X1>\ \
+
+[@死亡炼狱一]
+#IF
+CheckCurrentDate > 2015-8-10 12:00:00
+CheckItemCount 金条 ? 1
+#ACT
+take 金条 1
+mapmove LY1 60 65
+SendMsg 0   [系统]：游戏玩家#7<$USERNAME>#7冒着生命危险冲进了『#6FFFF/8#6死亡炼狱一层#5』....
+#elseact
+messagebox  你没有金条或者开门时间未到，趁早滚蛋！

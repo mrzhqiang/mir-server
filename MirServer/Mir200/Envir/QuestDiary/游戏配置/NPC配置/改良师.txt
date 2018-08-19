@@ -1,0 +1,599 @@
+[@改良师标准配置]
+{
+(@ArmStrengthen @ArmUnseal @ArmRemoveStone)
+[@MAIN]
+ {<$SELFNAME>=FCO=251}：\
+{装备改造可以通过这些途径!=FCO=243}\ \
+ 　<&{装备强化=FCO=251}/@ArmStrengthen>\
+ 　<&{打孔=FCO=251}/@凹槽页面>\
+ 　<&{卸下宝石=FCO=251}/@ArmRemoveStone>\
+
+
+;——————————————————————————————————————————————————————————
+
+[@凹槽页面]
+　请先把想要改良的装备穿在身上，然后\
+在下方选择对应的装备位置进行操作：\ \
+　　　========================\
+　　　= 　　　　 <头盔/@item2_4>　　　　 =\
+　　　= <武器/@item1_4>　　　 　　　<项链/@item3_4> =\
+　　　= 　　　 　<衣服/@item0_4>　　勋章 =\
+　　　= <护腕/@item6_4>　　　　 　　<护腕/@item5_4> =\
+　　　= <戒指/@item8_4>　　　　 　　<戒指/@item7_4> =\
+　　　= <腰带/@item10_4> 左印　 右印 <靴子/@item11_4> =\
+　　　========================\ \
+(增加{1个凹槽=FCO=250}需3枚{再生宝石=FCO=245},{100%成功率=FCO=242})\
+(增加{2个凹槽=FCO=250}需6枚{再生宝石=FCO=245},{50%成功率=FCO=242})\
+(增加{3个凹槽=FCO=250}需9枚{再生宝石=FCO=245},{33%成功率=FCO=242})\ \
+<&返回主菜单/@MAIN>\
+<&关闭/@exit>\
+
+[@item0_4]
+#IF
+NOT CHECKUSEITEM 0
+#SAY
+　您身上的该位置 {(衣服)=FCO=249} 未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$DRESS>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item0_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item0_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item0_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item1_4]
+#IF
+NOT CHECKUSEITEM 1
+#SAY
+　您身上的该位置 {(武器)=FCO=249} 未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$WEAPON>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item1_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item1_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item1_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item2_4]
+#IF
+NOT CHECKUSEITEM 2
+#SAY
+　您身上的该位置 {(头盔)=FCO=249} 未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$HELMET>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item2_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item2_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item2_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item3_4]
+#IF
+NOT CHECKUSEITEM 3
+#SAY
+　您身上的该位置 {(项链)=FCO=249} 未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$NECKLACE>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item3_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item3_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item3_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item5_4]
+#IF
+NOT CHECKUSEITEM 5
+#SAY
+　您身上的该位置{(右手镯)=FCO=249}未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$ARMRING_L>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item5_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item5_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item5_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item6_4]
+#IF
+NOT CHECKUSEITEM 6
+#SAY
+　您身上的该位置{(左手镯)=FCO=249}未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$ARMRING_R>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item6_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item6_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item6_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item7_4]
+#IF
+NOT CHECKUSEITEM 7
+#SAY
+　您身上的该位置{(右戒指)=FCO=249}未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$RING_L>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item7_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item7_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item7_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item8_4]
+#IF
+NOT CHECKUSEITEM 8
+#SAY
+　您身上的该位置{(左戒指)=FCO=249}未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$RING_R>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item8_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item8_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item8_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item10_4]
+#IF
+NOT CHECKUSEITEM 10
+#SAY
+　您身上的该位置 {(腰带)=FCO=249} 未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$BELT>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item10_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item10_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item10_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item11_4]
+#IF
+NOT CHECKUSEITEM 11
+#SAY
+　您身上的该位置 {(靴子)=FCO=249} 未检测到装备，\
+请先穿戴好装备，再进行改良操作！\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+#ELSESAY
+　本次选取“{<$BOOTS>=FCO=249}”进行操作，\
+改良需要3~9枚{再生宝石=FCO=245}：\ \
+<&增加{[1]=FCO=250}个凹槽 {(成功率:100%)=FCO=251}/@item11_4_1>\
+<&增加{[2]=FCO=250}个凹槽 {(成功率:50%)=FCO=251}/@item11_4_2>\
+<&增加{[3]=FCO=250}个凹槽 {(成功率:33%)=FCO=251}/@item11_4_3>\ \
+<&返回重新选取/@凹槽页面>\
+<&关闭/@exit>\
+
+[@item0_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 0
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item0_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 0
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item0_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 0
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item1_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 1
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item1_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 1
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item1_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 1
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item2_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 2
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item2_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 2
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item2_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 2
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item3_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 3
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item3_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 3
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item3_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 3
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+
+[@item5_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 5
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item5_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 5
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item5_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 5
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item6_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 6
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item6_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 6
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item6_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 6
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item7_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 7
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item7_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 7
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item7_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 7
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item8_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 8
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item8_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 8
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item8_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 8
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item10_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 10
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item10_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 10
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item10_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 10
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+[@item11_4_1]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 3
+#ACT
+TAKECOUNT 再生宝石 3
+MOV S0 11
+Goto @开始_增加凹槽_1
+#ELSEACT
+Goto @增加凹槽_1_错误提示
+
+[@item11_4_2]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 6
+#ACT
+TAKECOUNT 再生宝石 6
+MOV S0 11
+Goto @开始_增加凹槽_2
+#ELSEACT
+Goto @增加凹槽_2_错误提示
+
+[@item11_4_3]
+#IF
+CHECKITEMCOUNT 再生宝石 ? 9
+#ACT
+TAKECOUNT 再生宝石 9
+MOV S0 11
+Goto @开始_增加凹槽_3
+#ELSEACT
+Goto @增加凹槽_3_错误提示
+
+
+
+[@增加凹槽_1_错误提示]
+　对不起，增加{1=FCO=249}个凹槽需要{3=FCO=249}枚再生宝石，\
+您的再生宝石不足，请确认！\ \
+　您可以通过{打怪=FCO=249}获得。\ \
+<&返回主菜单/@MAIN>\
+<&关闭/@exit>\
+
+[@增加凹槽_2_错误提示]
+　对不起，增加{2=FCO=249}个凹槽需要{6=FCO=249}枚再生宝石，\
+您的再生宝石不足，请确认！\ \
+　您可以通过{打怪=FCO=249}获得。\ \
+<&返回主菜单/@MAIN>\
+<&关闭/@exit>\
+
+[@增加凹槽_3_错误提示]
+　对不起，增加{3=FCO=249}个凹槽需要{9=FCO=249}枚再生宝石，\
+您的再生宝石不足，请确认！\ \
+　您可以通过{打怪=FCO=249}获得。\ \
+<&返回主菜单/@MAIN>\
+<&关闭/@exit>\
+
+
+[@开始_增加凹槽_1]
+#IF
+#ACT
+HookItem <$STR(S0)>
+CHANGEGIVEITEM 4 1
+CHANGEGIVEITEM 8
+SENDMSG 0 【#6FFFF/8#6吴朝阳#5】：[#7<$USERNAME>#7]将身上的某件装备改造成功，增加了#6FFFF/8#6(1)#5个凹槽。
+SENDMSG 8 【#6FFFF/8#6吴朝阳#5】：#6FFFF/8#6[<$USERNAME>]#5将身上的某件装备改造成功，增加了#6FFFF/8#6(1)#5个凹槽。
+#SAY
+　{恭喜，本次成功为装备增加了[1]个凹槽，=FCO=250}\
+{赶紧查看一下吧。=FCO=250}\ \
+<&返回主菜单/@MAIN>\
+<&关闭/@exit>\
+
+[@开始_增加凹槽_2]
+#IF
+random 2
+#ACT
+HookItem <$STR(S0)>
+CHANGEGIVEITEM 4 2
+CHANGEGIVEITEM 8
+  SHOWEFFECT 20
+  SHOWEFFECT 21
+  SHOWEFFECT 22
+  SHOWEFFECT 23
+  SHOWEFFECT 24
+  SHOWEFFECT 25
+  SHOWEFFECT 26
+  SHOWEFFECT 27
+SENDMSG 0 【#6FFFF/8#6吴朝阳#5】：[#7<$USERNAME>#7]将身上的某件装备改造成功，增加了#6FFFF/8#6(2)#5个凹槽。
+SENDMSG 8 【#6FFFF/8#6吴朝阳#5】：#6FFFF/8#6[<$USERNAME>]#5将身上的某件装备改造成功，增加了#6FFFF/8#6(2)#5个凹槽。
+#SAY
+　{恭喜，本次成功为装备增加了[2]个凹槽，=FCO=250}\
+{赶紧查看一下吧。=FCO=250}\ \
+<&返回主菜单/@MAIN>\
+<&关闭/@exit>\
+#ELSESAY
+　{很遗憾，本次为装备增加凹槽未成功，=FCO=249}\
+{祝您下次好运！=FCO=249}\ \
+<&我就不信了，再来一次/@凹槽页面>\
+<&关闭/@exit>\
+
+[@开始_增加凹槽_3]
+#IF
+random 3
+#ACT
+HookItem <$STR(S0)>
+CHANGEGIVEITEM 4 3
+CHANGEGIVEITEM 8
+  SHOWEFFECT 20
+  SHOWEFFECT 21
+  SHOWEFFECT 22
+  SHOWEFFECT 23
+  SHOWEFFECT 24
+  SHOWEFFECT 25
+  SHOWEFFECT 26
+  SHOWEFFECT 27
+SENDMSG 0 【#6FFFF/8#6吴朝阳#5】：[#7<$USERNAME>#7]将身上的某件装备改造成功，增加了#6FFFF/8#6(3)#5个凹槽。
+SENDMSG 8 【#6FFFF/8#6吴朝阳#5】：#6FFFF/8#6[<$USERNAME>]#5将身上的某件装备改造成功，增加了#6FFFF/8#6(3)#5个凹槽。
+#SAY
+　{恭喜，本次成功为装备增加了[3]个凹槽，=FCO=250}\
+{赶紧查看一下吧。=FCO=250}\ \
+<&返回主菜单/@MAIN>\
+<&关闭/@exit>\
+#ELSESAY
+　{很遗憾，本次为装备增加凹槽未成功，=FCO=249}\
+{祝您下次好运！=FCO=249}\ \
+<&我就不信了，再来一次/@凹槽页面>\
+<&关闭/@exit>\
+
+
+;——————————————————————————————————————————————————————————
+
+}

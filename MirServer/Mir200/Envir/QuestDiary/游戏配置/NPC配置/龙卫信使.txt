@@ -1,0 +1,1265 @@
+[@龙卫信使标准配置]
+{
+(@ArmUnseal)
+[@MAIN]
+#CALLX [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#CALLX [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_标准NPC头内容
+
+[@系统_标准NPC头_返回]
+嘿，我这里可以兑换很多高阶技能哦！\ \
+　　<{战士体系=FCO=251}/@职业1>　　<{法师体系=FCO=251}/@职业2>　　<{道士体系=FCO=251}/@职业3>　　<{全职体系=FCO=251}/@职业4>  \ \
+
+[@职业1]
+#IF
+#SAY
+  {请随便看看=FCO=2}\ \
+　<{三绝杀=FCO=251}/@三绝杀>　　　<{追心刺=FCO=251}/@追心刺>　　　<{断岳斩=FCO=251}/@断岳斩>\
+　<{横扫千军=FCO=251}/@横扫千军>　　<{十步一杀=FCO=251}/@十步一杀>　　<{擒龙手=FCO=251}/@擒龙手>\
+　<{逐日剑法=FCO=251}/@逐日剑法>　　<{彻地钉=FCO=251}/@彻地钉>　　　<{狮子吼=FCO=251}/@狮子吼>\
+　<{纵横剑术=FCO=251}/@纵横剑术>　　<{开天斩=FCO=251}/@开天斩>　　　<{强化逐日剑法=FCO=251}/@强化逐日剑法>\　\
+
+[@三绝杀]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化基本剑术x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<三绝杀/@兑换001>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+
+[@追心刺]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化攻杀剑术x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<追心刺/@兑换002>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@断岳斩]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化刺杀剑术x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<断岳斩/@兑换003>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@横扫千军]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化半月弯刀x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<横扫千军/@兑换004>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@十步一杀]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{基本剑术(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<十步一杀/@兑换005>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@擒龙手]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{攻杀剑术x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<擒龙手/@兑换006>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@逐日剑法]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{攻杀剑术(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<逐日剑法/@兑换007>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@彻地钉]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{刺杀剑术(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<彻地钉/@兑换008>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@狮子吼]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{野蛮冲撞x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<狮子吼/@兑换009>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@纵横剑术]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{基本剑术(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<纵横剑术/@兑换010>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@开天斩]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{半月弯刀(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<开天斩/@兑换011>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@强化逐日剑法]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{烈火剑法(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<强化逐日剑法/@兑换012>\ \
+  <返回上页/@职业1>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+
+[@兑换001]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化基本剑术 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化基本剑术 5
+TakeCount 再生宝石 5
+AddSkill 三绝杀 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6三绝杀#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6三绝杀#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6三绝杀#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换002]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化攻杀剑术 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化攻杀剑术 5
+TakeCount 再生宝石 5
+AddSkill 追心刺 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6追心刺#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6追心刺#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6追心刺#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换003]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化刺杀剑术 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化刺杀剑术 5
+TakeCount 再生宝石 5
+AddSkill 断岳斩 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6断岳斩#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6断岳斩#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6断岳斩#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换004]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化半月弯刀 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化半月弯刀 5
+TakeCount 再生宝石 5
+AddSkill 横扫千军 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6横扫千军#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6横扫千军#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6横扫千军#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换005]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 基本剑术(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 基本剑术(L3) 10
+TakeCount 再生宝石 5
+AddSkill 十步一杀 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6十步一杀#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6十步一杀#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6十步一杀#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换006]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 攻杀剑术 ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 攻杀剑术 10
+TakeCount 再生宝石 5
+AddSkill 擒龙手 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6擒龙手#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6擒龙手#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6擒龙手#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换007]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+
+#IF
+CheckSkill 强化逐日剑法 ? 0
+#act
+SENDMSG 6 您已经学习了强化逐日剑法，无法再学习此技能！
+break
+#elseact
+goto @兑换0007
+break
+
+[@兑换0007]
+#IF
+CHECKITEMCOUNT 攻杀剑术(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 攻杀剑术(L3) 10
+TakeCount 再生宝石 5
+AddSkill 逐日剑法 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6逐日剑法#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6逐日剑法#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6逐日剑法#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换008]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 刺杀剑术(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 刺杀剑术(L3) 10
+TakeCount 再生宝石 5
+AddSkill 彻地钉 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6彻地钉#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6彻地钉#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6彻地钉#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换009]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 野蛮冲撞 ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 野蛮冲撞 10
+TakeCount 再生宝石 5
+AddSkill 狮子吼 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6狮子吼#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6狮子吼#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6狮子吼#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换010]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 基本剑术(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 基本剑术(L3) 10
+TakeCount 再生宝石 5
+AddSkill 纵横剑术 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6纵横剑术#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6纵横剑术#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6纵横剑术#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换011]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 半月弯刀(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 半月弯刀(L3) 10
+TakeCount 再生宝石 5
+AddSkill 开天斩 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6开天斩#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6开天斩#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6开天斩#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换012]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CheckSkill 逐日剑法 ? 1
+CHECKITEMCOUNT 烈火剑法(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 烈火剑法(L3) 10
+TakeCount 再生宝石 5
+AddSkill 强化逐日剑法 1
+DelSkill 逐日剑法
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6强化逐日剑法#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6强化逐日剑法#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6强化逐日剑法#5！
+#ELSEACT
+SENDMSG 6 对不起，您没有收集所需物品或者没有学习【逐日剑法】！
+Break
+
+
+[@职业2]
+#IF
+#SAY
+  {请随便看看=FCO=2}\ \
+　<{群体雷电术=FCO=251}/@群体雷电术>　　<{寒冰掌=FCO=251}/@寒冰掌>　　　<{灭天火=FCO=251}/@灭天火>\
+　<{火龙气焰=FCO=251}/@火龙气焰>　　　<{流星火雨=FCO=251}/@流星火雨>　　<{冰霜雪雨=FCO=251}/@冰霜雪雨>\
+　<{冰霜群雨=FCO=251}/@冰霜群雨>　　　<{双龙破=FCO=251}/@双龙破>　　　<{凤舞技=FCO=251}/@凤舞技>\　<{惊雷爆=FCO=251}/@惊雷爆>　　　　<{冰天雪地=FCO=251}/@冰天雪地>　　<{强化流星火雨=FCO=251}/@强化流星火雨>\
+
+
+[@群体雷电术]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{雷电术(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<群体雷电术/@兑换101>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@寒冰掌]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{冰咆哮x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<寒冰掌/@兑换102>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@灭天火]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{爆裂火焰(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<灭天火/@兑换103>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@火龙气焰]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{火墙(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<火龙气焰/@兑换104>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@流星火雨]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{火墙(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<流星火雨/@兑换105>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@冰霜雪雨]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{冰咆哮(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<冰霜雪雨/@兑换106>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@冰霜群雨]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{冰咆哮(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<冰霜群雨/@兑换107>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@双龙破]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{疾光电影(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<双龙破/@兑换108>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@凤舞技]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化火墙x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<凤舞技/@兑换109>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@惊雷爆]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化疾光电影x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<惊雷爆/@兑换110>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@冰天雪地]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化冰咆哮x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<冰天雪地/@兑换111>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@强化流星火雨]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化爆裂火焰x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<强化流星火雨/@兑换112>\ \
+  <返回上页/@职业2>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+
+[@兑换101]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 雷电术(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 雷电术(L3) 5
+TakeCount 再生宝石 5
+AddSkill 群体雷电术 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6群体雷电术#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6群体雷电术#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6群体雷电术#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换102]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 冰咆哮 ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 冰咆哮 10
+TakeCount 再生宝石 5
+AddSkill 寒冰掌 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6寒冰掌#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6寒冰掌#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6寒冰掌#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换103]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 爆裂火焰(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 爆裂火焰(L3) 10
+TakeCount 再生宝石 5
+AddSkill 灭天火 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6灭天火#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6灭天火#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6灭天火#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换104]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 火墙(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 火墙(L3) 10
+TakeCount 再生宝石 5
+AddSkill 火龙气焰 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6火龙气焰#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6火龙气焰#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6火龙气焰#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换105]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CheckSkill 强化流星火雨 ? 0
+#act
+SENDMSG 6 您已经学习了强化流星火雨，无法再学习此技能！
+break
+#elseact
+goto @兑换1005
+break
+
+[@兑换1005]
+#IF
+CHECKITEMCOUNT 火墙(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 火墙(L3) 10
+TakeCount 再生宝石 5
+AddSkill 流星火雨 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6流星火雨#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6流星火雨#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6流星火雨#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换106]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 冰咆哮(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 冰咆哮(L3) 10
+TakeCount 再生宝石 5
+AddSkill 冰霜雪雨 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6冰霜雪雨#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6冰霜雪雨#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6冰霜雪雨#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换107]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+
+#IF
+CHECKITEMCOUNT 冰咆哮(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 冰咆哮(L3) 10
+TakeCount 再生宝石 5
+AddSkill 冰霜群雨 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6冰霜群雨#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6冰霜群雨#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6冰霜群雨#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换108]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 疾光电影(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 疾光电影(L3) 10
+TakeCount 再生宝石 5
+AddSkill 双龙破 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6双龙破#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6双龙破#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6双龙破#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换109]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化火墙 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化火墙 5
+TakeCount 再生宝石 5
+AddSkill 凤舞技 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6凤舞技#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6凤舞技#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6凤舞技#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换110]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化疾光电影 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化疾光电影 5
+TakeCount 再生宝石 5
+AddSkill 惊雷爆 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6惊雷爆#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6惊雷爆#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6惊雷爆#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换111]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化冰咆哮 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化冰咆哮 5
+TakeCount 再生宝石 5
+AddSkill 冰天雪地 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6冰天雪地#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6冰天雪地#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6冰天雪地#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换012]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CheckSkill 流星火雨 ? 1
+CHECKITEMCOUNT 强化爆裂火焰 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化爆裂火焰 5
+TakeCount 再生宝石 5
+AddSkill 强化流星火雨 1
+DelSkill 流星火雨
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6强化流星火雨#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6强化流星火雨#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6强化流星火雨法#5！
+#ELSEACT
+SENDMSG 6 对不起，您没有收集所需物品或者没有学习【流星火雨】！
+Break
+
+
+
+[@职业3]
+#IF
+#SAY
+  {请随便看看=FCO=2}\ \
+　<{解毒术=FCO=251}/@解毒术>　　　<{火焰冰=FCO=251}/@火焰冰>　　　<{群体施毒术=FCO=251}/@群体施毒术>\
+　<{气功波=FCO=251}/@气功波>　　　<{无极真气=FCO=251}/@无极真气>　　<{召唤月灵=FCO=251}/@召唤月灵>\
+　<{死亡之眼=FCO=251}/@死亡之眼>　　<{飓风破=FCO=251}/@飓风破>　　　<{裂神符=FCO=251}/@裂神符>\
+　<{虎啸决=FCO=251}/@虎啸决>　　　<{八卦掌=FCO=251}/@八卦掌>　　　<{三焰咒=FCO=251}/@三焰咒>　　　<{万剑归宗=FCO=251}/@万剑归宗>\　
+
+[@解毒术]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{治愈术x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<解毒术/@兑换201>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@火焰冰]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{灵魂火符x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<火焰冰/@兑换202>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@群体施毒术]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化施毒术x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<群体施毒术/@兑换203>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@气功波]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{困魔咒x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<气功波/@兑换204>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@无极真气]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{群体治疗术(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<无极真气/@兑换205>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@召唤月灵]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化召唤神兽x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<召唤月灵/@兑换206>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@死亡之眼]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化召唤骷髅x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<死亡之眼/@兑换207>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@飓风破]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{灵魂火符(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<飓风破/@兑换208>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@裂神符]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{强化灵魂火符x5=FCO=250} {再生宝石x5=FCO=250}\ \
+　<裂神符/@兑换209>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@虎啸决]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{召唤神兽(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<虎啸决/@兑换210>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@八卦掌]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{召唤骷髅(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<八卦掌/@兑换211>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@三焰咒]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{神圣战甲术(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<三焰咒/@兑换212>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+[@万剑归宗]
+#if
+CHECKLEVELEX > 50
+#say
+　需要：{幽灵盾(L3)x10=FCO=250} {再生宝石x5=FCO=250}\ \
+　<万剑归宗/@兑换213>\ \
+  <返回上页/@职业3>\
+#elseact
+SENDMSG 6   很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+
+
+[@兑换201]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 治愈术 ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 治愈术 10
+TakeCount 再生宝石 5
+AddSkill 解毒术 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6解毒术#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6解毒术#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6解毒术#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换202]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 灵魂火符 ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 灵魂火符 10
+TakeCount 再生宝石 5
+AddSkill 火焰冰 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6火焰冰#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6火焰冰#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6火焰冰#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换203]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化施毒术 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化施毒术 5
+TakeCount 再生宝石 5
+AddSkill 群体施毒术 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6群体施毒术#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6群体施毒术#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6群体施毒术#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换204]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 困魔咒 ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 困魔咒 10
+TakeCount 再生宝石 5
+AddSkill 气功波 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6气功波#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6气功波#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6气功波#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换205]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 群体治疗术(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 群体治疗术(L3) 10
+TakeCount 再生宝石 5
+AddSkill 无极真气 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6无极真气#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6无极真气#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6无极真气#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换206]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化召唤神兽 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化召唤神兽 5
+TakeCount 再生宝石 5
+AddSkill 召唤月灵 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6召唤月灵#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6召唤月灵#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6召唤月灵#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换207]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+
+#IF
+CHECKITEMCOUNT 强化召唤骷髅 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化召唤骷髅 5
+TakeCount 再生宝石 5
+AddSkill 死亡之眼 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6死亡之眼#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6死亡之眼#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6死亡之眼#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换208]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 灵魂火符(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 灵魂火符(L3) 10
+TakeCount 再生宝石 5
+AddSkill 飓风破 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6飓风破#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6飓风破#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6飓风破#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换209]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 强化灵魂火符 ? 5
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化灵魂火符 5
+TakeCount 再生宝石 5
+AddSkill 裂神符 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6裂神符#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6裂神符#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6裂神符#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换210]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 召唤神兽(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 召唤神兽(L3) 10
+TakeCount 再生宝石 5
+AddSkill 虎啸决 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6虎啸决#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6虎啸决#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6虎啸决#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换211]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 召唤骷髅(L3)) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 召唤骷髅(L3) 10
+TakeCount 再生宝石 5
+AddSkill 八卦掌 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6八卦掌#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6八卦掌#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6八卦掌#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@兑换212]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 神圣战甲术(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 神圣战甲术(L3) 10
+TakeCount 再生宝石 5
+AddSkill 三焰咒 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6三焰咒#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6三焰咒#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6三焰咒#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+
+[@兑换213]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+#IF
+CHECKITEMCOUNT 幽灵盾(L3) ? 10
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 幽灵盾(L3) 10
+TakeCount 再生宝石 5
+AddSkill 万剑归宗 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6万剑归宗#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6万剑归宗#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6万剑归宗#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@职业4]
+#IF
+#SAY
+  {请随便看看=FCO=2}\ \
+
+　<{护体神盾=FCO=251}/@护体神盾>　　<{倚天辟地=FCO=251}/@倚天辟地>　　<{移形换位=FCO=251}/@移形换位>
+
+[@护体神盾]
+#if
+CHECKLEVELEX > 50
+#say
+　三职业都可学习护体神盾：\
+　需要：{强化冰咆哮x3=FCO=250}\
+　　　　{强化烈火剑法x3=FCO=250}\
+　　　　{强化召唤神兽x3=FCO=250}\
+　　　　{再生宝石x5=FCO=250}\
+　　<护体神盾/@技能兑换_确认兑换1>\ \
+　　<返回上页/@职业4>\
+#elsesay
+  很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+
+[@技能兑换_确认兑换1]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+
+#IF
+CHECKITEMCOUNT 强化冰咆哮 ? 3
+CHECKITEMCOUNT 强化召唤神兽 ? 3
+CHECKITEMCOUNT 强化烈火剑法 ? 3
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TAKECOUNT 强化冰咆哮 3
+TAKECOUNT 强化召唤神兽 3
+TAKECOUNT 强化烈火剑法 3
+TakeCount 再生宝石 5
+AddSkill 护体神盾 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6护体神盾#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6护体神盾#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6护体神盾#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@移形换位]
+#if
+CHECKLEVELEX > 50
+#say
+　三职业都可学习移形换位：\
+　需要：{再生宝石x5=FCO=250}\
+　　<移形换位/@技能兑换_确认兑换2>\ \
+　　<返回上页/@职业4>\
+#elsesay
+  很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+
+[@技能兑换_确认兑换2]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+
+#IF
+CHECKITEMCOUNT 再生宝石 ? 5
+#ACT
+TakeCount 再生宝石 5
+AddSkill 移形换位 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6移形换位#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6移形换位#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6移形换位#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+
+[@倚天辟地]
+#if
+CHECKLEVELEX > 50
+#say
+　三职业都可学习倚天辟地：\
+　需要：{强化冰咆哮x10=FCO=250}\ 
+　　　　{强化烈火剑法x10=FCO=250}\
+　　　　{强化召唤神兽x10=FCO=250}\
+　　　　{再生宝石x50=FCO=250}\
+　　<倚天辟地/@技能兑换_确认兑换3>\ \
+　　<返回上页/@职业4>\
+#elsesay
+  很遗憾凭您现在的功力无法看透这些书上的任何内容！！！
+
+[@技能兑换_确认兑换3]
+#IF
+NOT CHECKBAGSIZE 1
+#act
+MESSAGEBOX 背包已满，请预留1个空位.
+Break
+
+#IF
+CHECKITEMCOUNT 强化冰咆哮 ? 10
+CHECKITEMCOUNT 强化召唤神兽 ? 10
+CHECKITEMCOUNT 强化烈火剑法 ? 10
+CHECKITEMCOUNT 再生宝石 ? 50
+#ACT
+TAKECOUNT 强化冰咆哮 10
+TAKECOUNT 强化召唤神兽 10
+TAKECOUNT 强化烈火剑法 10
+TakeCount 再生宝石 50
+AddSkill 倚天辟地 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6倚天辟地#5神技。
+SENDMSG 8 【#6FFFF/8#6传闻#5】：玩家[#7<$USERNAME>#7]在武林秘籍处拼读了#6FFFF/8#6倚天辟地#5神技。
+MESSAGEBOX 恭喜，您获得了#6FFFF/8#6倚天辟地#5！
+#ELSEACT
+MESSAGEBOX 对不起，您没有收集所需物品！
+Break
+}
+

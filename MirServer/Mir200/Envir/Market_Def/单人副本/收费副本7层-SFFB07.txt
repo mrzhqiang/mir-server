@@ -1,0 +1,21 @@
+[@main]
+#IF
+#say
+恩，不错。看来你已经清理完地图的怪物了。。。\ \ \
+<领取奖励返回盟重/@领取奖励>\ \
+<结束对话/@EXIT>\
+#elsesay
+请把副本任务的怪物清理完后再来领取奖励 <结束对话/@EXIT>
+
+[@领取奖励]
+#if
+CheckMapMonCount SFFB07 < 1
+#ACT
+give 金刚石 50
+mapmove 3 333 333
+BreakTimeRecall
+MongenEx SFFB07 14 16 石墓妖王 1 1
+messagebox   恭喜你通关成功，获得50个金刚石的奖励！
+SendMsg 0   [系统]：游戏玩家[#7<$USERNAME>#7],消灭了7层副本中的石墓妖王，获得50个金刚石的奖励！
+#elseact
+messagebox   怪物都没杀死，滚远点！

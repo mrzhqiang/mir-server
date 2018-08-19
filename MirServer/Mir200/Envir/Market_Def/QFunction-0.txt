@@ -1,0 +1,3435 @@
+( @@sendmsg @storage @getback @buy @sell @repair @s_repair @@offlinemsg @getnextpage @getPreviouspage @@InPutString @@useitemname @@InputInteger @@RecallPneuma  @ArmRemoveStone  @ArmStrengthen  @makedrug @ArmUnseal)
+%100
++10
++11
++15
++58
++81
+#CALLX [\\游戏配置\刷怪提示.txt] @刷怪提示
+#CALL [\\游戏配置\任务配置\注销任务.txt] @注销任务
+#CALL [\登陆\升级提示.txt] @升级提示
+#CALLX [\\游戏配置\功能调用\补给镖车_时间检测.txt] @时间检测
+
+[@Member]
+#CALLX [\\游戏配置\帮助系统\目录.txt] @目录
+
+[@KillPlay]
+#if
+#act
+SHOWEFFECT 15
+SENDMSG 5 提示:你杀死了<$STR(S0)>，等级为<$STR(N0)>
+
+[@PlayOffLine]
+#IF
+LARGE C19 0
+#ACT
+SET [399] 1
+SendMsg 0 玩家<$USERNAME>退出了游戏！
+#elseact
+SendMsg 0 玩家<$USERNAME>退出了游戏！
+break
+
+
+[@PlayDie]
+#IF
+#ACT
+SHOWEFFECT 16
+SendMsg 0 【#6FFFF/8#6系统#5】:#6FFFF/8#6<$MAPNAME>#5发生一起血案,玩家#7<$USERNAME>#7被勇猛的#6FFFF/8#6<$STR(S0)>#5结束了他的生命.....
+
+[@PlayRevive]
+#IF
+Equal N0 2
+#ACT
+SENDMSG 5 【%S】：我赵日天又回来了！
+break
+
+[@StdmodeFunc270]
+#if
+#act
+KILLMONEXPRATE 200 3600
+SendMsg 0 [#7%s#7]获得了双倍经验1小时，离线之后时间照常计算！
+
+[@StdModeFunc13]
+#ACT
+CREDITPOINT + 1
+SENDMSG 5 兑换成功！人物增加1点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc14]
+#ACT
+CREDITPOINT + 5
+SENDMSG 5 兑换成功！人物增加5点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc15]
+#ACT
+CREDITPOINT + 10
+SENDMSG 5 兑换成功！人物增加10点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc16]
+#ACT
+CREDITPOINT + 50
+SENDMSG 5 兑换成功！人物增加50点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc17]
+#ACT
+CREDITPOINT + 100
+SENDMSG 5 兑换成功！人物增加100点声望，当前声望为：<$CREDITPOINT>
+
+
+[@StdModeFunc19]
+#IF
+#ACT
+mov B80 <$MAPNAME>
+mov B81 <$MAP>
+mov C80 <$X>
+mov C81 <$Y>
+SendMsg 0 玩家<$USERNAME>在<$MAPNAME>（<$X>:<$Y>）处成功记录了坐标点！
+break
+
+[@StdModeFunc18]
+#if
+#SAY
+  温馨提示：\
+   当前【坐标1】地图名：{<$STR(B82)>=FCO=31}  {X：<$STR(C82)>=FCO=31} {Y:<$STR(C83)>=FCO=31}\ 
+   当前【坐标2】地图名：{<$STR(B72)>=FCO=31}  {X：<$STR(C72)>=FCO=31} {Y:<$STR(C73)>=FCO=31}\ 
+   当前【坐标3】地图名：{<$STR(B62)>=FCO=31}  {X：<$STR(C62)>=FCO=31} {Y:<$STR(C63)>=FCO=31}\ 
+   当前【坐标4】地图名：{<$STR(B52)>=FCO=31}  {X：<$STR(C52)>=FCO=31} {Y:<$STR(C53)>=FCO=31}\ 
+   当前【坐标5】地图名：{<$STR(B42)>=FCO=31}  {X：<$STR(C42)>=FCO=31} {Y:<$STR(C43)>=FCO=31}\ 
+     <&点击传送{坐标1=FCO=251}/@坐标1>\ 
+     <&点击传送{坐标2=FCO=251}/@坐标2>\ 
+     <&点击传送{坐标3=FCO=251}/@坐标3>\ 
+     <&点击传送{坐标4=FCO=251}/@坐标4>\ 
+     <&点击传送{坐标5=FCO=251}/@坐标5>\ 
+
+[@坐标1]
+#act
+  SHOWEFFECT 14
+mapmove <$STR(B83)> <$STR(C82)> <$STR(C83)>
+SENDMSG 1  <$USERNAME>通过坐标传送石回到了【<$STR(B82)>】(<$STR(C82)>:<$STR(C83)>)！！
+break
+
+[@坐标2]
+#act
+  SHOWEFFECT 14
+mapmove <$STR(B73)> <$STR(C72)> <$STR(C73)>
+SENDMSG 1  <$USERNAME>通过坐标传送石回到了【<$STR(B72)>】(<$STR(C72)>:<$STR(C73)>)！！
+break
+
+[@坐标3]
+#act
+  SHOWEFFECT 14
+mapmove <$STR(B63)> <$STR(C62)> <$STR(C63)>
+SENDMSG 1  <$USERNAME>通过坐标传送石回到了【<$STR(B62)>】(<$STR(C62)>:<$STR(C63)>)！！
+break
+
+[@坐标4]
+#act
+  SHOWEFFECT 14
+mapmove <$STR(B5)> <$STR(C52)> <$STR(C53)>
+SENDMSG 1  <$USERNAME>通过坐标传送石回到了【<$STR(B52)>】(<$STR(C52)>:<$STR(C53)>)！！
+break
+
+[@坐标5]
+#act
+  SHOWEFFECT 14
+mapmove <$STR(B43)> <$STR(C42)> <$STR(C43)>
+SENDMSG 1  <$USERNAME>通过坐标传送石回到了【<$STR(B42)>】(<$STR(C42)>:<$STR(C43)>)！！
+break
+
+[@StdModeFunc20]
+#IF
+#ACT
+give 传送令牌(一般)
+#SAY
+{欢迎使用传送令牌=FC0=146}\
+　　{请选择传送方式：=FC0=243}\ \
+<&新人营地/@新人传送>\ \
+<&记忆传送/@记忆传送>\(提示记忆坐标：<$STR(B80)> <$STR(C80)> <$STR(C81)>)\\
+
+[@新人传送]
+#SAY
+　{请选择传送地点：=FC0=243}\ \
+　　<{洞穴=FC0=251}/@洞穴>　　　　<{兽人古墓=FC0=251}/@兽人古墓>\ \
+　　<{比奇矿区=FC0=251}/@比奇矿区>　　<{沃玛森林=FC0=251}/@沃玛森林>\ \
+[@记忆传送]
+#act
+mapmove <$STR(B81)> <$STR(C80)> <$STR(C81)>
+break
+
+[@洞穴]
+#act
+  SHOWEFFECT 14
+mapmove D011
+break
+[@兽人古墓]
+#act
+  SHOWEFFECT 14
+mapmove D001
+break
+[@比奇矿区]
+#act
+  SHOWEFFECT 14
+mapmove D401
+break
+[@沃玛森林]
+#act
+  SHOWEFFECT 14
+mapmove 1
+break
+
+
+[@StdModeFunc21]
+#IF
+#ACT
+give 传送令牌(特殊)
+#SAY
+{欢迎使用传送令牌=FC0=146}\
+　　{请选择传送地点：=FC0=243}\ \
+　　<{地狱烈焰=FC0=251}/@地狱烈焰>　　<{钳虫巢穴=FC0=251}/@钳虫巢穴>\ \
+　　<{死亡神殿=FC0=251}/@死亡神殿>　　<{困惑殿堂=FC0=251}/@困惑殿堂>\ \
+　　<{堕落坟场=FC0=251}/@堕落坟场>　　<{深渊魔域=FC0=251}/@深渊魔域>\
+
+[@地狱烈焰]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE T339  18    26
+
+[@钳虫巢穴]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE T232  22    24
+
+[@死亡神殿]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE T218  14    17
+
+[@困惑殿堂]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE T118  13    16
+
+[@堕落坟场]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE T315  150  140 
+
+[@深渊魔域]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE T219  50    80
+
+[@StdModeFunc22]
+#IF
+#ACT
+give 传送令牌(危险)
+#SAY
+{欢迎使用传送令牌=FC0=146}\
+　　{请选择传送地点：=FC0=243}\　\
+　　<{尸魔洞=FC0=251}/@尸魔洞>　　　<{骨魔洞=FC0=251}/@骨魔洞>　　　<{牛魔寺庙=FC0=251}/@牛魔寺庙>\　\
+　　<{沃玛寺庙=FC0=251}/@沃玛寺庙>　　<{祖玛寺庙=FC0=251}/@祖玛洞穴>　　<{魔魂殿=FC0=251}/@魔魂殿>\　\
+　　<{赤月峡谷=FC0=251}/@赤月峡谷>　　<{魔龙城市=FC0=251}/@魔龙城市>　　<{幻影密境=FC0=251}/@幻影密境>\　\
+[@牛魔寺庙]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE D2070
+
+[@尸魔洞]
+#ACT
+  SHOWEFFECT 14
+MAPMOVE D2051
+
+[@骨魔洞]
+#IF
+#ACT
+  SHOWEFFECT 14
+MAPMOVE D2061
+
+[@沃玛寺庙]
+#IF
+#ACT
+  SHOWEFFECT 14
+MAPMOVE D021
+
+[@祖玛洞穴]
+#IF
+#ACT
+  SHOWEFFECT 14
+MAPMOVE 0157
+
+[@魔魂殿]
+#IF
+#ACT
+  SHOWEFFECT 14
+MAPMOVE D2000
+
+[@魔龙城市]
+#IF
+CheckItemCount 金条 ? 1
+#ACT
+  SHOWEFFECT 14
+TakeCount 金条 1
+MAPMOVE 6
+#ELSEACT
+MESSAGEBOX 看起来您的金条不足，无法瞬间移动！
+break
+
+[@幻影密境]
+#IF
+CheckItemCount 金条 ? 1
+#ACT
+  SHOWEFFECT 14
+TakeCount 金条 1
+MAPMOVE H001
+#ELSEACT
+MESSAGEBOX 看起来您的金条不足，无法瞬间移动！
+break
+
+[@赤月峡谷]
+#ACT
+  SHOWEFFECT 14
+MAPmove 12
+
+[@StdModeFunc23]
+#act
+mapmove <$STR(B93)> <$STR(C92)> <$STR(C93)>
+break
+
+[@STDMODEFUNC201]
+#IF
+CHECKUSEITEM 1
+#ACT
+GETRANDOMNAME ../QuestDiary/游戏配置/功能调用/武器幸运.txt S0
+HookItem 1
+CHANGEGIVEITEM 7 20 <$STR(S0)>
+CHANGEGIVEITEM 8
+SendMsg 0 【#6FFFF/8#6改造#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6超级祝福油#5把#6FFFF/8#6(<$WEAPON>)#5提升到了#6FFFF/8#6(<$STR(S0)>)#5点幸运值！
+#ELSEACT
+GIVE 超级祝福油 1
+MESSAGEBOX 您手上并没有拿着武器呀！
+Break
+
+[@StdmodeFunc268]
+#IF
+#act
+give 荣誉宝盒 1
+#SAY
+　欢迎使用{荣誉宝盒=FCO=151}\
+　　【功能1】：<&{在线补给=FCO=69}/@S_repair>\
+　　【功能2】：<&{在线仓库=FCO=69}/@storage>\
+　　【功能3】：<&{普通回收=FCO=69}/@回收1>\
+　　【功能4】：<&{高级回收=FCO=69}/@回收2>\
+　　<||小强传奇、荣誉专属||>\ 
+[goods]
+回城石		999	1	5
+金创药		999	1	0
+魔法药		999	1	1
+强效金创药	999	1	2	
+强效魔法药	999	1	3	
+强效太阳水	999	1	4	
+
+[@回收1]
+#CALLX [\游戏配置\NPC配置\装备回收.txt] @装备回收
+
+[@回收2]
+#CALLX [\游戏配置\NPC配置\高级回收.txt] @装备回收标准配置
+
+
+;---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[@STDMODEFUNC207]
+#IF
+CHECKUSEITEM 13
+#ACT
+HookItem 13
+CHANGEGIVEITEM 11 +100000
+CHANGEGIVEITEM 8
+SHOWEFFECT 18
+SendMsg 0 【#6FFFF/8#6灵兽#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6灵兽经验丹#5为他的灵兽提升了#6FFFF/8#6(100000)#5点经验值！
+#ELSEACT
+GIVE 灵兽经验丹 1
+MESSAGEBOX 请先佩戴好坐骑令牌！
+Break
+
+[@PlayLevelUpEx19]
+#IF
+#ACT
+GIVE 金币 100000
+SendMsg 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(19)#5级，获得10W金币的鼓励
+Break
+
+
+[@PlayLevelUpEx21]
+#IF
+#ACT
+GIVE 金币 100000
+SendMsg 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(21)#5级，获得10W金币的鼓励
+Break
+
+
+[@PlayLevelUpEx23]
+#IF
+#ACT
+GIVE 金币 100000
+SendMsg 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(23)#5级，获得10W金币的鼓励
+Break
+
+
+[@PlayLevelUpEx25]
+#IF
+#ACT
+GIVE 金币 100000
+SendMsg 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(25)#5级，获得10W金币的鼓励
+Break
+
+[@PlayLevelUpEx27]
+#IF
+#ACT
+GIVE 金币 100000
+SendMsg 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(27)#5级，获得10W金币的鼓励
+Break
+
+
+[@PlayLevelUpEx29]
+#IF
+#ACT
+GIVE 金币 100000
+SendMsg 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(29)#5级，获得10W金币的鼓励
+Break
+
+
+[@StdmodeFunc222]
+#if
+CHECKNAMELIST ../QuestDiary/宝图/比奇挖宝.txt
+#act
+goto @地图1
+break
+
+#if
+CHECKNAMELIST ../QuestDiary/宝图/封魔谷挖宝.txt
+#act
+goto @地图2
+break
+
+#if
+#act
+mov C4 0
+mov C5 0
+goto @坐标
+break
+
+[@坐标]
+#if
+Random 2
+#act
+Movr C4 40
+inc C4 200
+Movr C5 40
+inc C5 150
+ADDNAMELIST ../QuestDiary/宝图/封魔谷挖宝.txt
+goto @地图2
+Break
+
+#if
+#act
+Movr C4 50
+Inc C4 300
+Movr C5 50
+Inc C5 200
+ADDNAMELIST ../QuestDiary/宝图/比奇挖宝.txt
+goto @地图1
+Break
+
+[@地图1]
+#if
+CheckInMapRange 0 <$STR(C4)> <$STR(C5)> 10
+#act
+CLEARLIST ../QuestDiary/宝图/比奇挖宝.txt
+GETRANDOMNAME ../QuestDiary/宝图/怪物.txt S2
+MongenEx 0 <$X> <$Y> <$STR(S2)> 1 1
+SendMsg 0 【#6FFFF/8#6宝图#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6藏宝图#5在比奇坐标(<$STR(C4)>.<$STR(C5)>)#6FFFF/8#6放出了【<$STR(S2)>】！
+#ELSEACT
+give 藏宝图 1
+goto @宝物1
+
+[@地图2]
+#if
+CheckInMapRange 4 <$STR(C4)> <$STR(C5)> 10
+#act
+CLEARLIST ../QuestDiary/宝图/封魔谷挖宝.txt
+GETRANDOMNAME ../QuestDiary/宝图/怪物.txt S2
+MongenEx 4 <$X> <$Y> <$STR(S2)> 1 1
+SendMsg 0 【#6FFFF/8#6宝图#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6藏宝图#5在封魔谷坐标(<$STR(C4)>.<$STR(C5)>)#6FFFF/8#6放出了【<$STR(S2)>】！
+#ELSEACT
+give 藏宝图 1
+goto @宝物2
+
+[@宝物1]
+宝物所在地位：比奇 <$STR(C4)> <$STR(C5)>\
+在坐标5格范围之内都可以释放藏宝图\
+请尽快赶到
+
+[@宝物2]
+宝物所在地位：封魔谷 <$STR(C4)> <$STR(C5)>\
+在坐标5格范围之内都可以释放藏宝图\
+请尽快赶到
+
+[@StdModeFunc180] 
+#ACT
+GIVE 金币 980000
+SENDMSG 5 金币数量增加980000个、目前金币数:<$USERGOLDCOUNT>个。
+
+[@StdModeFunc181] 
+#ACT
+GIVE 金币 4980000
+SENDMSG 5 金币数量增加4980000个、目前金币数:<$USERGOLDCOUNT>个。
+
+[@StdModeFunc182] 
+#ACT
+GIVE 金币 9980000
+SENDMSG 5 金币数量增加9980000个、目前金币数:<$USERGOLDCOUNT>个。
+
+[@GroupCreate]
+#ACT
+;SendMsg 0 恭喜[#7<$USERNAME>#7]成功创建了队伍！
+Break
+
+[@JoinGroup]
+#ACT
+SendMsg 5 提示：<$STR(S0)> 加入了你的队伍。
+<$STR(S0)>.SendMsg 5 提示：你加入了<$USERNAME>的队伍。
+Break
+
+[@StdModeFunc56]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 6
+CheckSkill 基本剑术 < 1
+#act
+SkillLevel 基本剑术 = 1
+SendMsg 0 恭喜玩家【%s】提升【基本剑术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 基本剑术(L1) 1
+Break
+
+[@StdModeFunc57]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 18
+CheckSkill 攻杀剑术 < 1
+#act
+SkillLevel 攻杀剑术 = 1
+SendMsg 0 恭喜玩家【%s】提升【攻杀剑术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 攻杀剑术(L1) 1
+Break
+
+[@StdModeFunc58]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 24
+CheckSkill 刺杀剑术 < 1
+#act
+SkillLevel 刺杀剑术 = 1
+SendMsg 0 恭喜玩家【%s】提升【刺杀剑术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 刺杀剑术(L1) 1
+Break
+
+[@StdModeFunc59]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 27
+CheckSkill 半月弯刀 < 1
+#act
+SkillLevel 半月弯刀 = 1
+SendMsg 0 恭喜玩家【%s】提升【半月弯刀】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 半月弯刀(L1) 1
+Break
+
+[@StdModeFunc60]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 29
+CheckSkill 野蛮冲撞 < 1
+#act
+SkillLevel 野蛮冲撞 = 1
+SendMsg 0 恭喜玩家【%s】提升【野蛮冲撞】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 野蛮冲撞(L1) 1
+Break
+
+[@StdModeFunc61]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 34
+CheckSkill 烈火剑法 < 1
+#act
+SkillLevel 烈火剑法 = 1
+SendMsg 0 恭喜玩家【%s】提升【烈火剑法】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 烈火剑法(L1) 1
+Break
+
+
+[@StdModeFunc62]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 10
+CheckSkill 基本剑术 < 2
+#act
+SkillLevel 基本剑术 = 2
+SendMsg 0 恭喜玩家【%s】提升【基本剑术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 基本剑术(L2) 1
+Break
+
+[@StdModeFunc63]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 21
+CheckSkill 攻杀剑术 < 2
+#act
+SkillLevel 攻杀剑术 = 2
+SendMsg 0 恭喜玩家【%s】提升【攻杀剑术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 攻杀剑术(L2) 1
+Break
+
+[@StdModeFunc64]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 26
+CheckSkill 刺杀剑术 < 2
+#act
+SkillLevel 刺杀剑术 = 2
+SendMsg 0 恭喜玩家【%s】提升【刺杀剑术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 刺杀剑术(L2) 1
+Break
+
+[@StdModeFunc65]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 30
+CheckSkill 半月弯刀 < 2
+#act
+SkillLevel 半月弯刀 = 2
+SendMsg 0 恭喜玩家【%s】提升【半月弯刀】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 半月弯刀(L2) 1
+Break
+
+[@StdModeFunc66]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 33
+CheckSkill 野蛮冲撞 < 2
+#act
+SkillLevel 野蛮冲撞 = 2
+SendMsg 0 恭喜玩家【%s】提升【野蛮冲撞】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！　
+GIVE 野蛮冲撞(L2) 1
+Break
+
+[@StdModeFunc67]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 36
+CheckSkill 烈火剑法 < 2
+#act
+SkillLevel 烈火剑法 = 2
+SendMsg 0 恭喜玩家【%s】提升【烈火剑法】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 烈火剑法(L2) 1
+Break
+
+
+[@StdModeFunc68]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 15
+CheckSkill 基本剑术 < 3
+#act
+SkillLevel 基本剑术 = 3
+SendMsg 0 恭喜玩家【%s】提升【基本剑术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 基本剑术(L3) 1
+Break
+
+[@StdModeFunc69]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 23
+CheckSkill 攻杀剑术 < 3
+#act
+SkillLevel 攻杀剑术 = 3
+SendMsg 0 恭喜玩家【%s】提升【攻杀剑术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 攻杀剑术(L3) 1
+Break
+
+[@StdModeFunc70]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 28
+CheckSkill 刺杀剑术 < 3
+#act
+SkillLevel 刺杀剑术 = 3
+SendMsg 0 恭喜玩家【%s】提升【刺杀剑术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 刺杀剑术(L3) 1
+Break
+
+[@StdModeFunc71]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 33
+CheckSkill 半月弯刀 < 3
+#act
+SkillLevel 半月弯刀 = 3
+SendMsg 0 恭喜玩家【%s】提升【半月弯刀】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 半月弯刀(L3) 1
+Break
+
+[@StdModeFunc72]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 38
+CheckSkill 野蛮冲撞 < 3
+#act
+SkillLevel 野蛮冲撞 = 3
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！　
+GIVE 野蛮冲撞(L3) 1
+Break
+
+[@StdModeFunc73]
+#IF
+CHECKJOB Warrior
+CHECKLEVELEX > 39
+CheckSkill 烈火剑法 < 3
+#act
+SkillLevel 烈火剑法 = 3
+SendMsg 0 恭喜玩家【%s】提升【烈火剑法】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 烈火剑法(L3) 1
+Break
+
+
+[@StdModeFunc74]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 6
+CheckSkill 火球术 < 1
+#act
+SkillLevel 火球术 = 1
+SendMsg 0 恭喜玩家【%s】提升【火球术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 火球术(L1) 1
+Break
+
+[@StdModeFunc75]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 11
+CheckSkill 抗拒火环 < 1
+#act
+SkillLevel 抗拒火环 = 1
+SendMsg 0 恭喜玩家【%s】提升【抗拒火环】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 抗拒火环(L1) 1
+Break
+
+[@StdModeFunc76]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 12
+CheckSkill 诱惑之光 < 1
+#act
+SkillLevel 诱惑之光 = 1
+SendMsg 0 恭喜玩家【%s】提升【诱惑之光】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 诱惑之光(L1) 1
+Break
+
+[@StdModeFunc77]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 15
+CheckSkill 地狱火 < 1
+#act
+SkillLevel 地狱火 = 1
+SendMsg 0 恭喜玩家【%s】提升【地狱火】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 地狱火(L1) 1
+Break
+
+
+[@StdModeFunc78]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 16
+CheckSkill 雷电术 < 1
+#act
+SkillLevel 雷电术 = 1
+SendMsg 0 恭喜玩家【%s】提升【雷电术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 雷电术(L1) 1
+Break
+
+
+[@StdModeFunc79]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 18
+CheckSkill 瞬息移动 < 1
+#act
+SkillLevel 瞬息移动 = 1
+SendMsg 0 恭喜玩家【%s】提升【瞬息移动】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 瞬息移动(L1) 1
+Break
+
+
+[@StdModeFunc80]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 18
+CheckSkill 大火球 < 1
+#act
+SkillLevel 大火球 = 1
+SendMsg 0 恭喜玩家【%s】提升【大火球】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 大火球(L1) 1
+Break
+
+
+[@StdModeFunc81]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 21
+CheckSkill 爆裂火焰 < 1
+#act
+SkillLevel 爆裂火焰 = 1
+SendMsg 0 恭喜玩家【%s】提升【爆裂火焰】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 爆裂火焰(L1) 1
+Break
+
+
+[@StdModeFunc82]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 23
+CheckSkill 火墙 < 1
+#act
+SkillLevel 火墙 = 1
+SendMsg 0 恭喜玩家【%s】提升【火墙】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 火墙(L1) 1
+Break
+
+
+[@StdModeFunc83]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 25
+CheckSkill 疾光电影 < 1
+#act
+SkillLevel 疾光电影 = 1
+SendMsg 0 恭喜玩家【%s】提升【疾光电影】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 疾光电影(L1) 1
+Break
+
+
+[@StdModeFunc84]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 29
+CheckSkill 地狱雷光 < 1
+#act
+SkillLevel 地狱雷光 = 1
+SendMsg 0 恭喜玩家【%s】提升【地狱雷光】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 地狱雷光(L1) 1
+Break
+
+
+[@StdModeFunc85]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 30
+CheckSkill 魔法盾 < 1
+#act
+SkillLevel 魔法盾 = 1
+SendMsg 0 恭喜玩家【%s】提升【魔法盾】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 魔法盾(L1) 1
+Break
+
+
+[@StdModeFunc86]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 32
+CheckSkill 圣言术 < 1
+#act
+SkillLevel 圣言术 = 1
+SendMsg 0 恭喜玩家【%s】提升【圣言术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 圣言术(L1) 1
+Break
+
+
+[@StdModeFunc87]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 34
+CheckSkill 冰咆哮 < 1
+#act
+SkillLevel 冰咆哮 = 1
+SendMsg 0 恭喜玩家【%s】提升【冰咆哮】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 冰咆哮(L1) 1
+Break
+
+
+[@StdModeFunc88]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 10
+CheckSkill 火球术 < 2
+#act
+SkillLevel 火球术 = 2
+SendMsg 0 恭喜玩家【%s】提升【火球术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 火球术(L2) 1
+Break
+
+[@StdModeFunc89]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 14
+CheckSkill 抗拒火环 < 2
+#act
+SkillLevel 抗拒火环 = 2
+SendMsg 0 恭喜玩家【%s】提升【抗拒火环】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 抗拒火环(L2) 1
+Break
+
+
+[@StdModeFunc90]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 17
+CheckSkill 诱惑之光 < 2
+#act
+SkillLevel 诱惑之光 = 2
+SendMsg 0 恭喜玩家【%s】提升【诱惑之光】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 诱惑之光(L2) 1
+Break
+
+
+[@StdModeFunc91]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 20
+CheckSkill 地狱火 < 2
+#act
+SkillLevel 地狱火 = 2
+SendMsg 0 恭喜玩家【%s】提升【地狱火】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 地狱火(L2) 1
+Break
+
+
+[@StdModeFunc92]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 19
+CheckSkill 雷电术 < 2
+#act
+SkillLevel 雷电术 = 2
+SendMsg 0 恭喜玩家【%s】提升【雷电术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 雷电术(L2) 1
+Break
+
+
+[@StdModeFunc93]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 21
+CheckSkill 瞬息移动 < 2
+#act
+SkillLevel 瞬息移动 = 2
+SendMsg 0 恭喜玩家【%s】提升【瞬息移动】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 瞬息移动(L2) 1
+Break
+
+
+[@StdModeFunc94]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 22
+CheckSkill 大火球 < 2
+#act
+SkillLevel 大火球 = 2
+SendMsg 0 恭喜玩家【%s】提升【大火球】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 大火球(L2) 1
+Break
+
+
+[@StdModeFunc95]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 26
+CheckSkill 爆裂火焰 < 2
+#act
+SkillLevel 爆裂火焰 = 2
+SendMsg 0 恭喜玩家【%s】提升【爆裂火焰】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 爆裂火焰(L2) 1
+Break
+
+
+[@StdModeFunc96]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 28
+CheckSkill 火墙 < 2
+#act
+SkillLevel 火墙 = 2
+SendMsg 0 恭喜玩家【%s】提升【火墙】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 火墙(L2) 1
+Break
+
+
+[@StdModeFunc97]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 28
+CheckSkill 疾光电影 < 2
+#act
+SkillLevel 疾光电影 = 2
+SendMsg 0 恭喜玩家【%s】提升【疾光电影】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 疾光电影(L2) 1
+Break
+
+
+[@StdModeFunc98]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 31
+CheckSkill 地狱雷光 < 2
+#act
+SkillLevel 地狱雷光 = 2
+SendMsg 0 恭喜玩家【%s】提升【地狱雷光】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 地狱雷光(L2) 1
+Break
+
+
+[@StdModeFunc99]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 37
+CheckSkill 魔法盾 < 2
+#act
+SkillLevel 魔法盾 = 2
+SendMsg 0 恭喜玩家【%s】提升【魔法盾】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 魔法盾(L2) 1
+Break
+
+
+[@StdModeFunc100]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 34
+CheckSkill 圣言术 < 2
+#act
+SkillLevel 圣言术 = 2
+SendMsg 0 恭喜玩家【%s】提升【圣言术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 圣言术(L2) 1
+Break
+
+
+[@StdModeFunc101]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 36
+CheckSkill 冰咆哮 < 2
+#act
+SkillLevel 冰咆哮 = 2
+SendMsg 0 恭喜玩家【%s】提升【冰咆哮】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 冰咆哮(L2) 1
+Break
+
+
+[@StdModeFunc102]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 16
+CheckSkill 火球术 < 3
+#act
+SkillLevel 火球术 = 3
+SendMsg 0 恭喜玩家【%s】提升【火球术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 火球术(L3) 1
+Break
+
+[@StdModeFunc103]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 18
+CheckSkill 抗拒火环 < 3
+#act
+SkillLevel 抗拒火环 = 3
+SendMsg 0 恭喜玩家【%s】提升【抗拒火环】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 抗拒火环(L3) 1
+Break
+
+
+[@StdModeFunc104]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 23
+CheckSkill 诱惑之光 < 3
+#act
+SkillLevel 诱惑之光 = 3
+SendMsg 0 恭喜玩家【%s】提升【诱惑之光】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 诱惑之光(L3) 1
+Break
+
+
+[@StdModeFunc105]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 25
+CheckSkill 地狱火 < 3
+#act
+SkillLevel 地狱火 = 3
+SendMsg 0 恭喜玩家【%s】提升【地狱火】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 地狱火(L3) 1
+Break
+
+
+[@StdModeFunc106]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 22
+CheckSkill 雷电术 < 3
+#act
+SkillLevel 雷电术 = 3
+SendMsg 0 恭喜玩家【%s】提升【雷电术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 雷电术(L3) 1
+Break
+
+
+[@StdModeFunc107]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 24
+CheckSkill 瞬息移动 < 3
+#act
+SkillLevel 瞬息移动 = 3
+SendMsg 0 恭喜玩家【%s】提升【瞬息移动】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 瞬息移动(L3) 1
+Break
+
+
+[@StdModeFunc108]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 24
+CheckSkill 大火球 < 3
+#act
+SkillLevel 大火球 = 3
+SendMsg 0 恭喜玩家【%s】提升【大火球】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 大火球(L3) 1
+Break
+
+
+[@StdModeFunc109]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 30
+CheckSkill 爆裂火焰 < 3
+#act
+SkillLevel 爆裂火焰 = 3
+SendMsg 0 恭喜玩家【%s】提升【爆裂火焰】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 爆裂火焰(L3) 1
+Break
+
+
+[@StdModeFunc110]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 32
+CheckSkill 火墙 < 3
+#act
+SkillLevel 火墙 = 3
+SendMsg 0 恭喜玩家【%s】提升【火墙】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 火墙(L3) 1
+Break
+
+
+[@StdModeFunc111]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 31
+CheckSkill 疾光电影 < 3
+#act
+SkillLevel 疾光电影 = 3
+SendMsg 0 恭喜玩家【%s】提升【疾光电影】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 地狱雷光(L3) 1
+Break
+
+
+[@StdModeFunc112]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 33
+CheckSkill 地狱雷光 < 3
+#act
+SkillLevel 地狱雷光 = 3
+SendMsg 0 恭喜玩家【%s】提升【地狱雷光】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 地狱雷光(L3) 1
+Break
+
+
+[@StdModeFunc113]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 37
+CheckSkill 魔法盾 < 3
+#act
+SkillLevel 魔法盾 = 3
+SendMsg 0 恭喜玩家【%s】提升【魔法盾】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 魔法盾(L3) 1
+Break
+
+
+[@StdModeFunc114]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 38
+CheckSkill 圣言术 < 3
+#act
+SkillLevel 圣言术 = 3
+SendMsg 0 恭喜玩家【%s】提升【圣言术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 圣言术(L3) 1
+Break
+
+
+[@StdModeFunc115]
+#IF
+CHECKJOB Wizard
+CHECKLEVELEX > 39
+CheckSkill 冰咆哮 < 3
+#act
+SkillLevel 冰咆哮 = 3
+SendMsg 0 恭喜玩家【%s】提升【冰咆哮】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 冰咆哮(L3) 1
+Break
+
+
+
+[@StdModeFunc116]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 6
+CheckSkill 治愈术 < 1
+#act
+SkillLevel 治愈术 = 1
+SendMsg 0 恭喜玩家【%s】提升【治愈术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 治愈术(L1) 1
+Break
+
+
+[@StdModeFunc117]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 8
+CheckSkill 精神力战法 < 1
+#act
+SkillLevel 精神力战法 = 1
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+SendMsg 0 恭喜玩家【%s】提升【精神力战法】为1级!!!
+GIVE 精神力战法(L1) 1
+Break
+
+
+
+[@StdModeFunc118]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 13
+CheckSkill 施毒术 < 1
+#act
+SkillLevel 施毒术 = 1
+SendMsg 0 恭喜玩家【%s】提升【施毒术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 施毒术(L1) 1
+Break
+
+
+
+[@StdModeFunc119]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 17
+CheckSkill 灵魂火符 < 1
+#act
+SkillLevel 灵魂火符 = 1
+SendMsg 0 恭喜玩家【%s】提升【灵魂火符】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 灵魂火符(L1) 1
+Break
+
+
+
+[@StdModeFunc120]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 18
+CheckSkill 召唤骷髅 < 1
+#act
+SkillLevel 召唤骷髅 = 1
+SendMsg 0 恭喜玩家【%s】提升【召唤骷髅】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 召唤骷髅(L1) 1
+Break
+
+
+
+[@StdModeFunc121]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 19
+CheckSkill 隐身术 < 1
+#act
+SkillLevel 隐身术 = 1
+SendMsg 0 恭喜玩家【%s】提升【隐身术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 隐身术(L1) 1
+Break
+
+
+
+[@StdModeFunc122]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 20
+CheckSkill 集体隐身术 < 1
+#act
+SkillLevel 集体隐身术 = 1
+SendMsg 0 恭喜玩家【%s】提升【集体隐身术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 集体隐身术(L1) 1
+Break
+
+
+
+[@StdModeFunc123]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 21
+CheckSkill 幽灵盾 < 1
+#act
+SkillLevel 幽灵盾 = 1
+SendMsg 0 恭喜玩家【%s】提升【幽灵盾】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 幽灵盾(L1) 1
+Break
+
+[@StdModeFunc124]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 24
+CheckSkill 神圣战甲术 < 1
+#act
+SkillLevel 神圣战甲术 = 1
+SendMsg 0 恭喜玩家【%s】提升【神圣战甲术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 神圣战甲术(L1) 1
+Break
+
+
+[@StdModeFunc125]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 25
+CheckSkill 心灵启示 < 1
+#act
+SkillLevel 心灵启示 = 1
+SendMsg 0 恭喜玩家【%s】提升【心灵启示】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 心灵启示(L1) 1
+Break
+
+
+[@StdModeFunc126]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 27
+CheckSkill 困魔咒 < 1
+#act
+SkillLevel 困魔咒 = 1
+SendMsg 0 恭喜玩家【%s】提升【困魔咒】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 困魔咒(L1) 1
+Break
+
+
+[@StdModeFunc127]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 32
+CheckSkill 群体治疗术 < 1
+#act
+SkillLevel 群体治疗术 = 1
+SendMsg 0 恭喜玩家【%s】提升【群体治疗术】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 群体治疗术(L1) 1
+Break
+
+[@StdModeFunc128]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 34
+CheckSkill 召唤神兽 < 1
+#act
+SkillLevel 召唤神兽 = 1
+SendMsg 0 恭喜玩家【%s】提升【召唤神兽】为1级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 召唤神兽(L1) 1
+Break
+
+
+
+
+[@StdModeFunc129]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 10
+CheckSkill 治愈术 < 2
+#act
+SkillLevel 治愈术 = 2
+SendMsg 0 恭喜玩家【%s】提升【治愈术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 治愈术(L2) 1
+Break
+
+
+[@StdModeFunc130]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 13
+CheckSkill 精神力战法 < 2
+#act
+SkillLevel 精神力战法 = 2
+SendMsg 0 恭喜玩家【%s】提升【精神力战法】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 精神力战法(L2) 1
+Break
+
+
+
+[@StdModeFunc131]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 16
+CheckSkill 施毒术 < 2
+#act
+SkillLevel 施毒术 = 2
+SendMsg 0 恭喜玩家【%s】提升【施毒术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 施毒术(L2) 1
+Break
+
+
+
+[@StdModeFunc132]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 20
+CheckSkill 灵魂火符 < 2
+#act
+SkillLevel 灵魂火符 = 2
+SendMsg 0 恭喜玩家【%s】提升【灵魂火符】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 灵魂火符(L2) 1
+Break
+
+
+
+[@StdModeFunc133]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 22
+CheckSkill 召唤骷髅 < 2
+#act
+SkillLevel 召唤骷髅 = 2
+SendMsg 0 恭喜玩家【%s】提升【召唤骷髅】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 召唤骷髅(L2) 1
+Break
+
+
+
+[@StdModeFunc134]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 22
+CheckSkill 隐身术 < 2
+#act
+SkillLevel 隐身术 = 2
+SendMsg 0 恭喜玩家【%s】提升【隐身术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 隐身术(L2) 1
+Break
+
+
+
+[@StdModeFunc135]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 24
+CheckSkill 集体隐身术 < 2
+#act
+SkillLevel 集体隐身术 = 2
+SendMsg 0 恭喜玩家【%s】提升【集体隐身术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 集体隐身术(L2) 1
+Break
+
+
+
+[@StdModeFunc136]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 24
+CheckSkill 幽灵盾 < 2
+#act
+SkillLevel 幽灵盾 = 2
+SendMsg 0 恭喜玩家【%s】提升【幽灵盾】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 幽灵盾(L2) 1
+Break
+
+[@StdModeFunc137]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 26
+CheckSkill 神圣战甲术 < 2
+#act
+SkillLevel 神圣战甲术 = 2
+SendMsg 0 恭喜玩家【%s】提升【神圣战甲术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 神圣战甲术(L2) 1
+Break
+
+
+[@StdModeFunc138]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 29
+CheckSkill 心灵启示 < 2
+#act
+SkillLevel 心灵启示 = 2
+SendMsg 0 恭喜玩家【%s】提升【心灵启示】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 心灵启示(L2) 1
+Break
+
+
+[@StdModeFunc139]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 29
+CheckSkill 困魔咒 < 2
+#act
+SkillLevel 困魔咒 = 2
+SendMsg 0 恭喜玩家【%s】提升【困魔咒】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 困魔咒(L2) 1
+Break
+
+
+[@StdModeFunc140]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 34
+CheckSkill 群体治疗术 < 2
+#act
+SkillLevel 群体治疗术 = 2
+SendMsg 0 恭喜玩家【%s】提升【群体治疗术】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 群体治疗术(L2) 1
+Break
+
+[@StdModeFunc141]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 36
+CheckSkill 召唤神兽 < 2
+#act
+SkillLevel 召唤神兽 = 2
+SendMsg 0 恭喜玩家【%s】提升【召唤神兽】为2级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 召唤神兽(L2) 1
+Break
+
+
+
+[@StdModeFunc142]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 15
+CheckSkill 治愈术 < 3
+#act
+SkillLevel 治愈术 = 3
+SendMsg 0 恭喜玩家【%s】提升【治愈术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 治愈术(L3) 1
+Break
+
+
+[@StdModeFunc143]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 18
+CheckSkill 精神力战法 < 3
+#act
+SkillLevel 精神力战法 = 3
+SendMsg 0 恭喜玩家【%s】提升【精神力战法】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 精神力战法(L3) 1
+Break
+
+
+
+[@StdModeFunc144]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 19
+CheckSkill 施毒术 < 3
+#act
+SkillLevel 施毒术 = 3
+SendMsg 0 恭喜玩家【%s】提升【施毒术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE  施毒术(L3) 1
+Break
+
+
+
+[@StdModeFunc145]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 23
+CheckSkill 灵魂火符 < 3
+#act
+SkillLevel 灵魂火符 = 3
+SendMsg 0 恭喜玩家【%s】提升【灵魂火符】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE  灵魂火符(L3) 1
+Break
+
+
+
+[@StdModeFunc146]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 25
+CheckSkill 召唤骷髅 < 3
+#act
+SkillLevel 召唤骷髅 = 3
+SendMsg 0 恭喜玩家【%s】提升【召唤骷髅】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 召唤骷髅(L3) 1
+Break
+
+
+
+[@StdModeFunc147]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 25
+CheckSkill 隐身术 < 3
+#act
+SkillLevel 隐身术 = 3
+SendMsg 0 恭喜玩家【%s】提升【隐身术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE  隐身术(L3) 1
+Break
+
+
+
+[@StdModeFunc148]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 28
+CheckSkill 集体隐身术 < 3
+#act
+SkillLevel 集体隐身术 = 3
+SendMsg 0 恭喜玩家【%s】提升【集体隐身术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 集体隐身术(L3) 1
+Break
+
+
+
+[@StdModeFunc149]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 25
+CheckSkill 幽灵盾 < 3
+#act
+SkillLevel 幽灵盾 = 3
+SendMsg 0 恭喜玩家【%s】提升【幽灵盾】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE  幽灵盾(L3) 1
+Break
+
+[@StdModeFunc150]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 28
+CheckSkill 神圣战甲术 < 3
+#act
+SkillLevel 神圣战甲术 = 3
+SendMsg 0 恭喜玩家【%s】提升【神圣战甲术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE  神圣战甲术(L3) 1
+Break
+
+
+[@StdModeFunc151]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 34
+CheckSkill 心灵启示 < 3
+#act
+SkillLevel 心灵启示 = 3
+SendMsg 0 恭喜玩家【%s】提升【心灵启示】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE  心灵启示(L3) 1
+Break
+
+
+[@StdModeFunc152]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 31
+CheckSkill 困魔咒 < 3
+#act
+SkillLevel 困魔咒 = 3
+SendMsg 0 恭喜玩家【%s】提升【困魔咒】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE  困魔咒(L3) 1
+Break
+
+
+[@StdModeFunc153]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 37
+CheckSkill 群体治疗术 < 3
+#act
+SkillLevel 群体治疗术 = 3
+SendMsg 0 恭喜玩家【%s】提升【群体治疗术】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 群体治疗术(L3) 1
+Break
+
+[@StdModeFunc154]
+#IF
+CHECKJOB Taoist
+CHECKLEVELEX > 39
+CheckSkill 召唤神兽 < 3
+#act
+SkillLevel 召唤神兽 = 3
+SendMsg 0 恭喜玩家【%s】提升【召唤神兽】为3级!!!
+#ELSEACT
+SENDMSG 7 [提示]:升级失败，请查看相关要求！
+GIVE 召唤神兽(L3) 1
+Break
+
+
+;新手礼包
+[@StdmodeFunc220]
+#IF
+CHECKBAGSIZE 8
+CheckLevel 10
+#ACT
+DYNAMICGIVE 荣誉勋章 1
+ChangeGiveItem 1 +24 HOUR
+DYNAMICGIVE 荣誉斗笠 1
+ChangeGiveItem 1 +24 HOUR
+DYNAMICGIVE 荣誉战鼓 1
+ChangeGiveItem 1 +24 HOUR
+DynamicGive 回城石 1
+DynamicGive 随机传送石 1
+DYNAMICGIVE 双倍秘籍 1
+DYNAMICGIVE 枣红马(马牌) 1
+DYNAMICGIVE 便携背包 1
+ChangeGiveItem 8
+#ELSEACT
+DYNAMICGIVE 新手礼包 1
+MESSAGEBOX 开启失败！
+
+[@KillMonster]
+#if
+random 4
+CheckKillMobName 半兽人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 半兽人狂暴 1 0
+Break
+
+#if
+random 2
+CheckKillMobName 半兽人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 半兽人精英 1 0
+Break
+
+#if
+random 4
+CheckKillMobName 半兽战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 半兽战士狂暴 1 0
+Break
+
+#if
+random 2
+CheckKillMobName 半兽战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 半兽人精英 1 0
+Break
+
+#if
+random 4
+CheckKillMobName 半兽勇士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 半兽战士狂暴 1 0
+Break
+
+#if
+random 5
+CheckKillMobName 半兽勇士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 半兽勇士统帅 1 0
+Break
+
+#if
+random 2
+CheckKillMobName 半兽勇士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 半兽勇士精英 1 0
+Break
+
+#if
+random 4
+CheckKillMobName 森林雪人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 森林雪人狂暴 1 0
+;SendMsg 0 森林雪人精英：我不服，我要狂暴了!
+Break
+#if
+random 5
+CheckKillMobName 森林雪人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 雪人王 1 0
+;SendMsg 0 森林雪人精英：大王，一定要为我报仇!
+Break
+#if
+random 2
+CheckKillMobName 森林雪人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 森林雪人精英 1 0
+;SendMsg 0 森林雪人精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 骷髅精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅狂暴 1 0
+;SendMsg 0 骷髅精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 骷髅精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅精英 1 0
+;SendMsg 0 骷髅精英：我不服，我要叫基友了!
+
+#if
+random 4
+CheckKillMobName 掷斧骷髅精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 掷斧骷髅狂暴 1 0
+;SendMsg 0 掷斧骷髅精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 掷斧骷髅精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 掷斧骷髅精英 1 0
+;SendMsg 0 掷斧骷髅精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 骷髅战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅战士狂暴 1 0
+;SendMsg 0 骷髅战士精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 骷髅战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅战士精英 1 0
+;SendMsg 0 骷髅战士精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 骷髅战将精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅战将狂暴 1 0
+;SendMsg 0 骷髅战将精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 骷髅战将精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅战将精英 1 0
+;SendMsg 0 骷髅战将精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 多钩猫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 多钩猫狂暴 1 0
+;SendMsg 0 多钩猫精英：我不服，我要狂暴了!
+Break
+#if
+random 5
+CheckKillMobName 多钩猫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 多钩猫王 1 0
+;SendMsg 0 多钩猫精英：大王，一定要为我报仇!
+Break
+#if
+random 2
+CheckKillMobName 多钩猫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 多钩猫精英 1 0
+;SendMsg 0 多钩猫精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 钉耙猫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 钉耙猫狂暴 1 0
+;SendMsg 0 钉耙猫精英:我不服，我要狂暴了!
+Break
+#if
+random 5
+CheckKillMobName 钉耙猫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 钉耙猫王 1 0
+;SendMsg 0 钉耙猫精英:大王，一定要为我报仇!
+Break
+#if
+random 2
+CheckKillMobName 钉耙猫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 钉耙猫精英 1 0
+;SendMsg 0 钉耙猫精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 稻草人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 稻草人狂暴 1 0
+;SendMsg 0 稻草人精英：我不服，我要狂暴了!
+Break
+#if
+random 3
+CheckKillMobName 稻草人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 稻草人精英 1 0
+;SendMsg 0 稻草人精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 沃玛战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛战士狂暴 1 0
+;SendMsg 0 沃玛战士精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 沃玛战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛战士精英 1 0
+;SendMsg 0 沃玛战士精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 沃玛勇士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛勇士狂暴 1 0
+;SendMsg 0 沃玛勇士精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 沃玛勇士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛勇士精英 1 0
+;SendMsg 0 沃玛勇士精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 沃玛战将精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛战将狂暴 1 0
+;SendMsg 0 沃玛战将精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 沃玛战将精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛战将精英 1 0
+;SendMsg 0 沃玛战将精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 火焰沃玛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 火焰沃玛狂暴 1 0
+;SendMsg 0 火焰沃玛精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 火焰沃玛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 火焰沃玛精英 1 0
+;SendMsg 0 火焰沃玛精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 沃玛卫士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛卫士狂暴 1 0
+;SendMsg 0 沃玛卫士精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 沃玛卫士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛卫士精英 1 0
+;SendMsg 0 沃玛卫士精英:我不服，我要叫基友了!
+Break
+
+#if
+random 2
+CheckKillMobName 沃玛教主 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 沃玛教皇 1 0
+;SendMsg 0 沃玛教主:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 沃玛教皇 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 阴沉沃玛教主 1 0
+;SendMsg 0 沃玛教皇：谢谢你让我变得如此的强大!
+Break
+#if
+random 2
+CheckKillMobName 触龙神 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 触龙神精英 1 0
+;SendMsg 0 触龙神:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 祖玛教主 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 祖玛教皇 1 0
+;SendMsg 0 祖玛教主：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 黄泉教主 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黄泉教皇 1 0
+;SendMsg 0 黄泉教主谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 黄泉教皇 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黄泉大教主 1 0
+;SendMsg 0 黄泉教皇:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 双头金刚狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 铁脊怪 1 0
+;SendMsg 0 双头金刚狂暴：谢谢你让我变得如此的强大!
+Break
+#if
+random 2
+CheckKillMobName 双头血魔狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 铁脊怪 1 0
+;SendMsg 0 双头血魔狂暴:谢谢你让我变得如此的强大!
+Break
+#if
+random 2
+CheckKillMobName 牛魔王 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔王教皇 1 0
+;SendMsg 0 牛魔王：谢谢你让我变得如此的强大!
+Break
+#if
+random 2
+CheckKillMobName 牛魔王教皇 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 阴沉牛魔王 1 0
+;SendMsg 0 牛魔王教皇:谢谢你让我变得如此的强大!
+Break
+#if
+random 2
+CheckKillMobName 赤月恶魔 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 赤月恶魔统领 1 0
+;SendMsg 0 赤月恶魔：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 4
+CheckKillMobName 暗黑战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 暗黑战士狂暴 1 0
+;SendMsg 0 暗黑战士精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 暗黑战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 暗黑战士精英 1 0
+;SendMsg 0 暗黑战士精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 蜈蚣精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 蜈蚣狂暴 1 0
+;SendMsg 0 蜈蚣精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 蜈蚣精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 蜈蚣精英 1 0
+;SendMsg 0 蜈蚣精英：我不服，我要叫基友了!
+#if
+
+#if
+random 4
+CheckKillMobName 黑色恶蛆精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黑色恶蛆狂暴 1 0
+;SendMsg 0 黑色恶蛆精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 黑色恶蛆精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黑色恶蛆精英 1 0
+;SendMsg 0 黑色恶蛆精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 邪恶钳虫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶钳虫狂暴 1 0
+;SendMsg 0 邪恶钳虫精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 邪恶钳虫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶钳虫精英 1 0
+;SendMsg 0 邪恶钳虫精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 跳跳蜂精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 跳跳蜂狂暴 1 0
+;SendMsg 0 跳跳蜂精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 跳跳蜂精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 跳跳蜂精英 1 0
+;SendMsg 0 跳跳蜂精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 巨型蠕虫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 巨型蠕虫狂暴 1 0
+;SendMsg 0 巨型蠕虫精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 巨型蠕虫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 巨型蠕虫精英 1 0
+;SendMsg 0 巨型蠕虫精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 红野猪精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 红野猪狂暴 1 0
+;SendMsg 0 红野猪精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 红野猪精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 红野猪精英 1 0
+;SendMsg 0 红野猪精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 黑野猪精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黑野猪狂暴 1 0
+;SendMsg 0 黑野猪精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 黑野猪精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黑野猪精英 1 0
+;SendMsg 0 黑野猪精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 蝎蛇精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 蝎蛇狂暴 1 0
+;SendMsg 0 蝎蛇精英:我不服，我要狂暴了!
+Break
+
+#if
+random 2
+CheckKillMobName 蝎蛇精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 蝎蛇精英 1 0
+;SendMsg 0 蝎蛇精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 祖玛弓手精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 祖玛弓手狂暴 1 0
+;SendMsg 0 祖玛弓手精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 祖玛弓手精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 祖玛弓手精英 1 0
+;SendMsg 0 祖玛弓手精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 祖玛雕像精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 祖玛雕像狂暴 1 0
+;SendMsg 0 祖玛雕像精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 祖玛雕像精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 祖玛雕像精英 1 0
+;SendMsg 0 祖玛雕像精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 祖玛卫士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 祖玛卫士狂暴 1 0
+;SendMsg 0 祖玛卫士精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 祖玛卫士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 祖玛卫士精英 1 0
+;SendMsg 0 祖玛卫士精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 黑锷蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黑锷蜘蛛狂暴 1 0
+;SendMsg 0 黑锷蜘蛛精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 黑锷蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 黑锷蜘蛛精英 1 0
+;SendMsg 0 黑锷蜘蛛精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 月魔蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 月魔蜘蛛狂暴 1 0
+;SendMsg 0 月魔蜘蛛精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 月魔蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 月魔蜘蛛精英 1 0
+;SendMsg 0 月魔蜘蛛精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 钢牙蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 钢牙蜘蛛狂暴 1 0
+;SendMsg 0 钢牙蜘蛛精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 钢牙蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 钢牙蜘蛛精英 1 0
+;SendMsg 0 钢牙蜘蛛精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 天狼蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 天狼蜘蛛狂暴 1 0
+;SendMsg 0 天狼蜘蛛精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 天狼蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 天狼蜘蛛精英 1 0
+;SendMsg 0 天狼蜘蛛精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 花吻蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 花吻蜘蛛狂暴 1 0
+;SendMsg 0 花吻蜘蛛精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 花吻蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 花吻蜘蛛精英 1 0
+;SendMsg 0 花吻蜘蛛精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 暴牙蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 暴牙蜘蛛狂暴 1 0
+;SendMsg 0 暴牙蜘蛛精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 暴牙蜘蛛精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 暴牙蜘蛛精英 1 0
+;SendMsg 0 暴牙蜘蛛精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 虹魔猪卫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 虹魔猪卫狂暴 1 0
+;SendMsg 0 虹魔猪卫精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 虹魔猪卫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 虹魔猪卫精英 1 0
+;SendMsg 0 虹魔猪卫精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 虹魔蝎卫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 虹魔蝎卫狂暴 1 0
+;SendMsg 0 虹魔蝎卫精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 虹魔蝎卫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 虹魔蝎卫精英 1 0
+;SendMsg 0 虹魔蝎卫精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 恶灵僵尸精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 恶灵僵尸狂暴 1 0
+;SendMsg 0 恶灵僵尸精英：我不服，我要狂暴了! 
+Break
+#if
+random 2
+CheckKillMobName 恶灵僵尸精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 恶灵僵尸精英 1 0
+;SendMsg 0 恶灵僵尸精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 恶灵尸王精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 恶灵尸王狂暴 1 0
+;SendMsg 0 恶灵尸王精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 恶灵尸王精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 恶灵尸王精英 1 0
+;SendMsg 0 恶灵尸王精英：我不服，我要叫基友了!
+Break
+
+#if
+random 2
+CheckKillMobName 恶灵尸王狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 阴沉尸王 1 0
+;SendMsg 0 恶灵尸王狂暴：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 4
+CheckKillMobName 骷髅锤兵精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅锤兵狂暴 1 0
+;SendMsg 0 骷髅锤兵精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 骷髅锤兵精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅锤兵精英 1 0
+;SendMsg 0 骷髅锤兵精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 骷髅长枪兵精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅枪兵狂暴 1 0
+;SendMsg 0 骷髅长枪兵精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 骷髅长枪兵精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅枪兵精英 1 0
+;SendMsg 0 骷髅长枪兵精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 骷髅刀斧手精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅刀斧手狂暴 1 0
+;SendMsg 0 骷髅刀斧手精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 骷髅刀斧手精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅刀斧手精英 1 0
+;SendMsg 0 骷髅刀斧手精英:我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 骷髅弓手精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅弓手狂暴 1 0
+;SendMsg 0 骷髅弓手精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 骷髅弓手精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 骷髅弓手精英 1 0
+;SendMsg 0 骷髅弓手精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 牛魔战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔战士狂暴 1 0
+;SendMsg 0 牛魔战士精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 牛魔战士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔战士精英 1 0
+;SendMsg 0 牛魔战士精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 牛头魔精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛头魔狂暴 1 0
+;SendMsg 0 牛头魔精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 牛头魔精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛头魔精英 1 0
+;SendMsg 0 牛头魔精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 牛魔斗士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔斗士狂暴 1 0
+;SendMsg 0 牛魔斗士精英:我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 牛魔斗士精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔斗士精英 1 0
+;SendMsg 0 牛魔斗士精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 牛魔侍卫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔侍卫狂暴 1 0
+;SendMsg 0 牛魔侍卫精英“我不服，我要狂暴了! 
+Break
+#if
+random 2
+CheckKillMobName 牛魔侍卫精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔侍卫精英 1 0
+;SendMsg 0 牛魔侍卫精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 牛魔将军精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔将军狂暴 1 0
+;SendMsg 0 牛魔将军精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 牛魔将军精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔将军精英 1 0
+;SendMsg 0 牛魔将军精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 牛魔法师精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔法师狂暴 1 0
+;SendMsg 0 牛魔法师精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 牛魔法师精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔法师精英 1 0
+;SendMsg 0 牛魔法师精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 牛魔祭司精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔祭司狂暴 1 0
+;SendMsg 0 牛魔祭司精英：我不服，我要狂暴了! 
+Break
+#if
+random 2
+CheckKillMobName 牛魔祭司精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛魔祭司精英 1 0
+;SendMsg 0 牛魔祭司精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 血巨人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 血巨人狂暴 1 0
+;SendMsg 0 血巨人精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 血巨人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 血巨人精英 1 0
+;SendMsg 0 血巨人精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 邪恶巨人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶巨人狂暴 1 0
+;SendMsg 0 邪恶巨人精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 邪恶巨人精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶巨人精英 1 0
+;SendMsg 0 邪恶巨人精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 双头血魔精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 双头血魔狂暴 1 0
+;SendMsg 0 双头血魔精英：我不服，我要狂暴了!
+Break
+#if
+random 2
+CheckKillMobName 双头血魔精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 双头血魔精英 1 0
+;SendMsg 0 双头血魔精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 双头金刚精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 双头金刚狂暴 1 0
+;SendMsg 0 双头金刚精英：我不服，我要狂暴了! 
+Break
+#if
+random 2
+CheckKillMobName 双头金刚精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 双头金刚精英 1 0
+;SendMsg 0 双头金刚精英：我不服，我要叫基友了!
+Break
+
+#if
+random 4
+CheckKillMobName 邪恶毒蛇精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶毒蛇狂暴 1 0
+;SendMsg 0 邪恶毒蛇精英：我不服，我要狂暴了! 
+Break
+
+#if
+random 5
+CheckKillMobName 邪恶毒蛇精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶毒蛇王 1 0
+;SendMsg 0  邪恶毒蛇精英：大王，一定要帮我报仇...
+Break
+
+#if
+random 2
+CheckKillMobName 邪恶毒蛇精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶毒蛇精英 1 0
+;SendMsg 0 邪恶毒蛇精英：我不服，我要叫基友了!
+Break
+
+#if
+random 2
+CheckKillMobName 牛魔斗士狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛妖 1 0
+;SendMsg 0 牛魔斗士狂暴：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 牛魔侍卫狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛妖 1 0
+;SendMsg 0 牛魔侍卫狂暴:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 牛魔祭司狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛妖 1 0
+;SendMsg 0 牛魔祭司狂暴:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 牛魔将军狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛妖 1 0
+;SendMsg 0 牛魔将军狂暴：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 牛魔战士狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛妖 1 0
+;SendMsg 0 牛魔战士狂暴：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 牛魔法师狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛妖 1 0
+;SendMsg 0 牛魔法师狂暴：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 牛头魔狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 牛妖 1 0
+;SendMsg 0 牛头魔狂暴：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 牛妖 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 独角牛兽 1 0
+;SendMsg 0 牛妖:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 白野猪精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 猪妖 1 0
+;SendMsg 0 白野猪精英:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 猪妖 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶白猪王 1 0
+;SendMsg 0 猪妖:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 猪妖 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶红猪王 1 0
+;SendMsg 0 猪妖:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 猪妖 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 邪恶黑猪王 1 0
+;SendMsg 0 猪妖：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 黑野猪狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 猪妖 1 0
+;SendMsg 0 黑野猪狂暴：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 红野猪狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 猪妖 1 0
+;SendMsg 0 红野猪狂暴:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 万恶龙 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 龙神 1 0
+;SendMsg 0 万恶龙:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 触龙神精英 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 万恶龙 1 0
+;SendMsg 0 触龙神精英:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 石墓尸王 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 石墓妖王 1 0
+;SendMsg 0 石墓尸王：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 邪恶钳虫狂暴 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 虫王 1 0
+;SendMsg 0 邪恶钳虫狂暴:谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 巨型多角虫 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 巨型多多 1 0
+;SendMsg 0 巨型多角虫：谢谢你让我变得如此的强大!
+Break
+
+#if
+random 2
+CheckKillMobName 巨型多多 1
+#ACT
+param1 <$MAP>
+param2 <$X>
+param3 <$Y>
+MonGen 巨型冰魄多多 1 0
+;SendMsg 0 巨型多多：谢谢你让我变得如此的强大!
+Break

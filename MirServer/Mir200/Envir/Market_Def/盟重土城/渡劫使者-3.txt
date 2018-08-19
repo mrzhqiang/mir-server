@@ -1,0 +1,70 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+  \
+  　准备好渡劫了是吗？\
+  　请带好{血轮珠=FCO=58}（触龙神内丹），\
+  　贫道这就帮阁下引来{雷劫=FCO=253}！！！\ 
+　（注意：渡劫有风险，经验会保留）\ \
+<&30级渡劫/@渡劫资格1> \
+<&40级渡劫/@渡劫资格2> \
+
+[@渡劫资格1]
+#IF
+CHECKITEMCOUNT 血轮珠 ? 10
+CHECKLEVELEX = 30
+#ACT
+goto @渡劫1
+#elseact
+messagebox 您没有30级或是渡劫物品准备不充分！
+break
+
+[@渡劫1]
+#IF
+Random 3
+#ACT
+TakeCount 血轮珠 10
+goto @渡劫成功1
+#elseact
+ShowEffect 23
+TakeCount 血轮珠 5
+messagebox 您渡劫失败，失去了一半渡劫物品！
+break
+
+[@渡劫成功1]
+#act
+ShowEffect 27
+ChangeLevel = 31
+messagebox 您成功渡过了30级天劫，原先升级经验保留完整！
+break
+
+
+[@渡劫资格2]
+#IF
+CHECKITEMCOUNT 血轮珠 ? 100
+CHECKLEVELEX = 40
+#ACT
+goto @渡劫2
+#elseact
+messagebox 您没有40级或是渡劫物品准备不充分！
+break
+
+[@渡劫2]
+#IF
+Random 3
+#ACT
+TakeCount 血轮珠 100
+goto @渡劫成功2
+#elseact
+ShowEffect 23
+TakeCount 血轮珠 50
+messagebox 您渡劫失败，失去了一半渡劫物品！
+break
+
+[@渡劫成功2]
+#act
+ShowEffect 27
+ChangeLevel = 41
+messagebox 您成功渡过了40级天劫，原先升级经验保留完整！
+break

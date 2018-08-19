@@ -1,0 +1,191 @@
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#if
+;ISGUILDMASTER
+;ISCASTLEGUILD
+#say
+{<$SELFNAME>=FCO=251}：\
+　目前沙巴克受 {<$OWNERGUILD>=FCO=250} 行会管理。\
+　受约束于：{<$LORD>=FCO=250}\
+　城堡资金：{<$CASTLEGOLD>=FCO=250}　　　今天收入：{<$TODAYINCOME>=FCO=250}\ \
+　<取回资金/@@withdrawal>　　<存储资金/@@receipts>　　<控制城门/@控制城门>　　<城堡维护/@城堡维护>\ \
+　<关　闭/@exit>\
+#elsesay
+{<$SELFNAME>=FCO=251}：\
+　城堡基本信息\
+　城堡主人：{<$LORD>=FCO=250}\
+　管理行会：{<$OWNERGUILD>=FCO=250}\
+　城堡资金：{<$CASTLEGOLD>=FCO=250}\
+　今天收入：{<$TODAYINCOME>=FCO=250}\ \
+　<关　闭/@exit>\
+
+[@防御方式]
+\ \
+　当前防御状态为: {<$GUARDRULE>=FCO=251}\ \
+<&正常防守/@guardrule_normalnow>\
+<&进攻PK者/@guardrule_pkattack>\
+<&返回/@系统_所有NPC头_返回>\
+
+[@控制城门]
+{<$SELFNAME>=FCO=251}：\
+　城门当前状态为: {<$CASTLEDOORSTATE>=FCO=251}\ \
+　<打开城门/@openmaindoor>\
+　<关闭城门/@closemaindoor>\ \
+　<返回上一页/@系统_所有NPC头_返回>\
+
+[@城堡维护]
+#if
+CHECKCASTLESTATE DOOR
+#act
+MOV S0 {正常=FCO=250}
+#elseact
+MOV S0 <修复/@repairdoornow>
+
+#if
+CHECKCASTLESTATE WALL 1
+#act
+MOV S1 {正常=FCO=250}
+#elseact
+MOV S1 <修复/@repairwallnow1>
+
+#if
+CHECKCASTLESTATE WALL 2
+#act
+MOV S2 {正常=FCO=250}
+#elseact
+MOV S2 <修复/@repairwallnow2>
+
+#if
+CHECKCASTLESTATE WALL 3
+#act
+MOV S3 {正常=FCO=250}
+#elseact
+MOV S3 <修复/@repairwallnow3>
+
+#if
+CHECKCASTLESTATE ARCHER 0
+#act
+MOV S4 {正常=FCO=250}
+#elseact
+MOV S4 <聘用/@hirearchernow1>
+
+#if
+CHECKCASTLESTATE ARCHER 1
+#act
+MOV S5 {正常=FCO=250}
+#elseact
+MOV S5 <聘用/@hirearchernow2>
+
+#if
+CHECKCASTLESTATE ARCHER 2
+#act
+MOV S6 {正常=FCO=250}
+#elseact
+MOV S6 <聘用/@hirearchernow3>
+
+#if
+CHECKCASTLESTATE ARCHER 3
+#act
+MOV S7 {正常=FCO=250}
+#elseact
+MOV S7 <聘用/@hirearchernow4>
+
+#if
+CHECKCASTLESTATE ARCHER 4
+#act
+MOV S8 {正常=FCO=250}
+#elseact
+MOV S8 <聘用/@hirearchernow5>
+
+#if
+CHECKCASTLESTATE ARCHER 5
+#act
+MOV S9 {正常=FCO=250}
+#elseact
+MOV S9 <聘用/@hirearchernow6>
+
+#if
+CHECKCASTLESTATE ARCHER 6
+#act
+MOV S10 {正常=FCO=250}
+#elseact
+MOV S10 <聘用/@hirearchernow7>
+
+#if
+CHECKCASTLESTATE ARCHER 7
+#act
+MOV S11 {正常=FCO=250}
+#elseact
+MOV S11 <聘用/@hirearchernow8>
+
+#if
+CHECKCASTLESTATE ARCHER 8
+#act
+MOV S12 {正常=FCO=250}
+#elseact
+MOV S12 <聘用/@hirearchernow9>
+
+#if
+CHECKCASTLESTATE ARCHER 9
+#act
+MOV S13 {正常=FCO=250}
+#elseact
+MOV S13 <聘用/@hirearchernow10>
+
+#if
+CHECKCASTLESTATE ARCHER 10
+#act
+MOV S14 {正常=FCO=250}
+#elseact
+MOV S14 <聘用/@hirearchernow11>
+
+#if
+CHECKCASTLESTATE ARCHER 11
+#act
+MOV S15 {正常=FCO=250}
+#elseact
+MOV S15 <聘用/@hirearchernow12>
+
+#if
+CHECKCASTLESTATE GUARD 0
+#act
+MOV S16 {正常=FCO=250}
+#elseact
+MOV S16 <聘用/@hireguardnow1>
+
+#if
+CHECKCASTLESTATE GUARD 1
+#act
+MOV S17 {正常=FCO=250}
+#elseact
+MOV S17 <聘用/@hireguardnow2>
+
+#if
+CHECKCASTLESTATE GUARD 2
+#act
+MOV S18 {正常=FCO=250}
+#elseact
+MOV S18 <聘用/@hireguardnow3>
+
+#if
+CHECKCASTLESTATE GUARD 3
+#act
+MOV S19 {正常=FCO=250}
+#elseact
+MOV S19 <聘用/@hireguardnow4>
+
+#if
+#say
+{<$SELFNAME>=FCO=251}：\
+　{城堡资金=FCO=243}：{<$CASTLEGOLD>=FCO=250}\
+　{城门状态(费用：<$REPAIRDOORGOLD>)=FCO=243}：<$STR(S0)>\
+　{皇宫城墙状态(费用：<$REPAIRWALLGOLD>)=FCO=243}\
+　1号：<$STR(S1)>   2号：<$STR(S2)>   1号：<$STR(S3)>\
+　{弓箭手状态(费用：<$ARCHERFEE>)=FCO=243}\
+　1号：<$STR(S4)>   2号：<$STR(S5)>   3号：<$STR(S6)>\
+　4号：<$STR(S7)>   5号：<$STR(S8)>   6号：<$STR(S9)>\
+　7号：<$STR(S10)>   8号：<$STR(S11)>   9号：<$STR(S12)>\
+　A号：<$STR(S13)>   B号：<$STR(S14)>   C号：<$STR(S15)>\ \
+　<返回上一页/@系统_所有NPC头_返回>

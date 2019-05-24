@@ -1,12 +1,8 @@
 MirServer/DBServer/DB
 MirServer/LogServer/BaseDir/
-MirServer/LoginSrv/ChrLog/
+MirServer/LoginSrv/Chrlog/
 MirServer/LoginSrv/DB/
 MirServer/Mir200/ConLog/
-MirServer/Mir200/EMail/
-MirServer/Mir200/Envir/Market_Upg/
-MirServer/Mir200/Global.ini
-MirServer/Mir200/GuildBase/Guilds/
 MirServer/Mir200/Log/
 .idea
 *.exe

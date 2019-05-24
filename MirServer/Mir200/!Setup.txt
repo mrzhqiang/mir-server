@@ -1410,7 +1410,7 @@ Name2=黄色
 Name3=绿色
 Name4=红色
 [Server]
-ServerName=小强传奇
+ServerName=小传奇
 NotRepeatName=0
 ServerNumber=0
 VentureServer=FALSE

@@ -1,5 +1,5 @@
 [Setup]
-ItemNumber=10000
+ItemNumber=10043
 ItemNumberEx=2000000000
 WinLotteryCount=0
 NoWinLotteryCount=0

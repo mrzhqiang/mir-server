@@ -9,10 +9,10 @@ ADDSKILL 攻杀剑术
 give 金创药 30
 give 魔法药 30
 give 太阳水 10
-mov B92 <$MAPNAME>
-mov B93 <$MAP>
-mov C92 <$X>
-mov C93 <$Y>
+mov S92 <$MAPNAME>
+mov S93 <$MAP>
+mov N92 <$X>
+mov N93 <$Y>
 SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
 
 #IF
@@ -25,10 +25,10 @@ ADDSKILL 大火球
 give 金创药 30
 give 魔法药 30
 give 太阳水 10
-mov B92 <$MAPNAME>
-mov B93 <$MAP>
-mov C92 <$X>
-mov C93 <$Y>
+mov S92 <$MAPNAME>
+mov S93 <$MAP>
+mov N92 <$X>
+mov N93 <$Y>
 SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
 
 #IF
@@ -43,10 +43,10 @@ give 黄色药粉(少量) 1
 give 金创药 30
 give 魔法药 30
 give 太阳水 10
-mov B92 <$MAPNAME>
-mov B93 <$MAP>
-mov C92 <$X>
-mov C93 <$Y>
+mov S92 <$MAPNAME>
+mov S93 <$MAP>
+mov N92 <$X>
+mov N93 <$Y>
 SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
 
 #IF
@@ -76,6 +76,6 @@ sendmsg 0 [#6FFFF/8#6公告#5]天下英雄出我辈，一位(#6FFFF/8#6女性#5)新玩家#7%s#7来
 #if
 #act
 ShowEffect 23
-SETRANKLEVELNAME %S\▁▂▃▄★≮1234传奇≯★▄▃▂▁\【普通玩家】\≮砍翻<$GAMEGIRD>人■身中<$CREDITPOINT>刀≯
+;SETRANKLEVELNAME %S\▁▂▃▄★≮1234传奇≯★▄▃▂▁\【普通玩家】\≮砍翻<$GAMEGIRD>人■身中<$CREDITPOINT>刀≯
 SENDMSG 0 〖#6FFFF/8#6系统#5〗玩家『#7%S#7』在#6FFFF/8#6<$MAPNAME><$X>:<$Y>#5上线了,大家热烈欢迎..
 }

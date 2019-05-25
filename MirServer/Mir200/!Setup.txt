@@ -1,6 +1,6 @@
 [Setup]
-ItemNumber=10043
-ItemNumberEx=2000000000
+ItemNumber=10511
+ItemNumberEx=2000000004
 WinLotteryCount=0
 NoWinLotteryCount=0
 WinLotteryLevel1=0
@@ -110,8 +110,8 @@ MagicAttackMonsteRate=110
 GenMonRate=10
 ProcessMonRandRate=5
 ProcessMonLimitCount=5
-HumanMaxGold=2000000000
-HumanTryModeMaxGold=2000000000
+HumanMaxGold=200000000
+HumanTryModeMaxGold=200000000
 TryModeLevel=7
 TryModeUseStorage=1
 ShutRedMsgShowGMName=1

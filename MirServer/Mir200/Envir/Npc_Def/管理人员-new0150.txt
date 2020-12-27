@@ -1,5 +1,5 @@
 [@main]
-#CALLX [\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
+#CALL [\游戏配置\所有NPC调用头.txt] @系统_所有NPC头内容
 
 [@系统_所有NPC头_返回]
 #if

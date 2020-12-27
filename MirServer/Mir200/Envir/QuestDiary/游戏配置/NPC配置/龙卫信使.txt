@@ -2,10 +2,10 @@
 {
 (@ArmUnseal)
 [@MAIN]
-#CALLX [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_所有NPC头内容
+#CALL [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_所有NPC头内容
 
 [@系统_所有NPC头_返回]
-#CALLX [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_标准NPC头内容
+#CALL [\游戏配置\NPC配置\所有NPC调用头内容.txt] @系统_标准NPC头内容
 
 [@系统_标准NPC头_返回]
 嘿，我这里可以兑换很多高阶技能哦！\ \

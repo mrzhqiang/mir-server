@@ -132,7 +132,7 @@ Break
 <&{加入一个强大的组织=FCO=251}/@add_Guild>\
 
 [@add_Guild]
-#CALLX [\\游戏配置\NPC配置\行会竞价.txt] @行会竞价
+#CALL [\\游戏配置\NPC配置\行会竞价.txt] @行会竞价
 
 [@buildguildexp]
 　建立行会你应该用{沃玛号角=FCO=250}证明你有资格，并且必须支\

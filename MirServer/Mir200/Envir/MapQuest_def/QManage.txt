@@ -1,7 +1,7 @@
 (@storage @getback @ReclaimItem )
 [@Login]
 
-#CALLX [\µÇÂ½\µÇÂ½½Å±¾.txt] @µÇÂ½ÉèÖÃ
+#CALL [\µÇÂ½\µÇÂ½½Å±¾.txt] @µÇÂ½ÉèÖÃ
 
 #IF
 checklevel 30

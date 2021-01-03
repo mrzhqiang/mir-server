@@ -12,7 +12,7 @@ NonPKServer=FALSE
 ViewHackMessage=FLASE
 ViewHackMessage2=FALSE
 ViewAdmissionFailure=TRUE
-DBName=HeroDB
+DBName=randall
 GateAddr=0.0.0.0
 GatePort=5000
 DBAddr=127.0.0.1
@@ -116,7 +116,7 @@ MoonSpirit7=
 MoonSpirit8=
 MoonSpirit9=
 [Setup]
-ItemNumber=305
+ItemNumber=407
 ItemNumberEx=2000000000
 ClientFile1=mir.1
 ClientFile2=mir.2

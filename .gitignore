@@ -6,3 +6,4 @@ MirServer/Mir200/ConLog/
 MirServer/Mir200/Log/
 .idea
 *.exe
+/MirServer/Mir200/M2Server.map

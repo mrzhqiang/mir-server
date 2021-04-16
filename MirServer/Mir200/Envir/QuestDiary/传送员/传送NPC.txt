@@ -2,14 +2,14 @@
 #IF
 #Say
   {<$SELFNAME>=FCO=243}：\\\
-  当前营地：{<$STR(S82)>=FCO=31}　{X：<$STR(N82)>=FCO=31}　{Y:<$STR(N83)>=FCO=31} \ \
-  <{点击更改营地=FCO=161}/@更改坐标>\ \
+  {当前营地：<$STR(B82)>=FCO=31}　{X：<$STR(C82)>=FCO=31}　{Y:<STR($C83)>=FCO=31}\\\
+  <&{点击更改营地/@更改坐标=FCO=161}>\\\
 
 [@更改坐标]
 #ACT
-mov S82 <$MAPNAME>
-mov S83 <$MAP>
-mov N82 <$X>
-mov N83 <$Y>
+mov B82 <$MAPNAME>
+mov B83 <$MAP>
+mov C82 <$X>
+mov C83 <$Y>
 SendMsg 0 玩家<$USERNAME>将回城点改为<$MAPNAME>！
 break

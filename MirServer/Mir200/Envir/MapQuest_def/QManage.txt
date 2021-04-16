@@ -1,6 +1,26 @@
 (@storage @getback @ReclaimItem )
-[@Login]
 
+; 开头参数为 NPC 固定功能
+; 参数名 含义
+; @Repair 普通修理
+; @S_repair 特殊修理
+; @Buy 普通金币购买东西
+; @BindBuy 绑定金币购买东西
+; @Sell 出售东西
+; @Makedrug 打造装备
+; @Storage 保管物品
+; @Getback 取回物品
+; @Upgradenow 升级武器
+; @Getbackupgnow 取回武器
+; @ArmStrengthen 装备强化
+; @ArmUnseal 装备开光
+; @ArmRemoveStone 装备卸下宝石
+; @ArmAbilityMove 装备属性转移 [详细说明]
+; @@InputInteger 弹出输入数字框
+; @@InputString 弹出输入文字框
+; @@sendmsg 发送公告
+
+[@Login]
 #CALL [\登陆\登陆脚本.txt] @登陆设置
 
 #IF
@@ -8,7 +28,7 @@ checklevel 30
 #ACT
 #ELSEACT
 MobSlave 虎卫 1 3
-SENDMSG 6 欢迎进入【小强传奇】，您还没到30级，系统自动送你一个3级【#6FFFF/8#6虎卫#5】!
+SENDMSG 6 欢迎进入【<$SERVERNAME>】，您还没到30级，系统自动送你一个3级【#6FFFF/8#6虎卫#5】!
 
 AddTextList <$USERNAME>-<$DATETIME>-<$MACHINECODE> ../QuestDiary/数据/登录名单.txt
 

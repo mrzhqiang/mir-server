@@ -1,81 +1,79 @@
 [@登陆设置]
 {
 #IF
-checkjob warrior
-ISNEWHUMAN
+isnewhuman
+gender man
 #ACT
-ADDSKILL 基本剑术
-ADDSKILL 攻杀剑术
-give 金创药 30
-give 魔法药 30
+reset [601] 6
+give 布衣(男) 1
+give 木剑 1
+give 金币 5000
+sendmsg 0 【公告】：天下英雄出我辈！又有一位男性冒险者[%S]降临了[<$SERVERNAME>]！！！
+
+#IF
+isnewhuman
+gender woman
+#ACT
+reset [600] 7
+give 布衣(女) 1
+give 木剑 1
+give 金币 5000
+sendmsg 0 【公告】：天下英雄出我辈！又有一位女性冒险者[%S]降临了[<$SERVERNAME>]！！！
+
+#IF
+checkjob warrior
+isnewhuman
+#ACT
+addskill 基本剑术
+give 金创药 50
+give 魔法药 10
 give 太阳水 10
-mov S92 <$MAPNAME>
-mov S93 <$MAP>
-mov N92 <$X>
-mov N93 <$Y>
-SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
+mov B92 <$MAPNAME>
+mov B93 <$MAP>
+mov C92 <$X>
+mov C93 <$Y>
+sendmsg 6 冒险者战士，欢迎你！当前位置[<$MAPNAME>(<$X>,<$Y>)]已记录为回城点。
 
 #IF
 checkjob wizard
-ISNEWHUMAN
+isnewhuman
 #ACT
-ADDSKILL 火球术
-ADDSKILL 地狱火
-ADDSKILL 大火球
-give 金创药 30
-give 魔法药 30
+addskill 火球术
+give 金创药 10
+give 魔法药 50
 give 太阳水 10
-mov S92 <$MAPNAME>
-mov S93 <$MAP>
-mov N92 <$X>
-mov N93 <$Y>
-SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
+mov B92 <$MAPNAME>
+mov B93 <$MAP>
+mov C92 <$X>
+mov C93 <$Y>
+sendmsg 6 冒险者法师，欢迎你！当前位置[<$MAPNAME>(<$X>,<$Y>)]已记录为回城点。
 
 #IF
 checkjob taoist
-ISNEWHUMAN
+isnewhuman
 #ACT
 ADDSKILL 治愈术
-ADDSKILL 精神力战法
 give 护身符 1
 give 灰色药粉(少量) 1
 give 黄色药粉(少量) 1
-give 金创药 30
-give 魔法药 30
-give 太阳水 10
-mov S92 <$MAPNAME>
-mov S93 <$MAP>
-mov N92 <$X>
-mov N93 <$Y>
-SendMsg 6 欢迎新人！系统自动将回城点记录为当前坐标！
+give 金创药 20
+give 魔法药 20
+give 太阳水 20
+mov B92 <$MAPNAME>
+mov B93 <$MAP>
+mov C92 <$X>
+mov C93 <$Y>
+sendmsg 6 冒险者道士，欢迎你！当前位置[<$MAPNAME>(<$X>,<$Y>)]已记录为回城点。
 
 #IF
-ISNEWHUMAN
-Gender Man
+isnewhuman
 #ACT
-Reset [601] 6
-give 布衣(男) 1
-;AutoTakeOn 布衣(男) 0
-give 木剑 1
-;AutoTakeOn 木剑 1
-give 金币 5000
-sendmsg 0 [#6FFFF/8#6公告#5]天下英雄出我辈，一位(#6FFFF/8#6男性#5)新玩家#7%s#7来到了#6FFFF/8#6<$SERVERNAME>#5...大家热烈欢迎！！！
+;这里占个位，同时可以拦截第一次进游戏的上线提示
+break
 
 #IF
-ISNEWHUMAN
-gender Woman
+; todo 上线公告开关变量 C99
 #ACT
-Reset [600] 7
-give 布衣(女) 1
-;AutoTakeOn 布衣(女) 0
-give 木剑 1
-;AutoTakeOn 木剑 1
-give 金币 5000
-sendmsg 0 [#6FFFF/8#6公告#5]天下英雄出我辈，一位(#6FFFF/8#6女性#5)新玩家#7%s#7来到了#6FFFF/8#6<$SERVERNAME>#5...大家热烈欢迎！！！
-
-#if
-#act
-ShowEffect 23
-;SETRANKLEVELNAME %S\▁▂▃▄★≮1234传奇≯★▄▃▂▁\【普通玩家】\≮砍翻<$GAMEGIRD>人■身中<$CREDITPOINT>刀≯
-SENDMSG 0 〖#6FFFF/8#6系统#5〗玩家『#7%S#7』在#6FFFF/8#6<$MAPNAME><$X>:<$Y>#5上线了,大家热烈欢迎..
+showeffect 23
+sendmsg 0 【系统】：玩家[%S]在#6FFFF/8#6<$MAPNAME><$X>:<$Y>#5上线了,大家热烈欢迎..
 }
